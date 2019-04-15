@@ -1,0 +1,8 @@
+P52272	Heterogeneous nuclear ribonucleoprotein M		GO:0042382	NCBITaxon:9606	IDA	
+Q15233	Non-POU domain-containing octamer-binding protein		GO:0042382	NCBITaxon:9606	IDA	
+Q8WXF1	Paraspeckle component 1		GO:0042382	NCBITaxon:9606	IEA	Q8R326|ensembl:ENSMUSP00000022507
+P23246	Splicing factor, proline- and glutamine-rich		GO:0042382	NCBITaxon:9606	IDA	
+P23246	Splicing factor, proline- and glutamine-rich		GO:0042382	NCBITaxon:9606	IDA	
+Q16630	Cleavage and polyadenylation specificity factor subunit 6		GO:0042382	NCBITaxon:9606	IDA	
+Q16630	Cleavage and polyadenylation specificity factor subunit 6		GO:0042382	NCBITaxon:9606	IDA	
+O43809	Cleavage and polyadenylation specificity factor subunit 5		GO:0042382	NCBITaxon:9606	IDA
