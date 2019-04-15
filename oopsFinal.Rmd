@@ -403,8 +403,8 @@ for(i in 1:length(sets)){
   # Profile plots with proLoc markers
   orgs = unique(sort(fData(ds2)$markers))[-1]
   cols = colorRampPalette(brewer.pal(9, "Set1"))(12)
-  #pdf("Output/Profile-plots-of-OOPS-label-free-data.pdf")
-  jpeg(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.jpg",sep="/"))
+  pdf(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.pdf",sep="/"))
+  #jpeg(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.jpg",sep="/"))
   par(mfrow=c(4,3))
   for(k in 1:length(orgs)){
     z = ds2[fData(ds2)$markers == orgs[k],]
