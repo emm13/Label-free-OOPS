@@ -1,0 +1,10 @@
+Entry	Entry name	Protein names	Organism	Length	Gene names  (primary )
+P11940	PABP1_HUMAN	Polyadenylate-binding protein 1 (PABP-1) (Poly(A)-binding protein 1)	Homo sapiens (Human)	636	PABPC1
+Q13310	PABP4_HUMAN	Polyadenylate-binding protein 4 (PABP-4) (Poly(A)-binding protein 4) (Activated-platelet protein 1) (APP-1) (Inducible poly(A)-binding protein) (iPABP)	Homo sapiens (Human)	644	PABPC4
+Q86U42	PABP2_HUMAN	Polyadenylate-binding protein 2 (PABP-2) (Poly(A)-binding protein 2) (Nuclear poly(A)-binding protein 1) (Poly(A)-binding protein II) (PABII) (Polyadenylate-binding nuclear protein 1)	Homo sapiens (Human)	306	PABPN1
+Q9BPZ3	PAIP2_HUMAN	Polyadenylate-binding protein-interacting protein 2 (PABP-interacting protein 2) (PAIP-2) (Poly(A)-binding protein-interacting protein 2)	Homo sapiens (Human)	127	PAIP2
+Q9H074	PAIP1_HUMAN	Polyadenylate-binding protein-interacting protein 1 (PABP-interacting protein 1) (PAIP-1) (Poly(A)-binding protein-interacting protein 1)	Homo sapiens (Human)	479	PAIP1
+Q9H361	PABP3_HUMAN	Polyadenylate-binding protein 3 (PABP-3) (Poly(A)-binding protein 3) (Testis-specific poly(A)-binding protein)	Homo sapiens (Human)	631	PABPC3
+Q9ULR5	PAI2B_HUMAN	Polyadenylate-binding protein-interacting protein 2B (PABP-interacting protein 2B) (PAIP-2B) (Poly(A)-binding protein-interacting protein 2B)	Homo sapiens (Human)	123	PAIP2B
+Q96DU9	PABP5_HUMAN	Polyadenylate-binding protein 5 (PABP-5) (Poly(A)-binding protein 5)	Homo sapiens (Human)	382	PABPC5
+P0CB38	PAB4L_HUMAN	Polyadenylate-binding protein 4-like (PABP-4-like) (Poly(A)-binding protein 4-like)	Homo sapiens (Human)	370	PABPC4L

@@ -1,0 +1,5 @@
+yourlist:M201904236746803381A1F0E0DB47453E0216320D0240DCP	Entry	Entry name	Protein names	Organism	Length	Gene names  (primary )	Gene ontology (cellular component)
+ABCE1	P61221	ABCE1_HUMAN	ATP-binding cassette sub-family E member 1 (2'-5'-oligoadenylate-binding protein) (HuHP68) (RNase L inhibitor) (Ribonuclease 4 inhibitor) (RNS4I)	Homo sapiens (Human)	599	ABCE1	cytoplasm [GO:0005737]; cytosol [GO:0005829]; membrane [GO:0016020]; mitochondrial matrix [GO:0005759]; mitochondrion [GO:0005739]
+PELO	Q9BRX2	PELO_HUMAN	Protein pelota homolog (EC 3.1.-.-)	Homo sapiens (Human)	385	PELO	cytoplasm [GO:0005737]; nucleus [GO:0005634]
+HBS1L	Q9Y450	HBS1L_HUMAN	HBS1-like protein (ERFS)	Homo sapiens (Human)	684	HBS1L	cytosol [GO:0005829]; extracellular exosome [GO:0070062]; membrane [GO:0016020]
+eRF1	P62495	ERF1_HUMAN	Eukaryotic peptide chain release factor subunit 1 (Eukaryotic release factor 1) (eRF1) (Protein Cl1) (TB3-1)	Homo sapiens (Human)	437	ETF1	cytoplasm [GO:0005737]; cytosol [GO:0005829]; translation release factor complex [GO:0018444]

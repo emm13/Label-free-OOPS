@@ -1,0 +1,5 @@
+Entry	Entry name	Protein names	Organism	Length	Gene names  (primary )	Gene ontology (cellular component)
+P15170	ERF3A_HUMAN	Eukaryotic peptide chain release factor GTP-binding subunit ERF3A (Eukaryotic peptide chain release factor subunit 3a) (eRF3a) (G1 to S phase transition protein 1 homolog)	Homo sapiens (Human)	499	GSPT1	cytosol [GO:0005829]; intracellular [GO:0005622]; translation release factor complex [GO:0018444]
+Q8IYD1	ERF3B_HUMAN	Eukaryotic peptide chain release factor GTP-binding subunit ERF3B (Eukaryotic peptide chain release factor subunit 3b) (eRF3b) (G1 to S phase transition protein 2 homolog)	Homo sapiens (Human)	628	GSPT2	cytosol [GO:0005829]; translation release factor complex [GO:0018444]
+P62495	ERF1_HUMAN	Eukaryotic peptide chain release factor subunit 1 (Eukaryotic release factor 1) (eRF1) (Protein Cl1) (TB3-1)	Homo sapiens (Human)	437	ETF1	cytoplasm [GO:0005737]; cytosol [GO:0005829]; translation release factor complex [GO:0018444]
+P50548	ERF_HUMAN	ETS domain-containing transcription factor ERF (Ets2 repressor factor) (PE-2)	Homo sapiens (Human)	548	ERF	cytosol [GO:0005829]; nucleoplasm [GO:0005654]; nucleus [GO:0005634]

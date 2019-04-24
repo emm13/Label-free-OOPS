@@ -401,10 +401,10 @@ for(i in 1:length(sets)){
   ds2 = normalise(ds,"sum")
   
   # Profile plots with proLoc markers
-  orgs = unique(sort(fData(ds2)$markers))[-1]
+  orgs = unique(sort(fData(ds2)$markers))
   cols = colorRampPalette(brewer.pal(9, "Set1"))(12)
   pdf(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.pdf",sep="/"))
-  #jpeg(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.jpg",sep="/"))
+  jpeg(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.jpg",sep="/"))
   par(mfrow=c(4,3))
   for(k in 1:length(orgs)){
     z = ds2[fData(ds2)$markers == orgs[k],]
@@ -686,37 +686,45 @@ write.table(all.pro.1,paste(outdir,"All-Enriched-Interpro-U2OS-label-free.txt",s
 write.table(all.kegg.1,paste(outdir,"All-Enriched-KEGG-pathways-U2OS-label-free.txt",sep="/"),sep="\t",row.names=F,quote=F)
 ```
 ## 09. Validating OOPS-label free data with labelled LORNA/LOPIT data
-Having looked at this data with Tom, Eneko and Rayner, we want to confirm that what we see isn't artefactual. We stick to just the rbps.highconf for this part of the exercise and will overlap a subset of proteins (cytoskeletal,paraspeckle) with LORNA data which represents the total proteome to see if there is a difference in their abundance profiles.
+Having looked at this data with Tom, Eneko and Rayner, we want to confirm that what we see isn't artefactual. We stick to just the rbps.highconf for this part of the exercise and will overlap a subset of proteins (cytoskeletal,paraspeckle, nucleoplasm, PolyA binding) with LORNA data which represents the total proteome to see if there is a difference in their abundance profiles.  
+![Western blot for U2OS cells after qLOPIT and OOPS on 20 fractions](Input/Western-blot.jpeg)  
 
-We expect the paraspeckle proteins in the RBP experiment to be picked up the nuclear fractions. 
+Based on the Western blot above, we expect  
+1. the paraspeckle RBPs to be picked up the nuclear fractions (F13-F15)  
+2. the cytoskeletal RBPs to show distinct and different profile to total protein  
+3. nucleoplasm RBPs to be in the nuclear fractions (F13-F15)  
+4. polyA-binding proteins to be ER/Mito & cytoplasmic in the RBP study and only cytoplasmic in the total protein study  
+5. translation initiation, elongation and termination factors  
 
 For the LORNA data, the columns names are the density of the gradient that Rayner/Enekp ran to separate the fractions. Note: Density 0.0948 is actually 0.9480. I've taken the column names, sorted with indexes and used the indices to re-roder the columns from F1-F20. Following this, I've renamed the columns F1-F20 to make them comparable to the label-free OOPS data. I've also normalised both datasets using "sum-normalisation" to make them comparable. No imputation was done on label-free OOPS due to vast swathes of missing data. 
 
-```{r 09_Validating-findings-with-LORNA, eval=F, echo=T}
+### 9a. Gathering lists of protein markers
+In this first section, we are putting together lists of markers that we want to check the profiles of. These include paraspeckle proteins, cytoskeletal proteins, nucleoplasm proteins, stress granule proteins, polyA-binding proteins and proteins involved in the initiation, elongation and termination of translation. Will try and provide references for all. 
+```{r 9a_Validating-findings-with-LORNA, eval=F, echo=T}
 
-highconf.msnset = addMarkers(rbps.highconf,paste(indir,"FullHumanMarker.csv",sep="/"),mcol="markers")
-highconf.msnset = normalise(highconf.msnset,"sum")
+# 9a. Gathering subsets of protein markers
 
-# Read in list of proteins with GO annotations
+# (i) Paraspeckle proteins
+# These proteins are known to be RNA-binding with the target RNA being long non-coding (lncRNA) NEAT1 and NEAT2
+paraspeck = read.delim(paste(indir,"paraspeckle-prots.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(paraspeck) = c("Query","UniprotID","UniprotName","ProteinName","Organism","Length","GeneName","goCC")
+
+# (ii) Cytoskeletal genes/proteins
+# Read in list of proteins with GO annotations from the enrichment analysis above
 go.prots = read.delim(paste(outdir,"All-Enriched-GO-terms-U2OS-label-free.txt",sep="/"),sep="\t",header=T,stringsAsFactors = F)
+cytop = go.prots[grep("cytoskeleton",go.prots$Description),"geneID"] # present F6 and F7
+cytog = go.prots[grep("cytoskeleton",go.prots$Description),"geneNames"] # present F6 and F7
+cyto.prot = data.frame(cbind(UniprotID=c(strsplit(cytop[1],"/")[[1]],strsplit(cytop[2],"/")[[1]]),GeneName=c(strsplit(cytog[1],"/")[[1]],strsplit(cytog[2],"/")[[1]])))
+cyto.prot = distinct(cyto.prot)
 
-# Cytoskeletal genes/proteins
-cyto.prot = go.prots[grep("cytoskeleton",go.prots$Description),"geneID"] # F6 and F7
-cyto.prot = unique(c(strsplit(cyto.prot[1],"/")[[1]],strsplit(cyto.prot[2],"/")[[1]]))
+# (iii) Nucleoplasm proteins (from Human Protein Atlas)
+# Subset to keep only those found in RBP study
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#    install.packages("BiocManager")
+#BiocManager::install("hpar", version = "3.8")
 
-# Paraspeckle proteins
-paraspeck = read.delim(paste(indir,"paraspeckle-prots.txt",sep="/"),header=F,stringsAsFactors = F)
-colnames(paraspeck) = c("Uniprot.ID","Gene.Description","Misc","GO.term","Taxonomy.ID","Evidence","Ensembl.ID")
-ps.prot = unique(paraspeck$Uniprot.ID)
-
-# Nucleoplasm proteins (from Human Protein Atlas)
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-BiocManager::install("hpar", version = "3.8")
 library(hpar)
-
 data(hpaSubcellularLoc)
-
 sub = hpaSubcellularLoc %>% 
   filter(grepl("Nucleoplasm",GO.id),Reliability != "Supported",Reliability != "Uncertain") %>%
   dplyr::filter(grepl("Nucleoplasm",Approved)| grepl("Nucleoplasm",Enhanced)) %>% 
@@ -724,10 +732,76 @@ sub = hpaSubcellularLoc %>%
   dplyr::mutate(GO.count = sapply(GO.id,function(x) length(strsplit(as.character(x),split = ";",fixed = T)[[1]]))) %>% 
   dplyr::filter(GO.count == 1)
 
-nucleop.prot = unique(unlist(queryMany(as.character(sub$Gene),scopes="ensembl.gene",fields = "uniprot")$uniprot.Swiss.Prot))
-length(nucleop.prot)
+np.uniprot = queryMany(as.character(sub$Gene),scopes="ensembl.gene",fields = c("symbol","uniprot"))
+np.uniprot = np.uniprot[,c("query","symbol","uniprot.Swiss.Prot")]
+colnames(np.uniprot) = c("EnsemblID","GeneName","UniprotID")
+np.uniprot = data.frame(np.uniprot)
 
-# LORNA cytoskeletal proteins
+
+# (iv) PolyA binding proteins
+# Downloaded by querying "PABP" in Uniprot and filtering for Reviewed + Human + 'Protein names'
+pabp  = read.delim(paste(indir,"pabp-prots.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(pabp)[1] = "UniprotID"
+colnames(pabp)[6] = "GeneName"
+
+# (v) Translation initiation factors
+# Downloaded by querying the following in Uniprot
+# keyword:"Initiation factor [KW-0396]" AND reviewed:yes AND organism:"Homo sapiens (Human) [9606]"
+ti = read.delim(paste(indir,"translation-initiation.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(ti)[1] = "UniprotID"
+colnames(ti)[6] = "GeneName"
+
+# (vi) Translation elongation factors
+# Downloaded by querying the following in Uniprot
+# keyword:"Elongation factor" AND reviewed:yes AND organism:"Homo sapiens (Human) [9606]"
+te = read.delim(paste(indir,"translation-elongation.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(te)[1] = "UniprotID"
+colnames(te)[6] = "GeneName"
+
+# (vii) Translation termination factors
+# Downloaded by querying the following in Uniprot
+# name:erf AND reviewed:yes AND organism:"Homo sapiens (Human) [9606]"
+tt = read.delim(paste(indir,"translation-termination.tab",sep="/"),header=T,stringsAsFactors = F)
+colnames(tt)[1] = "UniprotID"
+colnames(tt)[6] = "GeneName"
+
+# (viii) Stress granules
+# Downloaded by querying the following in Uniprot
+# "stress granules" AND reviewed:yes AND organism:"Homo sapiens (Human) [9606]"
+sg = read.delim(paste(indir,"stress-granules.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(sg)[1] = "UniprotID"
+colnames(sg)[6] = "GeneName"
+
+# (ix) Stress granules for U2OS from MSGP database
+msgp =read.delim(paste(indir,"u2os-sg-uniprot.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(msgp)[2] = "UniprotID"
+colnames(msgp)[7] = "GeneName"
+
+# (x) Golgi, PM and GAPDH proteins for Rayner
+gpd = read.delim(paste(indir,"golgi-pm-gapdh.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(gpd)[2] = "UniprotID"
+colnames(gpd)[7] = "GeneName"
+
+# (xi) p-body markers
+pbody = read.delim(paste(indir,"pbody-xrn1.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(pbody)[1] = "UniprotID"
+colnames(pbody)[6] = "GeneName"
+```
+The next step to the analysis is readying the RBP and total protein datasets to allow comparisons. For the RBP dataset, we are restricting this to those proteins annotated as RBP by XRNAX or OOPS study and are not glycoproteins.
+
+```{r 9b_Preparing-RBP-and-total-protein-datasets}
+
+# Adding known markers to raw dataset
+# Sum normalising the data
+raw.msnset = addMarkers(rbps.res,paste(indir,"FullHumanMarker.csv",sep="/"),mcol="markers")
+raw.msnset = normalise(raw.msnset,"sum")
+
+# Adding known markers to high-confidence dataset
+# Sum normalising the data
+highconf.msnset = addMarkers(rbps.highconf,paste(indir,"FullHumanMarker.csv",sep="/"),mcol="markers")
+highconf.msnset = normalise(highconf.msnset,"sum")
+
+# Reading in the total protein dataset and normalising by sum
 # The headers are the density indices. Sort by this and re-order columns
 total.prot = readRDS(paste(indir,"prot_res_20_fractions_imputed_markers.rds",sep="/"))
 total.prot = normalise(total.prot,"sum")
@@ -737,59 +811,162 @@ hnames
 ind = sort(hnames,index.return=T)$ix
 ind
 
-# Melt the total.prot dataset
+# Re-organising the total.prot dataset using indices from above and 'melt' for plotting 
 total.exp = data.frame(exprs(total.prot))
-head(total.exp)
-head(total.exp[,ind])
 total.exp = total.exp[,ind]
-head(total.exp)
 colnames(total.exp) = paste("F",seq(1:20),sep="")
 total.exp$Uniprot = rownames(total.exp)
 total.exp.gat <- melt(total.exp,id.vars = 21, measure.vars = 1:20,variable.name="Fraction", value.name="Abundance",na.rm=T)
+colnames(total.exp.gat)[1] = "UniprotID"
 head(total.exp.gat)
 
-# Melt the rbp dataset
+# Melt the rbp raw dataset
+rbp.raw.exp = data.frame(exprs(raw.msnset))
+rbp.raw.exp$Uniprot = rownames(rbp.raw.exp)
+rbp.raw.exp.gat = melt(rbp.raw.exp,id.vars = 21, measure.vars = 1:20,variable.name="Fraction", value.name="Abundance",na.rm=T)
+rbp.raw.exp.gat$Abundance = log10(rbp.raw.exp.gat$Abundance+1)
+colnames(rbp.raw.exp.gat)[1] = "UniprotID"
+head(rbp.raw.exp.gat)
+
+# Melt the rbp highconf dataset
 rbp.exp = data.frame(exprs(highconf.msnset))
 rbp.exp$Uniprot = rownames(rbp.exp)
 rbp.exp.gat = melt(rbp.exp,id.vars = 21, measure.vars = 1:20,variable.name="Fraction", value.name="Abundance",na.rm=T)
 rbp.exp.gat$Abundance = log10(rbp.exp.gat$Abundance+1)
+colnames(rbp.exp.gat)[1] = "UniprotID"
 head(rbp.exp.gat)
 
-# Filter paraspeckle proteins from both datasets and bind
-paraspeck.all = rbind(cbind(rbp.exp.gat[which(rbp.exp.gat$Uniprot %in% ps.prot),],class="RBP"),cbind(total.exp.gat[which(total.exp.gat$Uniprot %in% ps.prot),],class="Total.protein"))
+```
 
-# Paraspeckle ggplot
-ps.gg=ggplot(data=paraspeck.all, aes(x=Fraction, y=Abundance, colour=class, lty=Uniprot,group=Uniprot)) +
-  geom_line()+facet_wrap(~class,scales="free_y", nrow=2)+labs(colour="Paraspeckle.prots")
+```{r 9c_Function-for-plotting-RBP-vs-Total-Protein-profiles}
+#------------------------------------------------------------------------------------------------------
+# Function  : plotCompareProfile
+# Aim       : Draws protein profile plots from and RBP and total protein experiment side-by-side
+# Input     : 
+#           : rbp.dat = Normalised RBP data with at least 3 essential columns - uniprot id, 
+#                        density fraction number and protein abundance
+#           : total.dat = Normalised Total protein data with at least 3 essential columns - Uniprot (ID), 
+#                        Fraction(density fraction number) and Abundance (normalised protein abundance)
+#           : prot.list = List of proteins for which you want the comparison plots drawn. Format is table 
+#                         with 'UniprotID' being default ID column. Include a 'GeneName' column if you 
+#                         want to use it for plotting legends
+#           : cl = which variable do you want to colour (cl) your graphs by? Default = Uniprot.ID
+#           : gp = which variable do you want to use to group points on your graph? Default = UniprotID
+#           : fc = which variable do you want to facet your graph by ? Default = "Class"
+#           : suf = A name for the output file to say what data it is eg: paraspeckle
+#           : print2pdf = logical indicating whether or not you want the plot to be put in a PDF file
+#           : print2jpg = logical indicating whether or not you want the plot to be put in a JPG file
 
-pdf(paste(plotdir,"Paraspeckle.pdf",sep="/"))
-print(ps.gg)
-dev.off()
+# Output    : a ggplot object containing profile plots for a set of proteins from RBP and Total-protein
+#             (optional): A PDF or a PNG 
+#-------------------------------------------------------------------------------------------------------
 
-# Filter cytoskeletal proteins
-cyto.all = rbind(cbind(rbp.exp.gat[which(rbp.exp.gat$Uniprot %in% cyto.prot),],class="RBP"),cbind(total.exp.gat[which(total.exp.gat$Uniprot %in% cyto.prot),],class="Total.protein"))
+plotCompareProfile <- function(rbp.dat,total.dat,prot.list,suf,cl,gp="UniprotID",fc='Class',print2pdf=T,print2jpg=F){
+  
+  plot.data = rbind(cbind(rbp.dat[which(rbp.dat$UniprotID %in% prot.list$UniprotID),],Class="RBP"),cbind(total.dat[which(total.dat$UniprotID %in% prot.list$UniprotID),],Class="Total.protein"))
+  
+  # How many proteins from our dataset overlap with query list
+  rbp.in = intersect(prot.list$UniprotID,rbp.dat$UniprotID)
+  tot.in = intersect(prot.list$UniprotID,total.dat$UniprotID)
+  
+  # Print missing data
+  print(paste("Number of ",suf," proteins in the RBP study = ",length(rbp.in),sep=""))
+  print(paste("Number of ",suf," proteins in the Total protein study = ",length(tot.in),sep=""))
+  
+  # Only use those proteins common to both datasets
+  final.prots = intersect(rbp.in,tot.in)
+  plot.data = plot.data[which(plot.data$UniprotID %in% final.prots),]
+  
+  # Add gene names
+  plot.data = merge(plot.data,prot.list[,c("UniprotID","GeneName")])
+  
+  # Create ggplot object
+  gg = ggplot(data=plot.data, aes(x=Fraction, y=Abundance, colour=get(cl),group=get(gp))) + geom_line()+facet_wrap(~get(fc),scales="free_y", nrow=2)+labs(colour=paste0(suf,".prots"))
+  
+  # Add points of maximum attendance as default to the plot above
+  highlight <- plot.data %>%
+  dplyr::group_by(GeneName,Class) %>%
+  dplyr::filter(Abundance == max(Abundance))
+  
+  # Add a geom_point() layer to the plot above showing maxima
+  gg = gg+geom_point(data = highlight,aes(x=Fraction,y=Abundance),color="black",pch=4,size = 2)
+  
+  # Do you want plots?
+  # Use JPG for large profile plots
+  
+  if(print2pdf){
+    pdf(paste(plotdir,paste0(suf,".pdf"),sep="/"))
+    print(gg)
+    dev.off()
+  }
+  if(print2jpg){
+    jpeg(paste(plotdir,paste0(suf,".jpg"),sep="/"))
+    print(gg)
+    dev.off()
+  }
+  return(gg)
+}
+```
 
-# Cytoskeleton ggplot
-cyto.gg=ggplot(data=cyto.all, aes(x=Fraction, y=Abundance, colour=class,group=Uniprot)) +
-  geom_line()+facet_wrap(~class,scales="free_y", nrow=2)+labs(colour="Actin.cytoskeleton.prots")
+```{r 9d_Calling-plotting-function-for-comparisons}
 
-pdf(paste(plotdir,"Actin-cytoskeleton.pdf",sep="/"))
-print(cyto.gg)
-dev.off()
+# Paraspeckle protein profiles
+ggps = plotCompareProfile(rbp.exp.gat,total.exp.gat,paraspeck,"Paraspeckle",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
 
-# Filter nucleoplasm proteins from both datasets and bind
-nucleop.rbp = unique(rbp.exp.gat[which(rbp.exp.gat$Uniprot %in% nucleop.prot),"Uniprot"])
-nucleop.all = rbind(cbind(rbp.exp.gat[which(rbp.exp.gat$Uniprot %in% nucleop.prot),],class="RBP"),cbind(total.exp.gat[which(total.exp.gat$Uniprot %in% nucleop.rbp),],class="Total.protein"))
+# Cytoskeletal proteins
+ggcs = plotCompareProfile(rbp.exp.gat,total.exp.gat,cyto.prot,"Cytoskeletal",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
+  
+# PolyA binding protein profiles
+ggpolya = plotCompareProfile(rbp.exp.gat,total.exp.gat,pabp,"PolyA-binding",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
 
 # Nucleoplasm proteins ggplot
-np.gg=ggplot(data=nucleop.all, aes(x=Fraction, y=Abundance, colour=class,group=Uniprot)) +
-  geom_line()+facet_wrap(~class,scales="free_y", nrow=2)+labs(colour="Nucleoplasm.prots")
+ggnp = plotCompareProfile(rbp.exp.gat,total.exp.gat,np.uniprot,"Nucleoplasm",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
 
-pdf(paste(plotdir,"Nucleoplasm.pdf",sep="/"))
-print(np.gg)
+# Translation initiation factors
+ggti = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,ti,"Translation-initiation",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+#+geom_line(data=ggti$data[which(ggti$data$GeneName == "EIF4G1" | ggti$data$GeneName == "EIF4G2"),],aes(x=Fraction,y=Abundance),color="black")
+
+# Translation elongation factors
+ggte = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,te,"Translation-elongation",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# Translation termination factors
+ggtt = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,tt,"Translation-termination",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# Stress granules
+ggsg = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,sg,"Stress-granule",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# Cytoplasmic stress granules
+csg = sg[grep("cytoplasmic stress granule",sg$Gene.ontology..cellular.component.),]
+gg.csg = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,csg,"Cytoplasmic-Stress-granule",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
+gg.csg
+
+# U2OS stress granules from MSGP
+gg.msgp = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,msgp,"Stress-granule-U2OS",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# GAPDH, Golgi, PM proteins for Rayner
+gg.gpd =  plotCompareProfile(rbp.exp.gat,total.exp.gat,gpd,"Golgi-PM-GAPDH",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# P-body proteins
+gg.pb =  plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,pbody,"P-body",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)+geom_line(data=gg.pb$data[which(gg.pb$data$GeneName == "EDC3" | gg.pb$data$GeneName == "EDC4"| gg.pb$data$GeneName == "XRN1"),],aes(x=Fraction,y=Abundance,color=GeneName))+scale_color_manual(values = c("#A3A500", "#E76BF3","#F8766D", "#00BFC4","#00BF7D"))
+pdf(paste(plotdir,paste0("P-body",".pdf"),sep="/"))
+gg.pb
 dev.off()
 
-# Extracting Golgi, PM and Proteasome proteins for Rayner
+```
+
+```{r Stress-granule-clusters}
+head(msgp)
+
+msgp.dat = exprs(rbps.res)[which(rownames(exprs(rbps.res)) %in% msgp$UniprotID),]
+rownames(msgp.dat) = msgp$GeneName[which(msgp$UniprotID %in% rownames(msgp.dat))]
+
+h = hclust(dist(msgp.dat))
+plot(h,hang=1,cex=0.5)
+```
+
+```{9e_Once-off-printing}
+
+# Extracting Golgi, PM proteins for Rayner
 rayner.prot = fData(highconf.msnset)[grep("GOLGI|PM",fData(highconf.msnset)$markers),]
 write.table(rayner.prot,paste(outdir,"Golgi-PM_ForRayner.txt",sep="/"),sep="\t",row.names=F,quote=F)
 ```
@@ -798,8 +975,9 @@ write.table(rayner.prot,paste(outdir,"Golgi-PM_ForRayner.txt",sep="/"),sep="\t",
 
 ![Actin cytoskeleton proteins in RBP and Total protein capture](Plots/Actin-cytoskeleton.pdf)  
 
+![Nucleoplasm proteins in RBP and Total protein capture](Plots/Nucleoplasm.pdf)  
 
-![Nucleoplasm proteins in RBP and Total protein capture](Plots/Nucleoplasm.pdf) 
+![PolyA binding proteins in RBP and Total protein capture](Plots/PABP.pdf)  
 
 __*Paraspeckle proteins*__  
 Of the paraspeckle proteins, O43809 was not found in the RBP experiment.It is a known RBP but the label-free experiment didn't pick it up, however, the total proteome did. Q8WXF1 (paraspeckle component 1 PSPC1)  which peaks in the cytoplasm in total protein LOPIT also peaks in the cytoplasm in the RBP experiment. The remaining 4 proteins P23246 (SFPQ),P52272(HNRNPM), Q15233(NONO) and Q16630(CPSF6) peak in the nuclear fractions F13-F15 in the RBP experiment but in the cytosolic fractions in the Total protein experiment.  
@@ -809,6 +987,9 @@ There were 19 proteins with the GO term "actin cytoskeleton (GO:0015629)" and al
 
 __*Nucleoplasm proteins*__  
 There were 906 proteins uniquely defined as nucleoplasm loacted in the Human Protein Atlas. Of these,there were 95 proteins present in the label-free OOPS RBP dataset. A lot more (350) were found in the Total protein dataset but we only kept the 95 to make the comparison more readable. In the RBPs these proteins have a broad peak encompassing F13-F16 which is where we expect the nuclear fraction to be. In the total protein fraction, the peak is distinct at F13 and then at F20 - very different to the RBP peak.
+
+__*PolyA binding proteins*__  
+There were 4 polyA binding proteins in Uniprot - PABP1, PABP3, PABP4 and PABP1L of which only PABP1 and PABP4 were present in the RBP dataset. PABPC1 binds the 3', polyA tail of mRNA and is known to shuttle between the nucleus and cytoplasm.PABP-C1 stimulates the translation of cellular polyadenylated mRNAs by enhancing 40S ribosome subunit recruitment and 60S subunit joining. In the total protein data (no-cross link), we expect to see these proteins wherever translation happens/ribosomes hang out - in the cytoplasm and ER 
 
 ## 10. Session Information
 Finally, we print the information necessary to run this session so users can see the setup of R and R-Studio used for this analysis. It should provide the reader with information about the environment that enabled this analysis. 
