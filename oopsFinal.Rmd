@@ -404,7 +404,7 @@ for(i in 1:length(sets)){
   orgs = unique(sort(fData(ds2)$markers))
   cols = colorRampPalette(brewer.pal(9, "Set1"))(12)
   pdf(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.pdf",sep="/"))
-  jpeg(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.jpg",sep="/"))
+  #png(paste(plotdir,"Profile-plots-of-OOPS-label-free-data.png",sep="/"))
   par(mfrow=c(4,3))
   for(k in 1:length(orgs)){
     z = ds2[fData(ds2)$markers == orgs[k],]
@@ -764,6 +764,7 @@ colnames(te)[6] = "GeneName"
 tt = read.delim(paste(indir,"translation-termination.tab",sep="/"),header=T,stringsAsFactors = F)
 colnames(tt)[1] = "UniprotID"
 colnames(tt)[6] = "GeneName"
+tt = tt[grep("ERF",tt$GeneName,invert=T),]
 
 # (viii) Stress granules
 # Downloaded by querying the following in Uniprot
@@ -786,6 +787,27 @@ colnames(gpd)[7] = "GeneName"
 pbody = read.delim(paste(indir,"pbody-xrn1.txt",sep="/"),header=T,stringsAsFactors = F)
 colnames(pbody)[1] = "UniprotID"
 colnames(pbody)[6] = "GeneName"
+
+# (xii) late endosomes - JC paper 23.4.19
+endo = read.delim(paste(indir,"late-endosomes.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(endo)[2] = "UniprotID"
+colnames(endo)[7] = "GeneName"
+
+# (xiii) ribosome recycling
+rr = read.delim(paste(indir,"ribosome-recycling.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(rr)[2] = "UniprotID"
+colnames(rr)[7] = "GeneName"
+
+# (xiv) 60S ribosomal proteins
+ribo60 = read.delim(paste(indir,"60s-ribosome.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(ribo60)[1] = "UniprotID"
+colnames(ribo60)[6] = "GeneName"
+
+# (xv) 40S ribosomal proteins
+ribo40 = read.delim(paste(indir,"40s-ribosome.txt",sep="/"),header=T,stringsAsFactors = F)
+colnames(ribo40)[1] = "UniprotID"
+colnames(ribo40)[6] = "GeneName"
+
 ```
 The next step to the analysis is readying the RBP and total protein datasets to allow comparisons. For the RBP dataset, we are restricting this to those proteins annotated as RBP by XRNAX or OOPS study and are not glycoproteins.
 
@@ -819,6 +841,25 @@ total.exp$Uniprot = rownames(total.exp)
 total.exp.gat <- melt(total.exp,id.vars = 21, measure.vars = 1:20,variable.name="Fraction", value.name="Abundance",na.rm=T)
 colnames(total.exp.gat)[1] = "UniprotID"
 head(total.exp.gat)
+
+# Profile plots of total proteome
+pd.total = data.frame(Fraction = colnames(total.exp[1:20]),Density = sort(hnames))
+rownames(pd.total) = pd.total$Fraction
+new.total = MSnSet(exprs = as.matrix(total.exp[,1:20]),fData = total.exp,pData = pd.total)
+new.total = addMarkers(new.total,paste(indir,"FullHumanMarker.csv",sep="/"),mcol="markers")
+
+org.tot = unique(sort(fData(new.total)$markers))[-13]
+cols = colorRampPalette(brewer.pal(9, "Set1"))(12)
+#pdf(paste(plotdir,"Profile-plots-of-total-proteome-data.pdf",sep="/"))
+png(paste(plotdir,"Profile-plots-of-total-proteome-data.png",sep="/"))
+par(mfrow=c(4,3))
+for(k in 1:length(org.tot)){
+  z = new.total[fData(new.total)$markers == org.tot[k],]
+  plotDist(z,ylim=range(exprs(z),na.rm=T),pcol = cols[k], lty=2,las=2)
+  title(main = paste(org.tot[k]," (n = ",nrow(z),")",sep=""),cex=0.8)
+}
+dev.off()
+
 
 # Melt the rbp raw dataset
 rbp.raw.exp = data.frame(exprs(raw.msnset))
@@ -919,6 +960,10 @@ ggcs = plotCompareProfile(rbp.exp.gat,total.exp.gat,cyto.prot,"Cytoskeletal",cl=
 # PolyA binding protein profiles
 ggpolya = plotCompareProfile(rbp.exp.gat,total.exp.gat,pabp,"PolyA-binding",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
 
+# PABP + EIFG
+pabp.eifg = rbind(pabp[-3,],ti[grep("EIF4G",ti$GeneName),1:6])
+gg.pabp.eifg = plotCompareProfile(rbp.exp.gat,total.exp.gat,pabp.eifg,"PABP-EIFG",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
 # Nucleoplasm proteins ggplot
 ggnp = plotCompareProfile(rbp.exp.gat,total.exp.gat,np.uniprot,"Nucleoplasm",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
 
@@ -932,6 +977,36 @@ ggte = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,te,"Translation-elongati
 # Translation termination factors
 ggtt = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,tt,"Translation-termination",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
 
+# Ribosome recycling proteins
+gg.rr = plotCompareProfile(rbp.exp.gat,total.exp.gat,rr,"Termination-Recycling",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# Termination and ribosome recycling
+ttrr = rbind(tt,rr[,2:ncol(rr)])
+gg.ttrr = plotCompareProfile(rbp.exp.gat,total.exp.gat,ttrr,"Ribosome-recycling",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# P-body proteins
+gg.pb =  plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,pbody,"P-body",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+#+geom_line(data=gg.pb$data[which(gg.pb$data$GeneName == "EDC3" | gg.pb$data$GeneName == "EDC4"| gg.pb$data$GeneName == "XRN1"),],aes(x=Fraction,y=Abundance,color=GeneName))+scale_color_manual(values = c("#A3A500", "#E76BF3","#F8766D", "#00BFC4","#00BF7D"))
+#pdf(paste(plotdir,paste0("P-body",".pdf"),sep="/"))
+#gg.pb
+#dev.off()
+
+# Late Endosomes, lournal club paper
+gg.endo =  plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,endo,"Late-endosomes",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+enexly = endo[grep("endosome|lysosome|exosome",endo$Gene.ontology..cellular.component.),]
+gg.enexly = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,enexly,"Endosome-exosomes\n-lysosomes",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+
+# 60S ribosomal proteins
+gg.60s = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,ribo60,"60S-Ribosome",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+# 40S ribosomal proteins
+gg.40s = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,ribo40,"40S-Ribosome",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
+
+```
+
+```{9e_Once-off-printing}
 # Stress granules
 ggsg = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,sg,"Stress-granule",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)
 
@@ -946,51 +1021,10 @@ gg.msgp = plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,msgp,"Stress-granule-
 # GAPDH, Golgi, PM proteins for Rayner
 gg.gpd =  plotCompareProfile(rbp.exp.gat,total.exp.gat,gpd,"Golgi-PM-GAPDH",cl="GeneName",gp="UniprotID",print2pdf=T,print2jpg=F)
 
-# P-body proteins
-gg.pb =  plotCompareProfile(rbp.raw.exp.gat,total.exp.gat,pbody,"P-body",cl="Class",gp="UniprotID",print2pdf=T,print2jpg=F)+geom_line(data=gg.pb$data[which(gg.pb$data$GeneName == "EDC3" | gg.pb$data$GeneName == "EDC4"| gg.pb$data$GeneName == "XRN1"),],aes(x=Fraction,y=Abundance,color=GeneName))+scale_color_manual(values = c("#A3A500", "#E76BF3","#F8766D", "#00BFC4","#00BF7D"))
-pdf(paste(plotdir,paste0("P-body",".pdf"),sep="/"))
-gg.pb
-dev.off()
-
-```
-
-```{r Stress-granule-clusters}
-head(msgp)
-
-msgp.dat = exprs(rbps.res)[which(rownames(exprs(rbps.res)) %in% msgp$UniprotID),]
-rownames(msgp.dat) = msgp$GeneName[which(msgp$UniprotID %in% rownames(msgp.dat))]
-
-h = hclust(dist(msgp.dat))
-plot(h,hang=1,cex=0.5)
-```
-
-```{9e_Once-off-printing}
-
 # Extracting Golgi, PM proteins for Rayner
 rayner.prot = fData(highconf.msnset)[grep("GOLGI|PM",fData(highconf.msnset)$markers),]
 write.table(rayner.prot,paste(outdir,"Golgi-PM_ForRayner.txt",sep="/"),sep="\t",row.names=F,quote=F)
 ```
-
-![Paraspeckle proteins in RBP and Total protein capture](Plots/Paraspeckle.pdf)  
-
-![Actin cytoskeleton proteins in RBP and Total protein capture](Plots/Actin-cytoskeleton.pdf)  
-
-![Nucleoplasm proteins in RBP and Total protein capture](Plots/Nucleoplasm.pdf)  
-
-![PolyA binding proteins in RBP and Total protein capture](Plots/PABP.pdf)  
-
-__*Paraspeckle proteins*__  
-Of the paraspeckle proteins, O43809 was not found in the RBP experiment.It is a known RBP but the label-free experiment didn't pick it up, however, the total proteome did. Q8WXF1 (paraspeckle component 1 PSPC1)  which peaks in the cytoplasm in total protein LOPIT also peaks in the cytoplasm in the RBP experiment. The remaining 4 proteins P23246 (SFPQ),P52272(HNRNPM), Q15233(NONO) and Q16630(CPSF6) peak in the nuclear fractions F13-F15 in the RBP experiment but in the cytosolic fractions in the Total protein experiment.  
-
-__*Cytoskeletal proteins*__  
-There were 19 proteins with the GO term "actin cytoskeleton (GO:0015629)" and all were found in the RBP and total protein datasets. In the RBPs these proteins have a very distinct peak at F9 which is the end of the ER and start of the mitochondrial fractions based on the Western blot. In the total proteome, these proteins have no distinct peaks other than a couple at F13. 
-
-__*Nucleoplasm proteins*__  
-There were 906 proteins uniquely defined as nucleoplasm loacted in the Human Protein Atlas. Of these,there were 95 proteins present in the label-free OOPS RBP dataset. A lot more (350) were found in the Total protein dataset but we only kept the 95 to make the comparison more readable. In the RBPs these proteins have a broad peak encompassing F13-F16 which is where we expect the nuclear fraction to be. In the total protein fraction, the peak is distinct at F13 and then at F20 - very different to the RBP peak.
-
-__*PolyA binding proteins*__  
-There were 4 polyA binding proteins in Uniprot - PABP1, PABP3, PABP4 and PABP1L of which only PABP1 and PABP4 were present in the RBP dataset. PABPC1 binds the 3', polyA tail of mRNA and is known to shuttle between the nucleus and cytoplasm.PABP-C1 stimulates the translation of cellular polyadenylated mRNAs by enhancing 40S ribosome subunit recruitment and 60S subunit joining. In the total protein data (no-cross link), we expect to see these proteins wherever translation happens/ribosomes hang out - in the cytoplasm and ER 
-
 ## 10. Session Information
 Finally, we print the information necessary to run this session so users can see the setup of R and R-Studio used for this analysis. It should provide the reader with information about the environment that enabled this analysis. 
 ```{r 10_sessionInfo}
