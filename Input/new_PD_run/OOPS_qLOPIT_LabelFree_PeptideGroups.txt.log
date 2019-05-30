@@ -1,0 +1,20 @@
+Logfile for annotate_rnp.py 2019-05-29 15:12:47
+
+
+==============================================================================
+Script arguments:
+--------------------------------------------------------------------------------
+infile: ['OOLabel_free_RBPmap_PeptideGroups.txt']
+fasta_db: ../CCP_SwissProt_homo_sapiens_proteome_without_isoforms_20180409.fasta
+fasta_crap_db: ../cRAP_20181217.fasta
+pep_column: Sequence
+matches_column: Master Protein Accessions
+check_crap: True
+strict_sw: False
+matches_sep: ; 
+crap_use_accession: False
+outfile: Label_free_RBPmap_PeptideGroups_parsed.txt
+outfile_suffix: None
+logfile: OOPS_qLOPIT_LabelFree_PeptideGroups.txt.log
+==============================================================================
+

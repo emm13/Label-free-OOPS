@@ -1,0 +1,19 @@
+new_PD_run:
+
+Output from re-run of PD using correct fasta reference
+
+
+For Tom's analysis:
+
+Human protein fasta and cRAP fasta copied from PTM project:
+
+cp ~/projects/PTM_LOPIT/shared_files/Uniprot_Human_Anja_April2019.fasta .
+cp ~/projects/PTM_LOPIT/shared_files/cRAP_20181217.fasta .
+
+Peptide level output parsed with add_master_protein.py script:
+
+python ~/git_repos/CamProt/camprot/scripts/add_master_protein.py -i OOPS_qLOPIT_LabelFree_PeptideGroups.txt -f Uniprot_Human_Anja_April2019.fasta -fc cRAP_20181217.fasta --peptide-column=Sequence --matches-column="Master Protein Accessions" --matches-separator="; " --log=OOPS_qLOPIT_LabelFree_PeptideGroups.txt.log --outfile=OOPS_qLOPIT_LabelFree_PeptideGroups_parsed.txt --check-crap &
+
+Copied GO annotations (includes all terms up heirachy rather than just direct annoations - this is required to identify, e.g all GO:RBPs):
+
+cp ~/projects/PTM_LOPIT/shared_files/h_sapiens_go_full.rds .

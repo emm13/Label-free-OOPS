@@ -1,0 +1,567 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This notebook is Tom's analysis from raw data
+
+```{r}
+source("../CamProt_R/Utility.R")
+library(tidyverse)
+infile <- "Input/OOPS_qLOPIT_LabelFree_PeptideGroups_parsed.txt"
+samples_inf <- "Input/samples.tsv"
+```
+
+```{r}
+peptides_df <- parse_features(infile, silac=FALSE, TMT=FALSE, level="peptide", filter_crap=TRUE)
+```
+
+```{r}
+colnames(peptides_df)
+
+peptides_quant <- makeMSNSet(obj=peptides_df, samples_inf=samples_inf, ab_col_ix=2, level="peptide", quant_name="Area")
+
+```
+So lots and lots of missing values! most peptides are quantified in only a very minor subset of fractions (<5/20). This is no suprise since we're dealing with LFQ and subcellular fractionation here.
+```{r}
+plotMissing(peptides_quant)
+```
+What about if we subset to GO annotated RBPs?
+```{r}
+human_go <- readRDS("./Input/h_sapiens_go_full.rds")
+GO_RBPs <- human_go %>% filter(GO.ID=="GO:0003723") %>% pull(UNIPROTKB)
+```
+
+```{r}
+peptides_quant[fData(peptides_quant)$master_protein %in% GO_RBPs,] %>% plotMissing()
+```
+Ok, so this doesn't make any difference, 99.9% have a missing value!
+
+Let's aggregate to the unique peptide sequence level (ignorning variable modifications) and then see whether that reduces our problem
+
+```{r}
+peptides_no_mod_quant <- agg_to_peptides(peptides_quant)
+```
+
+Nope, not really! We still have 19304 features (previously 21688) and 99.9% have missing values!
+```{r}
+plotMissing(peptides_no_mod_quant)
+```
+
+OK, so we're going to have to impute. Note that the missing valuesa are particularly present in the first 2 fractions and across fractions 3-7. After that we see fewer missing values. Also, remember that we have yet to identify any definite set of RNAs from the initial fractions (1-7ish). For this reason, we'll remove these first 5 fractions for now and leave fraction 6 & 7 as these are useful to separate light membranes
+```{r}
+plot(colSums(is.na(exprs(peptides_no_mod_quant))))
+```
+
+
+```{r}
+#peptides_no_mod_quant_no_lm <- peptides_no_mod_quant[,8:20]
+peptides_no_mod_quant_no_lm <- peptides_no_mod_quant[,6:20]
+plotMissing(peptides_no_mod_quant_no_lm)
+```
+Ok, so now we're down to _just_ 99.1% missing :p but at least we have some more peptides now with relatively few (<=4 missing values)
+
+If we focus on those peptides with 4-9 missing values, we can see that many are missing in a block of sequential fractions. Arguably, these are true missing values, e.g not at random. 
+```{r}
+missing_n <- rowSums(is.na(exprs(peptides_no_mod_quant_no_lm)))
+peptides_no_mod_quant_no_lm[(missing_n>=4 & missing_n<=9),] %>% plotMissing()
+```
+We can identify the missing values which are in a sequential block of >=5 fractions in a row and replace these with zero
+
+First, let's make a function to identify rows of values where the missing values are not random, e.g 4 or more in a row
+```{r}
+test_values_1 <- c(1,1,NA,1,NA,NA,1,1,1,1)
+test_values_2 <- c(1,1,NA,NA,NA,NA,NA,1,1,1)
+test_values_3 <- c(NA,NA,NA,NA,1,1,1,1,1)
+
+is_not_at_random <- function(x){
+  with(rle(is.na(x)), sum(lengths[values] >= 4))
+}
+
+is_not_at_random(test_values_1)
+is_not_at_random(test_values_2)
+is_not_at_random(test_values_3)
+```
+
+Now, let's check this identifies the peptides which are not missing at random. First, we'll remove those without at least 4 quantification values.
+```{r}
+peptides_no_mod_quant_4 <- peptides_no_mod_quant_no_lm[missing_n<=(ncol(peptides_no_mod_quant_no_lm)-4),]
+missing_not_at_random <- apply(exprs(peptides_no_mod_quant_4), 1, is_not_at_random)
+```
+
+```{r}
+peptides_no_mod_quant_4[missing_not_at_random==1,] %>% plotMissing()
+peptides_no_mod_quant_4[missing_not_at_random==2,] %>% plotMissing()
+```
+Now, let's extend the function to replace the blocks of missing values with zero
+```{r}
+test_values_1 <- c(1,1,NA,1,NA,NA,1,1,1,1)
+test_values_2 <- c(1,1,NA,NA,NA,NA,NA,1,1,1)
+test_values_3 <- c(NA,NA,NA,NA,1,1,1,1,1, NA)
+
+
+rle(is.na(test_values_1))$values
+rle(is.na(test_values_1))$lengths
+
+replace_missing_not_at_random <- function(x){
+  missing_rle <- rle(is.na(x))
+  
+  sequential_blocks <- missing_rle$values
+  sequential_blocks[missing_rle$lengths<4] <- FALSE
+
+  replace_with_zero <- rep(sequential_blocks, missing_rle$lengths)
+  
+  out <- x
+  out[replace_with_zero]<-0
+  
+  return(out)
+
+}
+
+replace_missing_not_at_random(test_values_1)
+replace_missing_not_at_random(test_values_2)
+replace_missing_not_at_random(test_values_3)
+```
+
+
+Below we impute a maximum of 10 missing values in sequential blocks with zeros
+```{r}
+missing_n2 <- rowSums(is.na(exprs(peptides_no_mod_quant_4)))
+peptides_no_mod_quant_4_mnar_zero <- peptides_no_mod_quant_4[missing_n2<=10,]
+
+exprs(peptides_no_mod_quant_4_mnar_zero) <- exprs(peptides_no_mod_quant_4_mnar_zero) %>%
+  apply(1, replace_missing_not_at_random) %>% t()
+```
+
+Re-check the missing values
+```{r}
+plotMissing(peptides_no_mod_quant_4)
+plotMissing(peptides_no_mod_quant_4_mnar_zero)
+```
+
+```{r}
+peptides_no_mod_quant_4_mnar_zero_mar_knn <- peptides_no_mod_quant_4_mnar_zero
+
+imputed_zeros <- rowSums(exprs(peptides_no_mod_quant_4_mnar_zero_mar_knn)==0, na.rm=TRUE)
+missing_n3 <- rowSums(is.na(exprs(peptides_no_mod_quant_4_mnar_zero_mar_knn)))
+
+fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$zero_imputation <- imputed_zeros>0 
+fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$zero_imputation_n <- imputed_zeros
+
+fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$missing <- missing_n3>0 
+fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$missing_n <- missing_n3
+
+
+peptides_no_mod_quant_4_mnar_zero_mar_knn <- peptides_no_mod_quant_4_mnar_zero_mar_knn[missing_n3<=3,]
+
+print(table(fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$zero_imputation))
+print(table(fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$missing))
+
+print(table(fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$missing,
+            fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$zero_imputation))
+
+dim(peptides_no_mod_quant_4_mnar_zero)
+dim(peptides_no_mod_quant_4_mnar_zero_mar_knn)
+peptides_no_mod_quant_4_mnar_zero_mar_knn <- suppressMessages(impute(peptides_no_mod_quant_4_mnar_zero_mar_knn, "knn", k = 10))
+```
+
+```{r}
+p <- plotLabelQuant(peptides_no_mod_quant_no_lm, log=TRUE)
+p <- plotLabelQuant(peptides_no_mod_quant_4_mnar_zero_mar_knn, log=TRUE)
+```
+
+```{r}
+p <- peptides_no_mod_quant_4_mnar_zero_mar_knn[
+  fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$missing,] %>% plotLabelQuant(log=TRUE)
+p <- peptides_no_mod_quant_4_mnar_zero_mar_knn[
+  !fData(peptides_no_mod_quant_4_mnar_zero_mar_knn)$missing,] %>% plotLabelQuant(log=TRUE)
+```
+
+```{r}
+protein_quant <- agg_to_protein(peptides_no_mod_quant_4_mnar_zero_mar_knn)
+print(dim(protein_quant))
+```
+
+```{r}
+source("~/git_repos/CamProt_R/LOPIT.R")
+```
+
+```{r}
+markers_df <- read.delim("./Input//markers_9B_hyperLOPIT_vs_DC.csv", sep=",", header=FALSE, stringsAsFactors=FALSE)[,1:2]
+markers_df$V2 <- recode(markers_df$V2, "RIBOSOME 40S"="RIBOSOME", "RIBOSOME 60S"="RIBOSOME")
+markers_proteins <- markers_df$V2
+names(markers_proteins) <- markers_df$V1
+
+protein_quant_am <- addMarkers(normalise(protein_quant, "sum"), markers_proteins)
+
+p <- plotHexbin(protein_quant_am, "markers")
+print(p)
+```
+
+
+```{r}
+
+marker_classes <- getMarkerClasses(protein_quant_am, "markers")
+m_colours <- getColours(marker_classes)
+p <- plotPCA(protein_quant_am, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order)
+print(p)
+ggsave("./Output/plots/pca_1_2_inc_glycoproteins.png")
+
+p <- plotPCA(protein_quant_am, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order, dims=c(3,4))
+print(p)
+```
+
+```{r}
+glycoproteins <- read.delim("./Input/glycoproteins.tsv")$protein
+```
+
+Copied from Manasa's oopsFinal.Rmd notebook
+```{r}
+# We will add a bit more information to the fData file 
+# 1. List of known RBPs across cell lines in the XRNAX paper (Table S2)
+xrnax = read.delim("./Input/xrnax-genelist.txt",sep="\t",header=T)
+xrnax.rbps = xrnax %>% 
+              dplyr::filter(!is.na(MCF7.RBP) | !is.na(HEK293.RBP) | !is.na(HeLa.RBP)) %>% 
+              dplyr::select(Uniprot.ID:Protein.name)
+rownames(xrnax.rbps) = xrnax.rbps$Uniprot.ID
+print(length(rownames(xrnax.rbps)))
+
+# Check how many are common to the cell lines in the XRNAX paper
+xrnax %>% 
+  dplyr::select(MCF7.RBP:ihRBP) %>%
+  apply(2, table,useNA="always")
+
+# 2. List of RBPs from SILAC experiments using OOPS after wash step2 (Table S1)
+oops = read.delim("./Input/oops-genelist.txt",sep="\t",header=T)
+oops.rbps = oops %>% 
+              dplyr::filter(CL_NC_Ratio >= 1.0) %>% 
+              dplyr::select(master_protein, RBP_glyco)
+
+oops_rbps <- unique(oops.rbps$master_protein)
+print(length(oops_rbps))
+```
+
+```{r}
+protein_quant_am_no_glyco <- protein_quant_am[!rownames(protein_quant_am) %in% glycoproteins,]
+fData(protein_quant_am_no_glyco)$oops <- rownames(protein_quant_am_no_glyco) %in% oops_rbps
+fData(protein_quant_am_no_glyco)$xrnax <- rownames(protein_quant_am_no_glyco) %in% rownames(xrnax.rbps)
+fData(protein_quant_am_no_glyco)$go_rbp <- rownames(protein_quant_am_no_glyco) %in% GO_RBPs
+
+print(table(fData(protein_quant_am_no_glyco)$oops, fData(protein_quant_am_no_glyco)$xrnax))
+print(table(fData(protein_quant_am_no_glyco)$oops, fData(protein_quant_am_no_glyco)$xrnax,
+            fData(protein_quant_am_no_glyco)$go_rbp))
+
+print(dim(protein_quant_am))
+print(dim(protein_quant_am_no_glyco))
+```
+```{r}
+marker_classes <- getMarkerClasses(protein_quant_am_no_glyco, "markers")
+m_colours <- getColours(marker_classes)
+p <- plotPCA(protein_quant_am_no_glyco, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order)
+print(p)
+ggsave("./Output/plots/pca_1_2.png")
+
+p <- plotPCA(protein_quant_am_no_glyco, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order, dims=c(3,4))
+print(p)
+ggsave("./Output/plots/pca_3_4.png")
+```
+```{r}
+protein_quant_am_no_glyco_yes_rbp <- protein_quant_am_no_glyco[
+  (fData(protein_quant_am_no_glyco)$oops |
+     fData(protein_quant_am_no_glyco)$xrnax |
+    fData(protein_quant_am_no_glyco)$go_rbp),]
+
+p <- plotPCA(protein_quant_am_no_glyco_yes_rbp, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order)
+print(p)
+ggsave("./Output/plots/pca_1_2_no_glyco_only_rbps.png")
+
+
+p <- plotPCA(protein_quant_am_no_glyco_yes_rbp, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order, dims=c(3,4))
+print(p)
+ggsave("./Output/plots/pca_3_4_no_glyco_only_rbps.png")
+```
+
+```{r}
+translocon <- human_go %>% filter(GO.ID=='GO:0071256') %>% pull(UNIPROTKB)
+para <- human_go %>% filter(GO.ID=='GO:0042382') %>% pull(UNIPROTKB)
+
+ 
+```
+
+```{r}
+p <- plotPCA(protein_quant_am_no_glyco_yes_rbp, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order, foi=translocon)
+print(p)
+ggsave("./Output/plots/pca_1_2_no_glyco_only_rbps_translocon.png")
+```
+```{r}
+print(dim(protein_quant_am_no_glyco_yes_rbp))
+```
+
+```{r}
+p <- plotPCA(protein_quant_am_no_glyco_yes_rbp, "markers", m_colours=m_colours, re_order_markers=TRUE, marker_levels=organelle_order, foi=para)
+print(p)
+ggsave("./Output/plots/pca_1_2_no_glyco_only_rbps_paraspeckles.png")
+```
+
+
+
+```{r, fig.width=10, fig.height=10}
+p <- PlotMarkerProfiles(protein_quant_am_no_glyco_yes_rbp, "markers", keep_markers=marker_classes, organelle_order=organelle_order) +
+  facet_wrap(~markers) +
+  scale_colour_manual(values=m_colours, guide=FALSE) +
+  theme(legend.position="none")
+print(p)
+ggsave("./Output/plots/marker_profiles.png")
+
+p <- PlotMarkerProfiles(protein_quant_am_no_glyco_yes_rbp, "markers", keep_markers=marker_classes,
+                        organelle_order=organelle_order, unknown=TRUE) +
+  facet_grid(zero_imputation_n~missing_n) +
+  scale_colour_manual(values=m_colours, guide=FALSE) +
+  theme(legend.position="none")
+print(p)
+ggsave("./Output/plots/marker_profiles_imputation.png")
+```
+
+Now we make a new set of markers designed to highlight functional groups of RBPs more usefully. First we need to define new sets of GO annotation proteins, where each marker belongs to only one group
+```{r}
+translocon <- human_go %>% filter(GO.ID=='GO:0071256') %>% pull(UNIPROTKB)
+para <- human_go %>% filter(GO.ID=='GO:0042382') %>% pull(UNIPROTKB)
+mrna_splicing <- human_go %>% filter(GO.ID=='GO:0000398') %>% pull(UNIPROTKB)
+translation_init <- human_go %>% filter(GO.ID=='GO:0006413') %>% pull(UNIPROTKB)
+translation_init <- setdiff(translation_init, names(markers_proteins)[markers_proteins=="RIBOSOME"])
+
+cell_cell_adhesion <- human_go %>% filter(GO.ID=='GO:0098609') %>% pull(UNIPROTKB)
+cytoskeleton <- human_go %>% filter(GO.ID=='GO:0005856') %>% pull(UNIPROTKB)
+motor_activity <- human_go %>% filter(GO.ID=='GO:0003774') %>% pull(UNIPROTKB)
+er_stress_response <- human_go %>% filter(GO.ID=='GO:0030968') %>% pull(UNIPROTKB)
+nuclear_pore_channel <- human_go %>% filter(GO.ID=='GO:0044613') %>% pull(UNIPROTKB)
+nuclear_pore_basket <- human_go %>% filter(GO.ID=='GO:0044615') %>% pull(UNIPROTKB)
+tRNA_AA <- human_go %>% filter(GO.ID=='GO:0004812') %>% pull(UNIPROTKB)
+
+#mrna_splicing <- setdiff(mrna_splicing, c(para, translation_init, cell_cell_adhesion, cytoskeleton, motor_activity))
+#translation_init <- setdiff(translation_init, c(para, cell_cell_adhesion, cytoskeleton, motor_activity))
+#cytoskeleton <- setdiff(cytoskeleton, c(para, cell_cell_adhesion, motor_activity))
+#cell_cell_adhesion <- setdiff(cell_cell_adhesion, c(para, motor_activity))
+
+#all_markers <- c(mrna_splicing, para, translocon, translation_init, cell_cell_adhesion, cytoskeleton, motor_activity)
+#print(length(all_markers)==length(unique(all_markers)))
+
+
+mrna_splicing <- setdiff(mrna_splicing, tRNA_AA)
+
+all_markers <- c(mrna_splicing, tRNA_AA)
+print(length(all_markers)==length(unique(all_markers)))
+
+```
+
+```{r}
+
+rbps_markers <- markers_proteins
+localisations_to_remove <- c("PEROXISOME", "PROTEASOME", "GOLGI", "LYSOSOME")
+
+rbps_markers <- rbps_markers[!rbps_markers %in% localisations_to_remove]
+rbps_markers[rbps_markers =="NUCLEUS-CHROMATIN"] <- "NUCLEUS"
+
+print(table(rbps_markers))
+
+
+new_markers <- c(#rep("PARASPECKLES", length(para)),
+                 rep("mRNA splicing", length(mrna_splicing)),
+                 rep("Aminoacyl-tRNA ligase", length(tRNA_AA))#,
+                 #rep("TRANSLATION INITITAION", length(translation_init)),
+                 #rep("CELL-CELL ADHESION", length(cell_cell_adhesion)),
+                 #rep("MOTOR", length(motor_activity))#,
+                 #rep("CYTOSKELETON", length(cytoskeleton))
+                 )
+
+names(new_markers) <- c(#para,
+                        mrna_splicing,
+                        tRNA_AA#,
+                        #translation_init,
+                        #cell_cell_adhesion,
+                        #motor_activity#,
+                        #cytoskeleton
+                        )
+print(table(names(new_markers))[table(names(new_markers))>1])
+
+rbps_markers <- rbps_markers[!names(rbps_markers) %in% names(new_markers)]
+
+combined_markers <- c(rbps_markers, new_markers)
+print(table(combined_markers))
+print(table(names(combined_markers))[table(names(combined_markers))>1])
+
+fData(protein_quant_am_no_glyco_yes_rbp)$new_markers <- NULL
+protein_quant_am_no_glyco_yes_rbp <- addMarkers(protein_quant_am_no_glyco_yes_rbp, combined_markers, "new_markers")
+
+fData(protein_quant_am_no_glyco_yes_rbp)$new_markers <- recode(
+  fData(protein_quant_am_no_glyco_yes_rbp)$new_markers, "NUCLEUS"="Nucleus", "RIBOSOME"="Ribosome", "CYTOSOL"="Cytosol",
+  "MITOCHONDRIA"="Mitochondria") 
+
+print(table(fData(protein_quant_am_no_glyco_yes_rbp)$new_markers))
+```
+After adding these new RBP markers, we only have 1 PM and 2 Mt proteins remaining. Let's remove the PM protein
+```{r}
+fData(protein_quant_am_no_glyco_yes_rbp)$new_markers[fData(protein_quant_am_no_glyco_yes_rbp)$new_markers=="PM"] <- "unknown"
+```
+
+```{r}
+new_markers_levels <- getMarkerClasses(protein_quant_am_no_glyco_yes_rbp, "new_markers")
+
+p <- plotPCA(protein_quant_am_no_glyco_yes_rbp, "new_markers", re_order_markers=TRUE, marker_levels=new_markers_levels,
+        m_colours=getClassColours()[c(1:5, 7, 10:20)], foi=nuclear_pore_channel)
+print(p)
+
+
+p <- plotPCA(protein_quant_am_no_glyco_yes_rbp, "new_markers", re_order_markers=TRUE, marker_levels=new_markers_levels,
+        m_colours=getClassColours()[c(1:5, 7, 10:20)], foi=nuclear_pore_basket)
+print(p)
+
+```
+
+
+```{r}
+getMarkerClasses(protein_quant_am_no_glyco_yes_rbp, "new_markers")
+
+set.seed(1)
+proj <- make_proj("t-SNE", protein_quant_am_no_glyco_yes_rbp, "new_markers")
+```
+
+```{r}
+library(Hmisc)
+```
+
+```{r}
+proj_df <- proj$PCA_df
+marker_levels <- setdiff(new_markers_levels, "unknown")
+marker_levels <- marker_levels[c(2,3,4,6,7,1,5)]
+#m_colours <- getStockcol()[c(1,7,4,3,2,5)]
+m_colours <- cbPalette[c(6,3,2,4,8,7,5)]
+
+proj_df$markers <- factor(proj_df$new_markers, levels=marker_levels)
+print(table(is.na(proj_df$markers)))
+proj_df$unknown <- proj_df$new_markers=="unknown"
+
+p <- ggplot(proj_df, aes(X, Y, colour=markers)) +
+    geom_point(aes(X, Y, colour=markers, alpha=unknown), size=2) +
+    scale_alpha_manual(values=c(1,0.2), guide=F) +
+    my_theme +
+    scale_colour_manual(values=m_colours, na.value="grey60", name="", breaks=c(marker_levels)) +
+    guides(colour = guide_legend(override.aes = list(alpha = 1, size=2))) +
+    xlab("Dimension 1") + ylab("Dimension 2")
+
+print(p)
+ggsave("./Output/tSNE_RBP_markers.png")
+write.table(proj_df, "./Output/tSNE_projections.tsv", sep="\t", quote=FALSE, row.name=FALSE)
+
+
+```
+```{r}
+p <- PlotMarkerProfiles(protein_quant_am_no_glyco_yes_rbp, "new_markers",
+                        keep_markers=getMarkerClasses(protein_quant_am_no_glyco_yes_rbp, "new_markers"), organelle_order=new_markers_levels) +
+  facet_wrap(~markers) +
+  scale_colour_manual(values=getClassColours()[c(1:5, 7, 10:20)], guide=FALSE) +
+  theme(legend.position="none")
+print(p)
+```
+```{r}
+
+protein_info <- read.delim("Input/Aggregated-proteins-2187-with-uniprot.tab") %>%
+  dplyr::select(Entry, gene_name=Gene.names...primary..)
+
+total.prot = readRDS("./Input/prot_res_20_fractions_imputed_markers.rds")
+colnames(total.prot)[12] <- "0.948"
+colnames(total.prot) <- c(seq(1,20,2), seq(2,20,2))
+total.prot <- total.prot[,order(as.numeric(as.character(colnames(total.prot))))]
+total.prot <- total.prot[,5:19]
+total.prot = normalise(total.prot,"sum")
+
+rbp.prot <- protein_quant_am_no_glyco_yes_rbp
+colnames(rbp.prot) <- 5:19
+
+print(dim(total.prot))
+print(dim(rbp.prot))
+
+print(colnames(total.prot))
+print(colnames(rbp.prot))
+
+```
+
+
+
+```{r}
+plotCombinedProfiles <- function(foi){
+  
+  foi_in_total <- intersect(foi, rownames(total.prot))
+  foi_in_rbp <- intersect(foi, rownames(rbp.prot))
+  
+  foi_in_both <- intersect(foi_in_rbp, foi_in_total)
+  
+  print(foi_in_both)
+  if(length(foi_in_both)==0){
+    return(NA)
+  }
+  
+  total_exprs_df <- exprs(total.prot[foi_in_both,])
+  total_exprs_df <- melt(total_exprs_df)
+  total_exprs_df$type = "All protein"
+  
+  rbp_exprs_df <- exprs(rbp.prot[foi_in_both,])
+  rbp_exprs_df <- melt(rbp_exprs_df)
+  rbp_exprs_df$type = "RNA-bound"
+  
+  #print(head(total_exprs_df))
+  #print(head(rbp_exprs_df))
+  #print(head(rbind(rbp_exprs_df, total_exprs_df)))
+  
+  p <- rbind(rbp_exprs_df, total_exprs_df) %>%
+    merge(protein_info, by.x="Var1", by.y="Entry") %>%
+    ggplot(aes(Var2, value, colour=type, group=type)) +
+    my_theme + geom_line() +
+    theme(aspect.ratio=1, axis.text.x=element_text(angle=90, vjust=0.5, hjust=1, size=10))  +
+    xlab("") + ylab("norm. abundance") + 
+    scale_colour_discrete(name="", na.value="grey")
+  
+  if(length(foi_in_both)>1){
+    p <- p + facet_wrap(~gene_name)
+  }
+  
+  print(p)
+  
+  p2 <- p <- rbind(rbp_exprs_df, total_exprs_df) %>%
+    merge(protein_info, by.x="Var1", by.y="Entry") %>%
+    ggplot(aes(Var2, value, colour=type, group=interaction(type, gene_name))) +
+    my_theme + geom_line() +
+    theme(aspect.ratio=1, axis.text.x=element_text(angle=90, vjust=0.5, hjust=1, size=10))  +
+    xlab("") + ylab("norm. abundance") + 
+    scale_colour_discrete(name="", na.value="grey")
+  
+  print(p2)
+  
+  invisible(list("p"=p, "p2"=p2))
+}
+```
+
+```{r, fig.width=10, fig.height=10}
+plotCombinedProfiles(tRNA_AA)
+#plotCombinedProfiles(para[[2]])
+```
+
+```{r, fig.width=10, fig.height=10}
+plotCombinedProfiles(motor_activity)
+```
+```{r}
+fvarLabels(rbp.prot)
+well_quantified_rbps <- fData(rbp.prot) %>%
+  filter(zero_imputation_n<=4, missing_n<=2) %>%
+  pull(master_protein)
+
+plotCombinedProfiles(intersect(mrna_splicing, well_quantified_rbps))
+```
+```{r}
+ribosome_proteins <- names(markers_proteins)[markers_proteins=="RIBOSOME"]
+plotCombinedProfiles(intersect(ribosome_proteins, well_quantified_rbps))
+```
+```{r}
+plotCombinedProfiles("Q15942")
+```
+

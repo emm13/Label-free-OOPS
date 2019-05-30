@@ -1,0 +1,311 @@
+Logfile for annotate_rnp.py 2019-05-29 15:15:11
+
+
+==============================================================================
+Script arguments:
+--------------------------------------------------------------------------------
+infile: ['Label_free_RBPmap_PeptideGroups.txt']
+fasta_db: ../CCP_SwissProt_homo_sapiens_proteome_without_isoforms_20180409.fasta
+fasta_crap_db: ../cRAP_20181217.fasta
+pep_column: Sequence
+matches_column: Master Protein Accessions
+check_crap: True
+strict_sw: False
+matches_sep: ; 
+crap_use_accession: False
+outfile: Label_free_RBPmap_PeptideGroups_parsed.txt
+outfile_suffix: None
+logfile: Label_free_RBPmap_PeptideGroups.txt.log
+==============================================================================
+
+The same peptide is observed more than once with different proteins! : peptide = TLTLVDTGIGMTK, matching proteins = P07900, P08238 or P08238
+The same peptide is observed more than once with different proteins! : peptide = VTNILMLK, matching proteins = Q9UKA9, P26599, O95758 or Q9UKA9
+
+==============================================================================
+Initial file(s) stats
+--------------------------------------------------------------------------------
+# initial peptides: 25842
+# initial proteins: 3583
+# initial SwissProt proteins: 3583
+# initial TrEMBL proteins: 0
+==============================================================================
+
+
+==============================================================================
+Deciding which TrEMBL proteins to retain:
+--------------------------------------------------------------------------------
+# peptides with only TrEMBL matches: 0
+# TrEMBL proteins retained as no SwissProt matches for peptide: 0
+==============================================================================
+
+
+==============================================================================
+Parsimonious method to identify minimal set of proteins to account for all peptides 2019-05-29 15:15:21
+--------------------------------------------------------------------------------
+1 protein(s) with 434 peptides
+1 protein(s) with 341 peptides
+1 protein(s) with 206 peptides
+1 protein(s) with 178 peptides
+2 protein(s) with 175 peptides
+1 protein(s) with 174 peptides
+1 protein(s) with 149 peptides
+1 protein(s) with 133 peptides
+1 protein(s) with 131 peptides
+1 protein(s) with 127 peptides
+1 protein(s) with 119 peptides
+1 protein(s) with 117 peptides
+1 protein(s) with 102 peptides
+1 protein(s) with 99 peptides
+1 protein(s) with 92 peptides
+1 protein(s) with 90 peptides
+1 protein(s) with 88 peptides
+1 protein(s) with 85 peptides
+1 protein(s) with 84 peptides
+1 protein(s) with 82 peptides
+1 protein(s) with 81 peptides
+1 protein(s) with 80 peptides
+1 protein(s) with 76 peptides
+1 protein(s) with 73 peptides
+1 protein(s) with 70 peptides
+1 protein(s) with 66 peptides
+2 protein(s) with 65 peptides
+1 protein(s) with 64 peptides
+1 protein(s) with 63 peptides
+1 protein(s) with 62 peptides
+1 protein(s) with 60 peptides
+2 protein(s) with 58 peptides
+1 protein(s) with 56 peptides
+2 protein(s) with 55 peptides
+3 protein(s) with 53 peptides
+2 protein(s) with 52 peptides
+1 protein(s) with 51 peptides
+2 protein(s) with 50 peptides
+4 protein(s) with 49 peptides
+2 protein(s) with 48 peptides
+2 protein(s) with 47 peptides
+1 protein(s) with 46 peptides
+4 protein(s) with 45 peptides
+2 protein(s) with 44 peptides
+1 protein(s) with 43 peptides
+3 protein(s) with 42 peptides
+3 protein(s) with 41 peptides
+2 protein(s) with 40 peptides
+2 protein(s) with 39 peptides
+4 protein(s) with 38 peptides
+4 protein(s) with 37 peptides
+9 protein(s) with 36 peptides
+9 protein(s) with 35 peptides
+5 protein(s) with 34 peptides
+8 protein(s) with 33 peptides
+14 protein(s) with 32 peptides
+9 protein(s) with 31 peptides
+10 protein(s) with 30 peptides
+16 protein(s) with 29 peptides
+13 protein(s) with 28 peptides
+11 protein(s) with 27 peptides
+14 protein(s) with 26 peptides
+16 protein(s) with 25 peptides
+7 protein(s) with 24 peptides
+22 protein(s) with 23 peptides
+14 protein(s) with 22 peptides
+20 protein(s) with 21 peptides
+23 protein(s) with 20 peptides
+26 protein(s) with 19 peptides
+28 protein(s) with 18 peptides
+26 protein(s) with 17 peptides
+25 protein(s) with 16 peptides
+34 protein(s) with 15 peptides
+30 protein(s) with 14 peptides
+55 protein(s) with 13 peptides
+57 protein(s) with 12 peptides
+66 protein(s) with 11 peptides
+72 protein(s) with 10 peptides
+83 protein(s) with 9 peptides
+112 protein(s) with 8 peptides
+123 protein(s) with 7 peptides
+151 protein(s) with 6 peptides
+217 protein(s) with 5 peptides
+239 protein(s) with 4 peptides
+331 protein(s) with 3 peptides
+487 protein(s) with 2 peptides
+1104 protein(s) with 1 peptides
+All peptides are now accounted for 2019-05-29 15:15:21
+
+3566 proteins retained
+3566 SwissProt proteins retained
+0 TrEMBL proteins retained
+
+Note: If not all SwissProt proteins were retained, this means
+these proteins only included peptides which were observed
+in other proteins which had a greater number of peptides
+==============================================================================
+
+
+==============================================================================
+proteins per peptide:
+--------------------------------------------------------------------------------
+24806 peptide(s) (95.99 %) have 1 master protein(s)
+801 peptide(s) (3.10 %) have 2 master protein(s)
+156 peptide(s) (0.60 %) have 3 master protein(s)
+34 peptide(s) (0.13 %) have 4 master protein(s)
+16 peptide(s) (0.06 %) have 5 master protein(s)
+1 peptide(s) (0.00 %) have 10 master protein(s)
+6 peptide(s) (0.02 %) have 8 master protein(s)
+10 peptide(s) (0.04 %) have 7 master protein(s)
+12 peptide(s) (0.05 %) have 6 master protein(s)
+==============================================================================
+
+peptide: ADLDVSGPK is observed more than once in protein: Q09666
+peptide: ADLDVSGPKVDVDVPDVNLEGPDAK is observed more than once in protein: Q09666
+peptide: ADVDLSGPK is observed more than once in protein: Q09666
+peptide: ADVDVSGPK is observed more than once in protein: Q09666
+peptide: ADVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: ADVVVSGPK is observed more than once in protein: Q09666
+peptide: AEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: AEGTPNQGK is observed more than once in protein: Q9P2E9
+peptide: AEVTAPDVK is observed more than once in protein: Q8IVF2
+peptide: AFMGTPVQK is observed more than once in protein: P46013
+peptide: AFMGTPVQK is observed more than once in protein: P46013
+peptide: ALEDLAGFK is observed more than once in protein: P46013
+peptide: AQALEDLAGFK is observed more than once in protein: P46013
+peptide: AQPLEDLAGLK is observed more than once in protein: P46013
+peptide: AWEEYYK is observed more than once in protein: Q92945
+peptide: EGQWDCSVCLVR is observed more than once in protein: P49792
+peptide: EKAQALEDLAGFK is observed more than once in protein: P46013
+peptide: EVDVNLPK is observed more than once in protein: Q09666
+peptide: FDVSGYPTLK is observed more than once in protein: P13667
+peptide: FGQGAHHAAGQAGNEAGR is observed more than once in protein: Q6UWP8
+peptide: FGTSETSK is observed more than once in protein: P49792
+peptide: FKMPEMHFK is observed more than once in protein: Q09666
+peptide: FKMPEMNLK is observed more than once in protein: Q09666
+peptide: FKMPEMNLK is observed more than once in protein: Q09666
+peptide: FKMPSFGVSAPGK is observed more than once in protein: Q8IVF2
+peptide: FSMPGFK is observed more than once in protein: Q09666
+peptide: FSMPGFK is observed more than once in protein: Q09666
+peptide: FSMPGFKAEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKGEGPDVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKGEGPDVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPSLK is observed more than once in protein: Q09666
+peptide: GDMDVSLPK is observed more than once in protein: Q09666
+peptide: GDMDVSVPK is observed more than once in protein: Q09666
+peptide: GDVDLSLPK is observed more than once in protein: Q09666
+peptide: GDVDVSLPK is observed more than once in protein: Q09666
+peptide: GDVDVSVPK is observed more than once in protein: Q09666
+peptide: GEGPDVDVNLPK is observed more than once in protein: Q09666
+peptide: GEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: GFFDPNTHENLTYLQLLER is observed more than once in protein: P58107
+peptide: GFFDPNTHENLTYVQLLR is observed more than once in protein: P58107
+peptide: GPDWHLK is observed more than once in protein: Q09666
+peptide: GPELDLK is observed more than once in protein: Q8IVF2
+peptide: GPEVDLR is observed more than once in protein: Q09666
+peptide: GPYESGSGHSSGLGHR is observed more than once in protein: Q86YZ3
+peptide: GYFDEEMNR is observed more than once in protein: P58107
+peptide: HSGLGHGQASSAVR is observed more than once in protein: P20930
+peptide: KADVEEEFLALR is observed more than once in protein: P46013
+peptide: KAEGAQNQGK is observed more than once in protein: Q9P2E9
+peptide: KAEGTPNQGK is observed more than once in protein: Q9P2E9
+peptide: KAEGTPNQGKK is observed more than once in protein: Q9P2E9
+peptide: KLTPSAGK is observed more than once in protein: P46013
+peptide: KVEGAQNQGK is observed more than once in protein: Q9P2E9
+peptide: LAQDPYR is observed more than once in protein: P18583
+peptide: LDLKGPK is observed more than once in protein: Q8IVF2
+peptide: LDLLGNLPGSK is observed more than once in protein: P46013
+peptide: LDLTENLTGSK is observed more than once in protein: P46013
+peptide: LEGDLKGPK is observed more than once in protein: Q09666
+peptide: LEGDLSLADK is observed more than once in protein: Q8IVF2
+peptide: LEGDLSLADKDVTAK is observed more than once in protein: Q8IVF2
+peptide: LEGDLSLADKDVTAKDSK is observed more than once in protein: Q8IVF2
+peptide: LEGDLTGPSVGVEVPDVELECPDAK is observed more than once in protein: Q09666
+peptide: LLEAQLATGGVLDPVHSHR is observed more than once in protein: P58107
+peptide: LLEAQLATGGVLDPVHSHRVPVDVAYR is observed more than once in protein: P58107
+peptide: LPEGHVPEGAGLK is observed more than once in protein: Q8IVF2
+peptide: LPEGPVPEGAGLK is observed more than once in protein: Q8IVF2
+peptide: LPEGQVPEGAGLK is observed more than once in protein: Q8IVF2
+peptide: LQMPSFK is observed more than once in protein: Q8IVF2
+peptide: LSMPDFDLHLK is observed more than once in protein: Q09666
+peptide: LSMPDFDLHLK is observed more than once in protein: Q09666
+peptide: LSMPDFDLHLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDLDLNLK is observed more than once in protein: Q09666
+peptide: LSMPDLDLNLK is observed more than once in protein: Q09666
+peptide: LSMPDLDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDLDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDVDLHLK is observed more than once in protein: Q09666
+peptide: LSMPDVDLHLK is observed more than once in protein: Q09666
+peptide: LSMPDVDLHLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDVDLHLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDVDLNLK is observed more than once in protein: Q09666
+peptide: LSMPDVDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPEVDLNLK is observed more than once in protein: Q09666
+peptide: LSMPEVDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPEVDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPGFK is observed more than once in protein: Q09666
+peptide: LSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: LSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: LTVDEAVR is observed more than once in protein: Q15149
+peptide: MDLAPSK is observed more than once in protein: P27816
+peptide: MGANSLER is observed more than once in protein: P52272
+peptide: MGANSLER is observed more than once in protein: P52272
+peptide: MPEMHFK is observed more than once in protein: Q09666
+peptide: MPEMNLK is observed more than once in protein: Q09666
+peptide: MPEMNLK is observed more than once in protein: Q09666
+peptide: MPSFGVSAPGK is observed more than once in protein: Q8IVF2
+peptide: MPSFGVSAPGR is observed more than once in protein: Q8IVF2
+peptide: MSLSSMEVDVQAPR is observed more than once in protein: Q8IVF2
+peptide: NLKEKCFVTQLACFLANQQNK is observed more than once in protein: Q3BBV0
+peptide: QKLDPAASVTGSK is observed more than once in protein: P46013
+peptide: QNQTTSAVSTPASSETSK is observed more than once in protein: P49792
+peptide: QSLGHGQHGSGSGQSPSPSR is observed more than once in protein: Q86YZ3
+peptide: RGMDDDRGPR is observed more than once in protein: Q14152
+peptide: RGMDDDRGPR is observed more than once in protein: Q14152
+peptide: SAVGFEYQGK is observed more than once in protein: Q14247
+peptide: SFSSTLLSLFQSSPER is observed more than once in protein: O60732
+peptide: SGFEGMFTK is observed more than once in protein: P49792
+peptide: SGGGYGGDR is observed more than once in protein: Q92804
+peptide: SLEASVDVSAPK is observed more than once in protein: Q8IVF2
+peptide: SMMSAYER is observed more than once in protein: P18583
+peptide: SMMSSYSAADR is observed more than once in protein: P18583
+peptide: TPKEEAQSLEDLAGFK is observed more than once in protein: P46013
+peptide: TTDLSLQPPSADLK is observed more than once in protein: Q8IVF2
+peptide: VADEGSFTCFVSLR is observed more than once in protein: Q5ZPR3
+peptide: VDLDAPDVDVHGPDWHLK is observed more than once in protein: Q09666
+peptide: VDLDVPDVDVQGPDWHLK is observed more than once in protein: Q09666
+peptide: VDLDVPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: VDLEGPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: VDLKGPELDLK is observed more than once in protein: Q8IVF2
+peptide: VDLKGPQLDVK is observed more than once in protein: Q8IVF2
+peptide: VDLNAPDVDVQGPDWHLK is observed more than once in protein: Q09666
+peptide: VDVDVPDVNLEGPDAK is observed more than once in protein: Q09666
+peptide: VDVEVPDVSLEGPEGK is observed more than once in protein: Q09666
+peptide: VEADVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: VEADVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: VEADVSLSSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: VEGDLKGPEVDLK is observed more than once in protein: Q09666
+peptide: VEGDLKGPEVDLKGPK is observed more than once in protein: Q09666
+peptide: VEGDLKGPEVDLR is observed more than once in protein: Q09666
+peptide: VEGEMKVPDVDLK is observed more than once in protein: Q09666
+peptide: VEGEMKVPDVDLKGPK is observed more than once in protein: Q09666
+peptide: VEGEMKVPDVDLKGPK is observed more than once in protein: Q09666
+peptide: VEMPSLK is observed more than once in protein: Q8IVF2
+peptide: VGENVSDVAPTRPR is observed more than once in protein: Q96RT7
+peptide: VKGDMDVSLPK is observed more than once in protein: Q09666
+peptide: VKGDMDVSLPK is observed more than once in protein: Q09666
+peptide: VKGDMDVSVPK is observed more than once in protein: Q09666
+peptide: VKGDMDVSVPK is observed more than once in protein: Q09666
+peptide: VKGDMDVSVPKVEGEMK is observed more than once in protein: Q09666
+peptide: VKGDVDLSLPK is observed more than once in protein: Q09666
+peptide: VKGDVDVSLPK is observed more than once in protein: Q09666
+peptide: VKGDVDVSVPK is observed more than once in protein: Q09666
+peptide: VLADPSDDTK is observed more than once in protein: P58107
+peptide: VLADPSDDTK is observed more than once in protein: Q15149
+peptide: VPDVDLK is observed more than once in protein: Q09666
+peptide: VPDVDLKGPK is observed more than once in protein: Q09666
+peptide: VPDVDLR is observed more than once in protein: Q09666
+peptide: VPDVELK is observed more than once in protein: Q09666
+peptide: VPEPCQPK is observed more than once in protein: P35321
+peptide: VPVDVAYR is observed more than once in protein: P58107
+peptide: VQAGQVDVK is observed more than once in protein: Q8IVF2
+peptide: VQMPSFK is observed more than once in protein: Q8IVF2
+peptide: YLEVFK is observed more than once in protein: P52597
+peptide: YSPTSPTYSPTSPK is observed more than once in protein: P24928

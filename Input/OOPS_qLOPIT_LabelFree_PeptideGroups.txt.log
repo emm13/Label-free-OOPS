@@ -1,0 +1,1568 @@
+Logfile for annotate_rnp.py 2019-05-29 10:47:46
+
+
+==============================================================================
+Script arguments:
+--------------------------------------------------------------------------------
+infile: ['OOPS_qLOPIT_LabelFree_PeptideGroups.txt']
+fasta_db: Uniprot_Human_Anja_April2019.fasta
+fasta_crap_db: cRAP_20181217.fasta
+pep_column: Sequence
+matches_column: Master Protein Accessions
+check_crap: True
+strict_sw: False
+matches_sep: ; 
+crap_use_accession: False
+outfile: OOPS_qLOPIT_LabelFree_PeptideGroups_parsed.txt
+outfile_suffix: None
+logfile: OOPS_qLOPIT_LabelFree_PeptideGroups.txt.log
+==============================================================================
+
+protein P61251 matches peptide FRPAGAAPRPPPKPM but is not found in fasta database
+protein Q8VDD5 matches peptide QLLQANPILEAFGNAK but is not found in fasta database
+protein Q8VDD5 matches peptide QLLQANPILEAFGNAK but is not found in fasta database
+protein B7ZC77 matches peptide LLEPLVTQVTTLVNTSNK but is not found in fasta database
+protein P30427 matches peptide TQLASWSDPTEETGPVAGILDTETLEK but is not found in fasta database
+protein P30427 matches peptide TQLASWSDPTEETGPVAGILDTETLEK but is not found in fasta database
+protein P30427 matches peptide FLEVQYLTGGLIEPDTPGR but is not found in fasta database
+protein P30427 matches peptide FLEVQYLTGGLIEPDTPGR but is not found in fasta database
+protein Q8VDD5 matches peptide IIGLDQVAGMSETALPGAFK but is not found in fasta database
+protein Q8VDD5 matches peptide IIGLDQVAGMSETALPGAFK but is not found in fasta database
+protein Q8VDD5 matches peptide IIGLDQVAGMSETALPGAFK but is not found in fasta database
+protein P12269 matches peptide LPIVNENDELVAIIAR but is not found in fasta database
+protein P12269 matches peptide LPIVNENDELVAIIAR but is not found in fasta database
+protein A5A6M3 matches peptide AIKVEQATKPSFESGR but is not found in fasta database
+protein P30427 matches peptide LLLEAQAATGFLLDPVKGER but is not found in fasta database
+protein P30427 matches peptide LLLEAQAATGFLLDPVKGER but is not found in fasta database
+protein Q7KQL5 matches peptide ALTVPELTQQMFDAK but is not found in fasta database
+protein A5A6I3 matches peptide VIGLSSDLQQVGGASAR but is not found in fasta database
+protein P62704 matches peptide FDTGNLCMVTGGANLGR but is not found in fasta database
+protein P61979 matches peptide IILDLISESPIK but is not found in fasta database
+protein P30427 matches peptide GFFDPNTHENLTYLQLLER but is not found in fasta database
+protein P30427 matches peptide GFFDPNTHENLTYLQLLER but is not found in fasta database
+protein P30427 matches peptide GFFDPNTHENLTYLQLLER but is not found in fasta database
+protein P61979 matches peptide IITITGTQDQIQNAQYLLQNSVK but is not found in fasta database
+protein P61979 matches peptide IITITGTQDQIQNAQYLLQNSVK but is not found in fasta database
+protein P61979 matches peptide IITITGTQDQIQNAQYLLQNSVK but is not found in fasta database
+protein P52480 matches peptide CCSGAIIVLTK but is not found in fasta database
+protein Q05825 matches peptide AIAELGIYPAVDPLDSTSR but is not found in fasta database
+protein P30427 matches peptide LEEQAAQHKADIEER but is not found in fasta database
+protein P30427 matches peptide DTHDQLSEPSEVR but is not found in fasta database
+protein P30427 matches peptide AQLEPVASPAKKPK but is not found in fasta database
+protein A5A6P1 matches peptide NAGNCLSPAVIVGLLK but is not found in fasta database
+protein P12269 matches peptide VAQGVSGAVQDK but is not found in fasta database
+protein Q5SQX6 matches peptide SVETDSSTVEHVR but is not found in fasta database
+protein C0HKA0 matches peptide TKTPGPGAQSALR but is not found in fasta database
+protein Q7YR37 matches peptide LQGQLEQGDDTAAERLEK but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEK but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEK but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEK but is not found in fasta database
+protein Q8VDD5 matches peptide KLEGDSTDLSDQIAELQAQIAELK but is not found in fasta database
+protein Q8VDD5 matches peptide KLEGDSTDLSDQIAELQAQIAELK but is not found in fasta database
+protein P08775 matches peptide AHNNELEPTPGNTLR but is not found in fasta database
+protein A5A6H5 matches peptide VVDALGNAIDGKGPIGSK but is not found in fasta database
+protein Q28141 matches peptide FSDHVALLSVFQAWDDAR but is not found in fasta database
+protein Q28141 matches peptide FSDHVALLSVFQAWDDAR but is not found in fasta database
+protein P61979 matches peptide ILSISADIETIGEILKK but is not found in fasta database
+protein P30427 matches peptide GFFDPNTEENLTYLQLMER but is not found in fasta database
+protein P30427 matches peptide GFFDPNTEENLTYLQLMER but is not found in fasta database
+protein P30427 matches peptide GFFDPNTEENLTYLQLMER but is not found in fasta database
+protein A5A6J1 matches peptide FDGALNVDLTEFQTNLVPYPR but is not found in fasta database
+protein A5A6J1 matches peptide FDGALNVDLTEFQTNLVPYPR but is not found in fasta database
+protein A5A6J1 matches peptide FDGALNVDLTEFQTNLVPYPR but is not found in fasta database
+protein Q8R180 matches peptide LGAVDESLSEETQK but is not found in fasta database
+protein P61979 matches peptide IILDLISESPIKGR but is not found in fasta database
+protein P02453 matches peptide ALLLQGSNEIEIR but is not found in fasta database
+protein P30427 matches peptide LEDLLQDAQDEKEQLNEYK but is not found in fasta database
+protein P30427 matches peptide LEDLLQDAQDEKEQLNEYK but is not found in fasta database
+protein P52480 matches peptide GVNLPGAAVDLPAVSEK but is not found in fasta database
+protein P12269 matches peptide RFGVPVIADGGIQNVGHIAK but is not found in fasta database
+protein Q5SQX6 matches peptide YAPLHLVPLIER but is not found in fasta database
+protein P30427 matches peptide LLDAQLATGGIVDPR but is not found in fasta database
+protein Q8VDD5 matches peptide TELEDTLDSTAAQQELR but is not found in fasta database
+protein P61979 matches peptide KIIPTLEEGLQLPSPTATSQLPLESDAVECLNYQHYK but is not found in fasta database
+protein P30427 matches peptide LLDPEDVDVPQPDEK but is not found in fasta database
+protein Q61584 matches peptide KVPGVTAIELDEDTGTFR but is not found in fasta database
+protein Q8CJG0 matches peptide SVSIPAPAYYAHLVAFR but is not found in fasta database
+protein Q8VDD5 matches peptide SMMQDREDQSILCTGESGAGK but is not found in fasta database
+protein Q8VDD5 matches peptide HEMPPHIYAITDTAYR but is not found in fasta database
+protein Q61191 matches peptide VASSPVMVSNPATR but is not found in fasta database
+protein P11499 matches peptide ADLINNLGTIAK but is not found in fasta database
+protein P30427 matches peptide LLEAQIATGGIIDPEESHR but is not found in fasta database
+protein P30427 matches peptide YSELTTLTSQYIK but is not found in fasta database
+protein Q8VDD5 matches peptide VIQYLAHVASSHK but is not found in fasta database
+protein P11499 matches peptide HSQFIGYPITLYLEK but is not found in fasta database
+protein P30427 matches peptide LQNVQIALDYLR but is not found in fasta database
+protein Q8VDD5 matches peptide RQAQQERDELADEIANSSGK but is not found in fasta database
+protein P52480 matches peptide KGVNLPGAAVDLPAVSEK but is not found in fasta database
+protein Q61191 matches peptide AVTTVTQSTPVPGPSVPPPEELQVSPGPR but is not found in fasta database
+protein A5A6K4 matches peptide ACANPAAGSVILLENLR but is not found in fasta database
+protein A5A6K4 matches peptide ACANPAAGSVILLENLR but is not found in fasta database
+protein Q61191 matches peptide AVTTVTQSTPVPGPSVPPPEELQVSPGPR but is not found in fasta database
+protein A5A6J1 matches peptide AVCMLSNTTAIAEAWAR but is not found in fasta database
+protein A5A6J1 matches peptide AVCMLSNTTAIAEAWAR but is not found in fasta database
+protein A5A6J1 matches peptide AVCMLSNTTAIAEAWAR but is not found in fasta database
+protein A5A6J1 matches peptide AVCMLSNTTAIAEAWAR but is not found in fasta database
+protein Q61584 matches peptide EDLMGLAIGTHGSNIQQAR but is not found in fasta database
+protein P52480 matches peptide GADFLVTEVENGGSLGSKK but is not found in fasta database
+protein Q8VDD5 matches peptide TQLEELEDELQATEDAK but is not found in fasta database
+protein P30427 matches peptide VVIVDPETGKEMSVYEAYR but is not found in fasta database
+protein Q8VDD5 matches peptide LKNKHEAMITDLEER but is not found in fasta database
+protein Q28141 matches peptide AIEPPPLDAVIEAEHTLR but is not found in fasta database
+protein Q76KA2 matches peptide VCTLAIIDPGDSDIIR but is not found in fasta database
+protein A5A6K4 matches peptide ITLPVDFVTADKFDENAK but is not found in fasta database
+protein Q9QX47 matches peptide LSEPKPIFFNLNIAAAKPTPPK but is not found in fasta database
+protein P30427 matches peptide LGFHLPLEVAYQR but is not found in fasta database
+protein Q61584 matches peptide SSISSVLKDPDSNPYSLLDNTESDQTADTDASESHHSTNR but is not found in fasta database
+protein Q8VDD5 matches peptide ANLQIDQINTDLNLER but is not found in fasta database
+protein Q8VDD5 matches peptide ANLQIDQINTDLNLER but is not found in fasta database
+protein Q8VDD5 matches peptide ANLQIDQINTDLNLER but is not found in fasta database
+protein Q61584 matches peptide SSISSVLKDPDSNPYSLLDNTESDQTADTDASESHHSTNR but is not found in fasta database
+protein P30427 matches peptide GIYQSLEGAVQAGQLK but is not found in fasta database
+protein P30427 matches peptide GIYQSLEGAVQAGQLK but is not found in fasta database
+protein P30427 matches peptide VQSGSESVIQEYVDLR but is not found in fasta database
+protein P30427 matches peptide VQSGSESVIQEYVDLR but is not found in fasta database
+protein P30427 matches peptide QTNLENLDQAFSVAER but is not found in fasta database
+protein P30427 matches peptide QTNLENLDQAFSVAER but is not found in fasta database
+protein P12269 matches peptide KYEQGFITDPVVLSPK but is not found in fasta database
+protein P02453 matches peptide SGEYWIDPNQGCNLDAIK but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEELEEEQGNTELINDR but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEELEEEQGNTELINDR but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEELEEEQGNTELINDR but is not found in fasta database
+protein P52480 matches peptide EAEAAIYHLQLFEELRR but is not found in fasta database
+protein Q7YR37 matches peptide IGFFNQQYAEQLR but is not found in fasta database
+protein Q9QX47 matches peptide AGVPLPPNLKPAPPPTIEEK but is not found in fasta database
+protein P30376 matches peptide FIAVGYVDDTQFVR but is not found in fasta database
+protein P13749 matches peptide FIAVGYVDDTQFVR but is not found in fasta database
+protein A5A6K4 matches peptide ALESPERPFLAILGGAK but is not found in fasta database
+protein Q8VDD5 matches peptide QELEEICHDLEAR but is not found in fasta database
+protein Q5SQX6 matches peptide AVGPSSTQLYMVR but is not found in fasta database
+protein P30427 matches peptide LEDLLQDAQDEKEQLNEYKGHLSGLAK but is not found in fasta database
+protein P30427 matches peptide LEDLLQDAQDEKEQLNEYKGHLSGLAK but is not found in fasta database
+protein P52480 matches peptide KGVNLPGAAVDLPAVSEKDIQDLK but is not found in fasta database
+protein P52480 matches peptide KGVNLPGAAVDLPAVSEKDIQDLK but is not found in fasta database
+protein P11499 matches peptide YHTSQSGDEMTSLSEYVSR but is not found in fasta database
+protein P11499 matches peptide YHTSQSGDEMTSLSEYVSR but is not found in fasta database
+protein Q28141 matches peptide KEEQEVQATLESEEVDLNAGLHGNWTLENAK but is not found in fasta database
+protein Q28141 matches peptide KEEQEVQATLESEEVDLNAGLHGNWTLENAK but is not found in fasta database
+protein P30427 matches peptide VLADPSDDTKGFFDPNTHENLTYLQLLER but is not found in fasta database
+protein P30427 matches peptide VLADPSDDTKGFFDPNTHENLTYLQLLER but is not found in fasta database
+protein Q8VDD5 matches peptide SMEAEMIQLQEELAAAER but is not found in fasta database
+protein Q8VDD5 matches peptide SMEAEMIQLQEELAAAER but is not found in fasta database
+protein Q8VDD5 matches peptide SMEAEMIQLQEELAAAER but is not found in fasta database
+protein Q8VDD5 matches peptide SMEAEMIQLQEELAAAER but is not found in fasta database
+protein Q8VDD5 matches peptide DFSALESQLQDTQELLQEENRQK but is not found in fasta database
+protein Q8VDD5 matches peptide DFSALESQLQDTQELLQEENRQK but is not found in fasta database
+protein P61979 matches peptide GSYGDLGGPIITTQVTIPK but is not found in fasta database
+protein P61979 matches peptide GSYGDLGGPIITTQVTIPK but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEELEEEQGNTELINDRLK but is not found in fasta database
+protein P61979 matches peptide IDEPLEGSEDRIITITGTQDQIQNAQYLLQNSVK but is not found in fasta database
+protein P61979 matches peptide IDEPLEGSEDRIITITGTQDQIQNAQYLLQNSVK but is not found in fasta database
+protein A5A6H5 matches peptide TGAIVDVPVGEELLGR but is not found in fasta database
+protein P61979 matches peptide IDEPLEGSEDRIITITGTQDQIQNAQYLLQNSVK but is not found in fasta database
+protein A5A6K4 matches peptide LGDVYVNDAFGTAHR but is not found in fasta database
+protein A5A6K4 matches peptide LGDVYVNDAFGTAHR but is not found in fasta database
+protein P30427 matches peptide SKGIYQSLEGAVQAGQLK but is not found in fasta database
+protein Q03555 matches peptide DTASLSTTPSESPR but is not found in fasta database
+protein P30427 matches peptide QVQVALETAQR but is not found in fasta database
+protein Q8VDD5 matches peptide AGKLDPHLVLDQLR but is not found in fasta database
+protein Q8VDD5 matches peptide ASREEILAQAKENEK but is not found in fasta database
+protein Q8VDD5 matches peptide AKQTLENERGELANEVK but is not found in fasta database
+protein A5A6H5 matches peptide TGTAEMSSILEER but is not found in fasta database
+protein A5A6H5 matches peptide TGTAEMSSILEER but is not found in fasta database
+protein Q8VDD5 matches peptide QRYEILTPNSIPK but is not found in fasta database
+protein A5A6P1 matches peptide AGTGVDNVDLEAATR but is not found in fasta database
+protein A5A6P1 matches peptide AGTGVDNVDLEAATR but is not found in fasta database
+protein Q28141 matches peptide YQILPLHSQIPR but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEQLDNETKER but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEQLDNETKER but is not found in fasta database
+protein Q9GLM4 matches peptide SGYIPSGHSLGTPEPAPR but is not found in fasta database
+protein P30427 matches peptide LEDLLQDAQDEK but is not found in fasta database
+protein Q8VDD5 matches peptide ALEEAMEQKAELER but is not found in fasta database
+protein Q8VDD5 matches peptide HEAMITDLEER but is not found in fasta database
+protein P62806 matches peptide TVTAMDVVYALKR but is not found in fasta database
+protein P52480 matches peptide LNFSHGTHEYHAETIK but is not found in fasta database
+protein P61979 matches peptide RPAEDMEEEQAFKR but is not found in fasta database
+protein P61979 matches peptide RPAEDMEEEQAFKR but is not found in fasta database
+protein Q8VDD5 matches peptide EMEAELEDERK but is not found in fasta database
+protein P62631 matches peptide SGDAAIVEMVPGKPMCVESFSQYPPLGR but is not found in fasta database
+protein P08775 matches peptide TVITPDPNLSIDQVGVPR but is not found in fasta database
+protein P08775 matches peptide TVITPDPNLSIDQVGVPR but is not found in fasta database
+protein Q9GLM4 matches peptide VSAQGITLTDNQR but is not found in fasta database
+protein Q8VDD5 matches peptide KVEAQLQELQVK but is not found in fasta database
+protein Q9QX47 matches peptide IEEVLSGVLDTELR but is not found in fasta database
+protein P30427 matches peptide REEAAVDAQQQKR but is not found in fasta database
+protein Q8VDD5 matches peptide NTDQASMPDNTAAQK but is not found in fasta database
+protein Q8VDD5 matches peptide NTDQASMPDNTAAQK but is not found in fasta database
+protein Q8VDD5 matches peptide TEMEDLMSSKDDVGK but is not found in fasta database
+protein Q8VDD5 matches peptide TEMEDLMSSKDDVGK but is not found in fasta database
+protein Q8VDD5 matches peptide TEMEDLMSSKDDVGK but is not found in fasta database
+protein Q9QX47 matches peptide AAPVTGGMGAVLMR but is not found in fasta database
+protein P61979 matches peptide LFQECCPHSTDR but is not found in fasta database
+protein P30427 matches peptide QRELAEQELEK but is not found in fasta database
+protein A5A6M3 matches peptide GFAFVTFESPADAK but is not found in fasta database
+protein P30427 matches peptide RLEEQAAQHKADIEER but is not found in fasta database
+protein A5A6J1 matches peptide LIGQIVSSITASLR but is not found in fasta database
+protein Q9WV25 matches peptide LGLPPLTPEQQEALQK but is not found in fasta database
+protein P30427 matches peptide SIITYVSSLYDAMPR but is not found in fasta database
+protein P30427 matches peptide SIITYVSSLYDAMPR but is not found in fasta database
+protein P52480 matches peptide GADFLVTEVENGGSLGSK but is not found in fasta database
+protein P52480 matches peptide GADFLVTEVENGGSLGSK but is not found in fasta database
+protein P52480 matches peptide EAEAAIYHLQLFEELR but is not found in fasta database
+protein P52480 matches peptide EAEAAIYHLQLFEELR but is not found in fasta database
+protein Q8VDD5 matches peptide NMDPLNDNIATLLHQSSDKFVSELWK but is not found in fasta database
+protein A2T806 matches peptide TGADTTAAGPLFQQRPYPSPGAVLR but is not found in fasta database
+protein P30427 matches peptide GIIRPGTAFELLEAQAATGYVIDPIK but is not found in fasta database
+protein Q7YR37 matches peptide RLQGQLEQGDDTAAER but is not found in fasta database
+protein P30427 matches peptide GIIRPGTAFELLEAQAATGYVIDPIK but is not found in fasta database
+protein P30427 matches peptide GLFDEEMNEILTDPSDDTK but is not found in fasta database
+protein P30427 matches peptide GLFDEEMNEILTDPSDDTK but is not found in fasta database
+protein P61251 matches peptide DISEASVFDAYVLPK but is not found in fasta database
+protein Q8VDD5 matches peptide TRLQQELDDLLVDLDHQR but is not found in fasta database
+protein Q8VDD5 matches peptide TRLQQELDDLLVDLDHQR but is not found in fasta database
+protein P30427 matches peptide AKLEQLFQDEVAK but is not found in fasta database
+protein P61979 matches peptide LLIHQSLAGGIIGVK but is not found in fasta database
+protein P43277 matches peptide ALAAAGYDVEKNNSR but is not found in fasta database
+protein P43277 matches peptide ALAAAGYDVEKNNSR but is not found in fasta database
+protein A5A6J1 matches peptide AFVHWYVGEGMEEGEFSEAR but is not found in fasta database
+protein Q4R6F6 matches peptide TGSISSSVSVPAKPER but is not found in fasta database
+protein P52480 matches peptide CDENILWLDYK but is not found in fasta database
+protein P30427 matches peptide LLDAQLSTGGIVDPSK but is not found in fasta database
+protein P30427 matches peptide LLDAQLSTGGIVDPSK but is not found in fasta database
+protein P52480 matches peptide RFDEILEASDGIMVAR but is not found in fasta database
+protein Q8VDD5 matches peptide KMQQNIQELEEQLEEEESAR but is not found in fasta database
+protein P30427 matches peptide LLEAQIATGGIIDPEESHRLPVEVAYK but is not found in fasta database
+protein P30427 matches peptide LLEAQIATGGIIDPEESHRLPVEVAYK but is not found in fasta database
+protein Q8C5L3 matches peptide EGSGNPTPLINPLAGR but is not found in fasta database
+protein A5A6M3 matches peptide VEQATKPSFESGR but is not found in fasta database
+protein Q8VDD5 matches peptide KMQQNIQELEEQLEEEESAR but is not found in fasta database
+protein P11499 matches peptide TLTIVDTGIGMTK but is not found in fasta database
+protein P13749 matches peptide SWTAADMAAQITQR but is not found in fasta database
+protein P09180 matches peptide RNNRQAYAVSELAGHQTSAESWGTGR but is not found in fasta database
+protein A5A6J1 matches peptide EDMAALEKDYEEVGVDSVEGEGEEEGEEY but is not found in fasta database
+protein Q8VDD5 matches peptide LQLQEQLQAETELCAEAEELR but is not found in fasta database
+protein Q8VDD5 matches peptide LQLQEQLQAETELCAEAEELR but is not found in fasta database
+protein Q8VDD5 matches peptide LQLQEQLQAETELCAEAEELR but is not found in fasta database
+protein A5A6P1 matches peptide ALVDHENVISCPHLGASTK but is not found in fasta database
+protein C0HKA0 matches peptide IEDVTPIPSDSTR but is not found in fasta database
+protein Q8VDD5 matches peptide KANLQIDQINTDLNLER but is not found in fasta database
+protein Q8VDD5 matches peptide KANLQIDQINTDLNLER but is not found in fasta database
+protein B7ZC77 matches peptide LESIISGAALMADSSCTR but is not found in fasta database
+protein Q7YR37 matches peptide NQDEESQEAPELLK but is not found in fasta database
+protein Q8VDD5 matches peptide NFINNPLAQADWAAK but is not found in fasta database
+protein Q7KQL5 matches peptide MREIVHIQAGQCGNQIGAK but is not found in fasta database
+protein P30427 matches peptide GYLNKDTHDQLSEPSEVR but is not found in fasta database
+protein Q8VDD5 matches peptide NMDPLNDNIATLLHQSSDK but is not found in fasta database
+protein P30427 matches peptide GYLNKDTHDQLSEPSEVR but is not found in fasta database
+protein Q8VDD5 matches peptide MQQNIQELEEQLEEEESAR but is not found in fasta database
+protein Q8VDD5 matches peptide MQQNIQELEEQLEEEESAR but is not found in fasta database
+protein Q8VDD5 matches peptide MQQNIQELEEQLEEEESAR but is not found in fasta database
+protein P30427 matches peptide AGTLSITEFADMLSGNAGGFR but is not found in fasta database
+protein P30427 matches peptide AGTLSITEFADMLSGNAGGFR but is not found in fasta database
+protein P30427 matches peptide AGTLSITEFADMLSGNAGGFR but is not found in fasta database
+protein A2T6Y4 matches peptide QGFGELLQAVPLADSFR but is not found in fasta database
+protein P11499 matches peptide GFEVVYMTEPIDEYCVQQLK but is not found in fasta database
+protein Q8VDD5 matches peptide LTKDFSALESQLQDTQELLQEENR but is not found in fasta database
+protein Q05825 matches peptide VALTGLTVAEYFR but is not found in fasta database
+protein P30427 matches peptide FLEGTSCIAGVFVDATK but is not found in fasta database
+protein Q8VDD5 matches peptide ALEQQVEEMKTQLEELEDELQATEDAK but is not found in fasta database
+protein Q8VDD5 matches peptide ALEQQVEEMKTQLEELEDELQATEDAK but is not found in fasta database
+protein P86700 matches peptide SYELPDGQVITIGNER but is not found in fasta database
+protein P86700 matches peptide SYELPDGQVITIGNER but is not found in fasta database
+protein P62704 matches peptide TDITYPAGFMDVISIDK but is not found in fasta database
+protein Q8VDD5 matches peptide RKLEGDSTDLSDQIAELQAQIAELK but is not found in fasta database
+protein A5A6H5 matches peptide QGQYSPMAIEEQVAVIYAGVR but is not found in fasta database
+protein P30427 matches peptide KGIIRPGTAFELLEAQAATGYVIDPIK but is not found in fasta database
+protein P30427 matches peptide VLALPEPSPAAPTLR but is not found in fasta database
+protein P11499 matches peptide GVVDSEDIPLNLSR but is not found in fasta database
+protein Q8VDD5 matches peptide LQQELDDLLVDLDHQR but is not found in fasta database
+protein Q8VDD5 matches peptide LQQELDDLLVDLDHQR but is not found in fasta database
+protein A5A6J1 matches peptide TIQFVDWCPTGFK but is not found in fasta database
+protein Q8VDD5 matches peptide FLSNGHVTIPGQQDKDMFQETMEAMR but is not found in fasta database
+protein A5A6M4 matches peptide VYEIQDIYENSWTK but is not found in fasta database
+protein Q8VDD5 matches peptide VEDMAELTCLNEASVLHNLK but is not found in fasta database
+protein Q8VDD5 matches peptide FLSNGHVTIPGQQDKDMFQETMEAMR but is not found in fasta database
+protein Q8VDD5 matches peptide TQLEELEDELQATEDAKLR but is not found in fasta database
+protein P30427 matches peptide EEAAVDAQQQKR but is not found in fasta database
+protein P30427 matches peptide FLEGTSCIAGVFVDATKER but is not found in fasta database
+protein Q7YR37 matches peptide LQGQLEQGDDTAAER but is not found in fasta database
+protein Q7YR37 matches peptide LQGQLEQGDDTAAER but is not found in fasta database
+protein P52480 matches peptide FGVEQDVDMVFASFIR but is not found in fasta database
+protein Q9JKP5 matches peptide AAQYQVNQAAAAQAAATAAAMGIPQAVLPPLPK but is not found in fasta database
+protein Q9JHJ0 matches peptide ILPVFDEPPNPTNVEESLKR but is not found in fasta database
+protein Q8VDD5 matches peptide ELEDATETADAMNR but is not found in fasta database
+protein Q8VDD5 matches peptide ELEDATETADAMNR but is not found in fasta database
+protein P30427 matches peptide QLQLAQEAAQKR but is not found in fasta database
+protein Q28141 matches peptide ELDALDANDELTPLGR but is not found in fasta database
+protein Q28141 matches peptide ELDALDANDELTPLGR but is not found in fasta database
+protein P51881 matches peptide DFLAGGVAAAISK but is not found in fasta database
+protein Q9GLM4 matches peptide EQAIALLKDQEPGAFIIR but is not found in fasta database
+protein A5A6H5 matches peptide FENAFLSHVVSQHQALLGTIR but is not found in fasta database
+protein A2T6Y4 matches peptide VSYGIGEEEHDQEGR but is not found in fasta database
+protein P52480 matches peptide AGKPVICATQMLESMIK but is not found in fasta database
+protein Q8VDD5 matches peptide RQLEEAEEEAQR but is not found in fasta database
+protein Q8VDD5 matches peptide NLPIYSEEIVEMYK but is not found in fasta database
+protein P11499 matches peptide LVSSPCCIVTSTYGWTANMER but is not found in fasta database
+protein A5A6J1 matches peptide KLADQCTGLQGFLVFHSFGGGTGSGFTSLLMER but is not found in fasta database
+protein O35587 matches peptide IPDQLVILDMK but is not found in fasta database
+protein A5A6J1 matches peptide KLADQCTGLQGFLVFHSFGGGTGSGFTSLLMER but is not found in fasta database
+protein Q8VDD5 matches peptide LQQLFNHTMFILEQEEYQR but is not found in fasta database
+protein Q8VDD5 matches peptide LQQLFNHTMFILEQEEYQR but is not found in fasta database
+protein Q8VDD5 matches peptide YLYVDKNFINNPLAQADWAAK but is not found in fasta database
+protein Q8VDD5 matches peptide YLYVDKNFINNPLAQADWAAK but is not found in fasta database
+protein Q8VDD5 matches peptide YLYVDKNFINNPLAQADWAAK but is not found in fasta database
+protein O35129 matches peptide IVQAEGEAEAAK but is not found in fasta database
+protein A5A6J1 matches peptide IHFPLATYAPVISAEK but is not found in fasta database
+protein A5A6J1 matches peptide TIGGGDDSFNTFFSETGAGK but is not found in fasta database
+protein A5A6J1 matches peptide TIGGGDDSFNTFFSETGAGK but is not found in fasta database
+protein A5A6J1 matches peptide AYHEQLSVAEITNACFEPANQMVK but is not found in fasta database
+protein A5A6J1 matches peptide AYHEQLSVAEITNACFEPANQMVK but is not found in fasta database
+protein A5A6J1 matches peptide AYHEQLSVAEITNACFEPANQMVK but is not found in fasta database
+protein A5A6J1 matches peptide AYHEQLSVAEITNACFEPANQMVK but is not found in fasta database
+protein A5A6J1 matches peptide QLFHPEQLITGK but is not found in fasta database
+protein O55222 matches peptide GDDTPLHLAASHGHR but is not found in fasta database
+protein A5A6J1 matches peptide VGINYQPPTVVPGGDLAK but is not found in fasta database
+protein P61979 matches peptide METEQPEETFPNTETNGEFGKRPAEDMEEEQAFKR but is not found in fasta database
+protein Q8VDD5 matches peptide DFSALESQLQDTQELLQEENR but is not found in fasta database
+protein P11499 matches peptide NPDDITQEEYGEFYK but is not found in fasta database
+protein P11499 matches peptide NPDDITQEEYGEFYK but is not found in fasta database
+protein P61979 matches peptide METEQPEETFPNTETNGEFGKRPAEDMEEEQAFKR but is not found in fasta database
+protein P61979 matches peptide METEQPEETFPNTETNGEFGKRPAEDMEEEQAFKR but is not found in fasta database
+protein Q8VDD5 matches peptide DFSALESQLQDTQELLQEENR but is not found in fasta database
+protein P02453 matches peptide TGPPGPAGQDGRPGPPGPPGAR but is not found in fasta database
+protein A5A6H5 matches peptide RTGAIVDVPVGEELLGR but is not found in fasta database
+protein A5A6K4 matches peptide VLNNMEIGTSLFDEEGAK but is not found in fasta database
+protein A5A6J1 matches peptide AVFVDLEPTVIDEVR but is not found in fasta database
+protein P30427 matches peptide DPYSGSTISLFQAMKK but is not found in fasta database
+protein Q4R6F6 matches peptide TSQEELLAEVVQGQSR but is not found in fasta database
+protein P43277 matches peptide ASGPPVSELITK but is not found in fasta database
+protein P04104 matches peptide TNAENEFVTIKK but is not found in fasta database
+protein P43277 matches peptide KASGPPVSELITK but is not found in fasta database
+protein P52480 matches peptide NTGIICTIGPASR but is not found in fasta database
+protein P30427 matches peptide VVIVDPETGKEMSVYEAYRK but is not found in fasta database
+protein A5A6J1 matches peptide NLDIERPTYTNLNR but is not found in fasta database
+protein P30376 matches peptide DGEDQTQDTELVETRPAGDGTFQK but is not found in fasta database
+protein P13749 matches peptide DGEDQTQDTELVETRPAGDGTFQK but is not found in fasta database
+protein P30376 matches peptide DGEDQTQDTELVETRPAGDGTFQK but is not found in fasta database
+protein P13749 matches peptide DGEDQTQDTELVETRPAGDGTFQK but is not found in fasta database
+protein Q7KQL5 matches peptide EVDEQMLNVQNK but is not found in fasta database
+protein P04104 matches peptide FLEQQNQVLQTK but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEQLDNETK but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEQLDNETK but is not found in fasta database
+protein A5A6M4 matches peptide VFSDEVQQQAQLSTIR but is not found in fasta database
+protein P11499 matches peptide HLEINPDHPIVETLR but is not found in fasta database
+protein Q8VDD5 matches peptide KQELEEICHDLEAR but is not found in fasta database
+protein Q8VDD5 matches peptide KQELEEICHDLEAR but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEKDSLLQR but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEKDSLLQR but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEKDSLLQR but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEKDSLLQR but is not found in fasta database
+protein P11499 matches peptide SLTNDWEDHLAVK but is not found in fasta database
+protein P61979 matches peptide IIPTLEEGLQLPSPTATSQLPLESDAVECLNYQHYK but is not found in fasta database
+protein A5A6K4 matches peptide GCITIIGGGDTATCCAK but is not found in fasta database
+protein P61979 matches peptide IIPTLEEGLQLPSPTATSQLPLESDAVECLNYQHYK but is not found in fasta database
+protein P61979 matches peptide IIPTLEEGLQLPSPTATSQLPLESDAVECLNYQHYK but is not found in fasta database
+protein P52480 matches peptide AEGSDVANAVLDGADCIMLSGETAK but is not found in fasta database
+protein P52480 matches peptide AEGSDVANAVLDGADCIMLSGETAK but is not found in fasta database
+protein P30427 matches peptide QTNLENLDQAFSVAERDLGVTR but is not found in fasta database
+protein P30427 matches peptide QTNLENLDQAFSVAERDLGVTR but is not found in fasta database
+protein P61979 matches peptide IIPTLEEGLQLPSPTATSQLPLESDAVECLNYQHYK but is not found in fasta database
+protein P52480 matches peptide AEGSDVANAVLDGADCIMLSGETAKGDYPLEAVR but is not found in fasta database
+protein P52480 matches peptide AEGSDVANAVLDGADCIMLSGETAKGDYPLEAVR but is not found in fasta database
+protein P30376 matches peptide WAAVVVPSGQEQR but is not found in fasta database
+protein Q9R1N3 matches peptide SIATLMTDEIFHDVAYK but is not found in fasta database
+protein A5A6J1 matches peptide GHYTIGKEIIDLVLDR but is not found in fasta database
+protein A5A6J1 matches peptide QLFHPEQLITGKEDAANNYAR but is not found in fasta database
+protein A5A6J1 matches peptide QLFHPEQLITGKEDAANNYAR but is not found in fasta database
+protein A5A6J1 matches peptide QLFHPEQLITGKEDAANNYAR but is not found in fasta database
+protein Q8VDD5 matches peptide QLEEAEEEAQR but is not found in fasta database
+protein Q8VDD5 matches peptide NMDPLNDNIATLLHQSSDKFVSELWKDVDR but is not found in fasta database
+protein P62631 matches peptide EGNASGVSLLEALDTILPPTRPTDKPLR but is not found in fasta database
+protein Q8VDD5 matches peptide NMDPLNDNIATLLHQSSDKFVSELWKDVDR but is not found in fasta database
+protein P30427 matches peptide RPELEDSTLR but is not found in fasta database
+protein P30427 matches peptide GLIDHQTYLELSEQECEWEEITISSSDGVVK but is not found in fasta database
+protein P30427 matches peptide GLIDHQTYLELSEQECEWEEITISSSDGVVK but is not found in fasta database
+protein P51881 matches peptide YFAGNLASGGAAGATSLCFVYPLDFAR but is not found in fasta database
+protein Q8VDD5 matches peptide DLGEELEALKTELEDTLDSTAAQQELR but is not found in fasta database
+protein Q8VDD5 matches peptide ALEQQVEEMKTQLEELEDELQATEDAKLR but is not found in fasta database
+protein P30427 matches peptide KGLVGPELHDR but is not found in fasta database
+protein Q8VDD5 matches peptide ALEQQVEEMKTQLEELEDELQATEDAKLR but is not found in fasta database
+protein P51881 matches peptide YFAGNLASGGAAGATSLCFVYPLDFAR but is not found in fasta database
+protein Q8VDD5 matches peptide QTLENERGELANEVK but is not found in fasta database
+protein Q7KQL5 matches peptide EIVHLQAGQCGNQIGAK but is not found in fasta database
+protein P30427 matches peptide GIIRPGTAFELLEAQAATGYVIDPIKGLK but is not found in fasta database
+protein A5A6K8 matches peptide NTPVYVSSPTWENHNAVFSAAGFK but is not found in fasta database
+protein A5A6P1 matches peptide QNLSKEELIAELQDCEGLIVR but is not found in fasta database
+protein A5A6L0 matches peptide LEEGPPVTTVLTR but is not found in fasta database
+protein P11499 matches peptide VILHLKEDQTEYLEER but is not found in fasta database
+protein P11499 matches peptide VILHLKEDQTEYLEER but is not found in fasta database
+protein A5A6H5 matches peptide EAYPGDVFYLHSR but is not found in fasta database
+protein Q7YR37 matches peptide AANAAENDFSVSQAEMSSR but is not found in fasta database
+protein A5A6M3 matches peptide LFIGGLNTETNEK but is not found in fasta database
+protein P30427 matches peptide LLFNDVQTLKDGR but is not found in fasta database
+protein Q7YR37 matches peptide DVDDDGEEKELMER but is not found in fasta database
+protein Q8VDD5 matches peptide VEAQLQELQVK but is not found in fasta database
+protein A5A6H5 matches peptide VVDALGNAIDGK but is not found in fasta database
+protein P52480 matches peptide GVNLPGAAVDLPAVSEKDIQDLK but is not found in fasta database
+protein P62825 matches peptide SNYNFEKPFLWLAR but is not found in fasta database
+protein P52480 matches peptide GVNLPGAAVDLPAVSEKDIQDLK but is not found in fasta database
+protein P61979 matches peptide ALRTDYNASVSVPDSSGPER but is not found in fasta database
+protein P30427 matches peptide GYYSPYSVSGSGSTAGSR but is not found in fasta database
+protein P62631 matches peptide THINIVVIGHVDSGK but is not found in fasta database
+protein P62631 matches peptide THINIVVIGHVDSGK but is not found in fasta database
+protein A5A6P1 matches peptide ALQSGQCAGAALDVFTEEPPRDR but is not found in fasta database
+protein A5A6P1 matches peptide ALQSGQCAGAALDVFTEEPPRDR but is not found in fasta database
+protein P02453 matches peptide GSAGPPGATGFPGAAGR but is not found in fasta database
+protein Q8VDD5 matches peptide QAQQERDELADEIANSSGK but is not found in fasta database
+protein Q8VDD5 matches peptide QAQQERDELADEIANSSGK but is not found in fasta database
+protein P61979 matches peptide TDYNASVSVPDSSGPER but is not found in fasta database
+protein P61979 matches peptide TDYNASVSVPDSSGPER but is not found in fasta database
+protein A5A6M4 matches peptide QLEVYTSGGDPESVAGEYGR but is not found in fasta database
+protein A5A6M4 matches peptide QLEVYTSGGDPESVAGEYGR but is not found in fasta database
+protein P30427 matches peptide SSSVGSSSSYPISSAVPR but is not found in fasta database
+protein P12269 matches peptide HGFCGIPITDTGR but is not found in fasta database
+protein A5A6J1 matches peptide TIGGGDDSFNTFFSETGAGKHVPR but is not found in fasta database
+protein A5A6J1 matches peptide TIGGGDDSFNTFFSETGAGKHVPR but is not found in fasta database
+protein P30427 matches peptide LLEAQIATGGIIDPVHSHR but is not found in fasta database
+protein P30427 matches peptide LLEAQIATGGIIDPVHSHR but is not found in fasta database
+protein P02453 matches peptide GFSGLQGPPGPPGSPGEQGPSGASGPAGPR but is not found in fasta database
+protein P02453 matches peptide GFSGLQGPPGPPGSPGEQGPSGASGPAGPR but is not found in fasta database
+protein P62631 matches peptide VETGILRPGMVVTFAPVNITTEVK but is not found in fasta database
+protein Q8VDD5 matches peptide ELEDATETADAMNREVSSLK but is not found in fasta database
+protein P11499 matches peptide ELISNASDALDKIR but is not found in fasta database
+protein P30427 matches peptide LLEAQACTGGIIDPSTGER but is not found in fasta database
+protein P62631 matches peptide EHALLAYTLGVK but is not found in fasta database
+protein A5A6H5 matches peptide ILGADTSVDLEETGR but is not found in fasta database
+protein Q8VDD5 matches peptide DELADEIANSSGK but is not found in fasta database
+protein A5A6K4 matches peptide TGQATVASGIPAGWMGLDCGPESSKK but is not found in fasta database
+protein A5A6P1 matches peptide AGTGVDNVDLEAATRK but is not found in fasta database
+protein Q61584 matches peptide EMAKDVIEEHGPSEK but is not found in fasta database
+protein A5A6P1 matches peptide ILQDGGLQVVEK but is not found in fasta database
+protein P12269 matches peptide TSSAQVEGGVHSLHSYEK but is not found in fasta database
+protein P12269 matches peptide TSSAQVEGGVHSLHSYEK but is not found in fasta database
+protein Q28141 matches peptide LAAQSCALSLVR but is not found in fasta database
+protein Q8VDD5 matches peptide ADFCIIHYAGK but is not found in fasta database
+protein Q8VDD5 matches peptide QAQQERDELADEIANSSGKGALALEEK but is not found in fasta database
+protein Q61584 matches peptide GYATDESTVSSVQGSR but is not found in fasta database
+protein Q05825 matches peptide VALVYGQMNEPPGAR but is not found in fasta database
+protein A5A6J1 matches peptide RNLDIERPTYTNLNR but is not found in fasta database
+protein P12269 matches peptide FVPYLIAGIQHSCQDIGAK but is not found in fasta database
+protein Q05825 matches peptide FTQAGSEVSALLGR but is not found in fasta database
+protein Q9GLM4 matches peptide TPLSALGLKPHNPADILLHPTGEPR but is not found in fasta database
+protein Q9WV25 matches peptide VGRPSNIGQAQPIIDQLAEEAR but is not found in fasta database
+protein Q61584 matches peptide RGPNYTSGYGTNSELSNPSETESER but is not found in fasta database
+protein Q9WV25 matches peptide VGRPSNIGQAQPIIDQLAEEAR but is not found in fasta database
+protein Q28141 matches peptide AAECNIVVTQPR but is not found in fasta database
+protein P11499 matches peptide YESLTDPSKLDSGK but is not found in fasta database
+protein Q9WV25 matches peptide AQSSQDAVSSMNLFDLGGQYLR but is not found in fasta database
+protein Q9GLM4 matches peptide TPEEEPLNLEGLVAHR but is not found in fasta database
+protein P61979 matches peptide HESGASIKIDEPLEGSEDR but is not found in fasta database
+protein Q28141 matches peptide GISHVIVDEIHER but is not found in fasta database
+protein P12269 matches peptide GKLPIVNENDELVAIIAR but is not found in fasta database
+protein P30427 matches peptide SELELTLGKLEQVR but is not found in fasta database
+protein Q8VDD5 matches peptide VEDMAELTCLNEASVLHNLKER but is not found in fasta database
+protein P9WMJ9 matches peptide IVNEPTAAALAYGLDK but is not found in fasta database
+protein Q8VDD5 matches peptide KEEELQAALAR but is not found in fasta database
+protein O35129 matches peptide IGGVQQDTILAEGLHFR but is not found in fasta database
+protein P30427 matches peptide LKAEAELLQQQK but is not found in fasta database
+protein A5A6L0 matches peptide MVNSNLASVEELKEIDVEVR but is not found in fasta database
+protein P30427 matches peptide QLAEEDLAQQR but is not found in fasta database
+protein Q9QX47 matches peptide LSENAFDLEAMSMLNR but is not found in fasta database
+protein P30427 matches peptide CITDPQTGLCLLPLKEK but is not found in fasta database
+protein Q9QX47 matches peptide LSENAFDLEAMSMLNR but is not found in fasta database
+protein P30427 matches peptide DSQDAGGFGPEDR but is not found in fasta database
+protein P11499 matches peptide HSQFIGYPITLYLEKER but is not found in fasta database
+protein P52480 matches peptide IYVDDGLISLQVK but is not found in fasta database
+protein Q76KA2 matches peptide KSEIEYYAMLAK but is not found in fasta database
+protein Q8VDD5 matches peptide AGVLAHLEEER but is not found in fasta database
+protein P10279 matches peptide VVEQMCITQYQR but is not found in fasta database
+protein P11499 matches peptide KHLEINPDHPIVETLR but is not found in fasta database
+protein A5A6H5 matches peptide TSIAIDTIINQK but is not found in fasta database
+protein P02453 matches peptide DGEAGAQGPPGPAGPAGER but is not found in fasta database
+protein Q7YR37 matches peptide TFFEELAVEDKQAGEEEK but is not found in fasta database
+protein P02453 matches peptide DGEAGAQGPPGPAGPAGER but is not found in fasta database
+protein P60024 matches peptide GLAITFVSDENDAK but is not found in fasta database
+protein P12269 matches peptide REDLVVAPAGITLK but is not found in fasta database
+protein Q9GLM4 matches peptide IIAVSFPSTANEENFR but is not found in fasta database
+protein P60024 matches peptide VNIAFNYDMPEDSDTYLHR but is not found in fasta database
+protein P12269 matches peptide FGVPVIADGGIQNVGHIAK but is not found in fasta database
+protein P30427 matches peptide HISDLYEDLR but is not found in fasta database
+protein P30427 matches peptide AVTGYKDPYSGK but is not found in fasta database
+protein A5A6M3 matches peptide DRDYSDHPSGGSYR but is not found in fasta database
+protein O55222 matches peptide MYAPAWVAPEALQK but is not found in fasta database
+protein P30427 matches peptide LLEAQIATGGIIDPEESHRLPVEVAYKR but is not found in fasta database
+protein P61979 matches peptide NLPLPPPPPPR but is not found in fasta database
+protein A5A6H5 matches peptide HALIIYDDLSK but is not found in fasta database
+protein C0HKA0 matches peptide IEDVTPIPSDSTRR but is not found in fasta database
+protein P30427 matches peptide NLVDNITGQR but is not found in fasta database
+protein P52480 matches peptide EKGADFLVTEVENGGSLGSK but is not found in fasta database
+protein A5A6J1 matches peptide LDHKFDLMYAK but is not found in fasta database
+protein Q9Z0W3 matches peptide NHDGECTAAPTNR but is not found in fasta database
+protein P30427 matches peptide QSSEAEIQAK but is not found in fasta database
+protein Q8VDD5 matches peptide HEMPPHIYAITDTAYR but is not found in fasta database
+protein P30427 matches peptide QKAQVEQELTTLR but is not found in fasta database
+protein Q8VDD5 matches peptide KVEAQLQELQVK but is not found in fasta database
+protein Q8VDD5 matches peptide NKHEAMITDLEER but is not found in fasta database
+protein Q03555 matches peptide VGVLTVSDSCFR but is not found in fasta database
+protein Q9GLM4 matches peptide TPEEEPLNLEGLVAHR but is not found in fasta database
+protein P30427 matches peptide MGIVGPEFKDK but is not found in fasta database
+protein Q8VDD5 matches peptide TVGQLYKEQLAK but is not found in fasta database
+protein P30427 matches peptide ARAEEAEAQKR but is not found in fasta database
+protein P30427 matches peptide ELAEQELEKQR but is not found in fasta database
+protein A5A6M3 matches peptide LFIGGLNTETNEK but is not found in fasta database
+protein P30427 matches peptide CITDPQTGLCLLPLK but is not found in fasta database
+protein Q8VDD5 matches peptide TFHIFYYLLSGAGEHLK but is not found in fasta database
+protein P11499 matches peptide TLTLVDTGIGMTK but is not found in fasta database
+protein P60024 matches peptide ILVATNLFGR but is not found in fasta database
+protein P61979 matches peptide IDEPLEGSEDR but is not found in fasta database
+protein P61979 matches peptide AQPYDPNFYDETYDYGGFTMMFDDRR but is not found in fasta database
+protein P61979 matches peptide AQPYDPNFYDETYDYGGFTMMFDDRR but is not found in fasta database
+protein Q28141 matches peptide LGGIGQFLAK but is not found in fasta database
+protein Q61191 matches peptide IATGHGQQGVTQVVLK but is not found in fasta database
+protein P62806 matches peptide ISGLIYEETR but is not found in fasta database
+protein Q28141 matches peptide LETHMTPEMFR but is not found in fasta database
+protein Q4R6F6 matches peptide LQFQQQQNSIHAAK but is not found in fasta database
+protein P11499 matches peptide RVFIMDSCDELIPEYLNFIR but is not found in fasta database
+protein P11499 matches peptide LVSSPCCIVTSTYGWTANMER but is not found in fasta database
+protein P30427 matches peptide REEAAVDAQQQK but is not found in fasta database
+protein P30427 matches peptide ELMWLNEKEEEEVGFDWSDR but is not found in fasta database
+protein P30427 matches peptide WQAVLAQTDVR but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEKDSLLQR but is not found in fasta database
+protein P43277 matches peptide ALAAAGYDVEK but is not found in fasta database
+protein Q8R180 matches peptide HDDSSDSFCEIDDIQSPDAEYVDLLLNPER but is not found in fasta database
+protein P30427 matches peptide LEQLFQDEVAK but is not found in fasta database
+protein P30427 matches peptide QLAEAHAQAK but is not found in fasta database
+protein A5A6J1 matches peptide RNLDIERPTYTNLNR but is not found in fasta database
+protein P12234 matches peptide IQTQPGYANTLR but is not found in fasta database
+protein P62806 matches peptide DNIQGITKPAIR but is not found in fasta database
+protein A5A6P1 matches peptide VTADVINAAEK but is not found in fasta database
+protein Q98TF6 matches peptide KREELSNVLAAMR but is not found in fasta database
+protein P11499 matches peptide EQVANSAFVER but is not found in fasta database
+protein P11499 matches peptide EQVANSAFVER but is not found in fasta database
+protein Q28141 matches peptide YTQVGPDHNR but is not found in fasta database
+protein Q9QX47 matches peptide EFPVSSGSQHR but is not found in fasta database
+protein P19139 matches peptide GGPNIITLADIVKDPVSR but is not found in fasta database
+protein P30427 matches peptide QLQLAQEAAQK but is not found in fasta database
+protein P30427 matches peptide LQLEETDHQK but is not found in fasta database
+protein P30427 matches peptide CVEDPETGLR but is not found in fasta database
+protein Q8CJG0 matches peptide HTYLPLEVCNIVAGQR but is not found in fasta database
+protein Q8VDD5 matches peptide IIGLDQVAGMSETALPGAFK but is not found in fasta database
+protein P62825 matches peptide LVLVGDGGTGK but is not found in fasta database
+protein B7ZC77 matches peptide LLEPLVTQVTTLVNTSNK but is not found in fasta database
+protein P62704 matches peptide VNDTIQIDLETGK but is not found in fasta database
+protein Q8VDD5 matches peptide KFDQLLAEEK but is not found in fasta database
+protein Q61584 matches peptide VRIEGDNENKLPR but is not found in fasta database
+protein C0HKA0 matches peptide TPGPGAQSALR but is not found in fasta database
+protein P61251 matches peptide LHYCVSCAIHSK but is not found in fasta database
+protein P62704 matches peptide GIPHLVTHDAR but is not found in fasta database
+protein P30427 matches peptide FRELAEEAAR but is not found in fasta database
+protein A5A6P1 matches peptide GTIQVITQGTSLK but is not found in fasta database
+protein Q5SQX6 matches peptide TMLESLIADK but is not found in fasta database
+protein P12763 matches peptide HTLNQIDSVK but is not found in fasta database
+protein P61028 matches peptide LLLIGDSGVGK but is not found in fasta database
+protein P02453 matches peptide GVQGPPGPAGPR but is not found in fasta database
+protein P02453 matches peptide GLTGSPGSPGPDGK but is not found in fasta database
+protein Q9Z0W3 matches peptide LLSHGVPLPNWLINSYK but is not found in fasta database
+protein P02453 matches peptide GEPGPTGIQGPPGPAGEEGKR but is not found in fasta database
+protein P02769 matches peptide YICDNQDTISSK but is not found in fasta database
+protein Q8VDD5 matches peptide LDPHLVLDQLR but is not found in fasta database
+protein Q61584 matches peptide DVIEEHGPSEK but is not found in fasta database
+protein P12269 matches peptide YEQGFITDPVVLSPK but is not found in fasta database
+protein P30427 matches peptide LLFNDVQTLK but is not found in fasta database
+protein P62704 matches peptide LSNIFVIGK but is not found in fasta database
+protein P02453 matches peptide SGEYWIDPNQGCNLDAIK but is not found in fasta database
+protein P52480 matches peptide EAEAAIYHLQLFEELRR but is not found in fasta database
+protein P12269 matches peptide NLIDAGVDALR but is not found in fasta database
+protein A5A6I3 matches peptide LHPVILASIVDSYER but is not found in fasta database
+protein P30427 matches peptide LLDPEDVDVPQPDEK but is not found in fasta database
+protein Q8VDD5 matches peptide TDLLLEPYNK but is not found in fasta database
+protein P11499 matches peptide ELISNASDALDKIR but is not found in fasta database
+protein P30427 matches peptide SQVEEELFSVR but is not found in fasta database
+protein Q61187 matches peptide LDQEVAEVDKNIELLK but is not found in fasta database
+protein Q61584 matches peptide EISEGDEVEVYSR but is not found in fasta database
+protein Q7YR37 matches peptide MEETPTEYLQR but is not found in fasta database
+protein Q5SQX6 matches peptide LGTPQQIAIAR but is not found in fasta database
+protein P30427 matches peptide LAEVEAALEK but is not found in fasta database
+protein P11499 matches peptide HSQFIGYPITLYLEK but is not found in fasta database
+protein P30427 matches peptide AQVEQELTTLR but is not found in fasta database
+protein A5A6P1 matches peptide ILQDGGLQVVEK but is not found in fasta database
+protein P60024 matches peptide NCPHIVVGTPGR but is not found in fasta database
+protein Q8VDD5 matches peptide TQLEELEDELQATEDAK but is not found in fasta database
+protein Q76KA2 matches peptide LVILANNCPALR but is not found in fasta database
+protein Q8VDD5 matches peptide YEILTPNSIPK but is not found in fasta database
+protein Q03555 matches peptide DLVQDPSLLGGTISAYK but is not found in fasta database
+protein P11499 matches peptide KHSQFIGYPITLYIEK but is not found in fasta database
+protein P30427 matches peptide RLEEQAAQHK but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEELEEEQGNTELINDRLK but is not found in fasta database
+protein Q9QX47 matches peptide EIVPESGYSASIDEINEADLVRPLLPK but is not found in fasta database
+protein P30427 matches peptide VLADPSDDTK but is not found in fasta database
+protein A5A6M4 matches peptide VFSDEVQQQAQLSTIR but is not found in fasta database
+protein P62704 matches peptide HPGSFDVVHVK but is not found in fasta database
+protein P11499 matches peptide EGLELPEDEEEK but is not found in fasta database
+protein P11499 matches peptide ELISNASDALDK but is not found in fasta database
+protein Q7YR37 matches peptide FAALDNEEEDKEEEIIK but is not found in fasta database
+protein P52480 matches peptide GDLGIEIPAEK but is not found in fasta database
+protein P02453 matches peptide DRDLEVDTTLK but is not found in fasta database
+protein Q7KQL5 matches peptide EIVHLQAGQCGNQIGAK but is not found in fasta database
+protein P02453 matches peptide GVPGPPGAVGPAGK but is not found in fasta database
+protein P30427 matches peptide LREAIAELER but is not found in fasta database
+protein Q28141 matches peptide AAMEALVVEVTK but is not found in fasta database
+protein Q9QX47 matches peptide RLTDLDKAQLLEIAK but is not found in fasta database
+protein Q8VDD5 matches peptide EMEAELEDERK but is not found in fasta database
+protein P02994 matches peptide IGGIGTVPVGR but is not found in fasta database
+protein P0CN30 matches peptide IGGIGTVPVGR but is not found in fasta database
+protein P62631 matches peptide IGGIGTVPVGR but is not found in fasta database
+protein P86700 matches peptide AVFPSIVGRPR but is not found in fasta database
+protein A5A6K4 matches peptide VSHVSTGGGASLELLEGK but is not found in fasta database
+protein Q7KQL5 matches peptide EVDEQMLNVQNK but is not found in fasta database
+protein P30427 matches peptide LRQLAEEDLAQQR but is not found in fasta database
+protein P60024 matches peptide CIALAQLLVEQNFPAIAIHR but is not found in fasta database
+protein A5A6J1 matches peptide LADQCTGLQGFLVFHSFGGGTGSGFTSLLMER but is not found in fasta database
+protein Q8VDD5 matches peptide EMEAELEDER but is not found in fasta database
+protein P09180 matches peptide SGQGAFGNMCR but is not found in fasta database
+protein P04104 matches peptide TNAENEFVTIK but is not found in fasta database
+protein Q8VDD5 matches peptide VKVNKDDIQK but is not found in fasta database
+protein P30427 matches peptide DGRHPQGEQMYR but is not found in fasta database
+protein P62806 matches peptide TVTAMDVVYALK but is not found in fasta database
+protein Q9WV25 matches peptide IYVASVHQDLSDDDIK but is not found in fasta database
+protein P30427 matches peptide EQLRQEKALLEEIER but is not found in fasta database
+protein A5A6J1 matches peptide AYHEQLSVAEITNACFEPANQMVK but is not found in fasta database
+protein Q8VDD5 matches peptide DFSALESQLQDTQELLQEENR but is not found in fasta database
+protein A5A6J1 matches peptide VGINYQPPTVVPGGDLAK but is not found in fasta database
+protein P30427 matches peptide RLAEDEAFQR but is not found in fasta database
+protein Q7KQL5 matches peptide MREIVHLQAGQCGNQIGAK but is not found in fasta database
+protein P61028 matches peptide NIEEHASSDVER but is not found in fasta database
+protein Q9QX47 matches peptide LTDLDKAQLLEIAK but is not found in fasta database
+protein P12269 matches peptide EDLVVAPAGITLK but is not found in fasta database
+protein Q28141 matches peptide TPLHEIALSIK but is not found in fasta database
+protein P08775 matches peptide TLPHFIKDDYGPESR but is not found in fasta database
+protein Q9QX47 matches peptide SGGATIEELTEK but is not found in fasta database
+protein P11499 matches peptide LGIHEDSTNR but is not found in fasta database
+protein Q8VDD5 matches peptide VRTELADKVTK but is not found in fasta database
+protein P61979 matches peptide METEQPEETFPNTETNGEFGK but is not found in fasta database
+protein A5A6K4 matches peptide AHSSMVGVNLPQK but is not found in fasta database
+protein P30427 matches peptide VTLVQTLEIQR but is not found in fasta database
+protein A5A6P1 matches peptide VLISDSLDPCCR but is not found in fasta database
+protein Q8VDD5 matches peptide VSHLLGINVTDFTR but is not found in fasta database
+protein Q05825 matches peptide TIAMDGTEGLVR but is not found in fasta database
+protein P30427 matches peptide EAIAELEREK but is not found in fasta database
+protein Q2KJ93 matches peptide YVECSALTQK but is not found in fasta database
+protein P08775 matches peptide VQFGVLSPDELKR but is not found in fasta database
+protein P30427 matches peptide TVTIWEIINSEYFTAEQRR but is not found in fasta database
+protein P30427 matches peptide QLEMSAEAER but is not found in fasta database
+protein A5A6J1 matches peptide TIQFVDWCPTGFK but is not found in fasta database
+protein P13749 matches peptide AYLEGTCVEWLR but is not found in fasta database
+protein P30427 matches peptide AEMEVLLASK but is not found in fasta database
+protein Q8VDD5 matches peptide LQQLFNHTMFILEQEEYQR but is not found in fasta database
+protein P11499 matches peptide EDQTEYLEER but is not found in fasta database
+protein P86700 matches peptide AGFAGDDAPR but is not found in fasta database
+protein P11499 matches peptide KHLEINPDHPIVETLR but is not found in fasta database
+protein P12269 matches peptide FGVPVIADGGIQNVGHIAK but is not found in fasta database
+protein A5A6K8 matches peptide VGGVQSLGGTGALR but is not found in fasta database
+protein Q05825 matches peptide VVDLLAPYAK but is not found in fasta database
+protein Q6DHE8 matches peptide ISAFGYLECSAK but is not found in fasta database
+protein P30427 matches peptide QLLEEELAR but is not found in fasta database
+protein P30376 matches peptide YLENGKETLQR but is not found in fasta database
+protein P13749 matches peptide YLENGKETLQR but is not found in fasta database
+protein P11499 matches peptide NPDDITQEEYGEFYK but is not found in fasta database
+protein Q7YR37 matches peptide IGFFNQQYAEQLR but is not found in fasta database
+protein P02453 matches peptide VFCNMETGETCVYPTQPSVAQK but is not found in fasta database
+protein Q9Z0W3 matches peptide HHLDLGHNSQAYEALTQIPDSSR but is not found in fasta database
+protein Q7YR37 matches peptide ATGAAAAEAK but is not found in fasta database
+protein Q8VDD5 matches peptide EQADFALEALAK but is not found in fasta database
+protein P62825 matches peptide VCENIPIVLCGNK but is not found in fasta database
+protein P52480 matches peptide GVNLPGAAVDLPAVSEK but is not found in fasta database
+protein P62825 matches peptide VCENIPIVLCGNK but is not found in fasta database
+protein Q2KJ93 matches peptide NVFDEAILAALEPPEPK but is not found in fasta database
+protein Q9QX47 matches peptide FREIQQELSSGR but is not found in fasta database
+protein A5A6P1 matches peptide TLGILGLGR but is not found in fasta database
+protein Q8VDD5 matches peptide THEAQIQEMR but is not found in fasta database
+protein P30427 matches peptide LEDLLQDAQDEKEQLNEYKGHLSGLAK but is not found in fasta database
+protein Q8VDD5 matches peptide KLEGDSTDLSDQIAELQAQIAELK but is not found in fasta database
+protein P43277 matches peptide KALAAAGYDVEK but is not found in fasta database
+protein P11499 matches peptide EGLELPEDEEEKKK but is not found in fasta database
+protein P30427 matches peptide EAIAELEREKEK but is not found in fasta database
+protein P30427 matches peptide RLAEDEAFQRR but is not found in fasta database
+protein A5A6K4 matches peptide ITLPVDFVTADKFDENAK but is not found in fasta database
+protein O55222 matches peptide GMAFLHTLEPLIPR but is not found in fasta database
+protein Q8VDD5 matches peptide KKVEAQLQELQVK but is not found in fasta database
+protein P30427 matches peptide EGVVGPELHHK but is not found in fasta database
+protein P11499 matches peptide GFEVVYMTEPIDEYCVQQLK but is not found in fasta database
+protein P30427 matches peptide HGERDVEVER but is not found in fasta database
+protein O35587 matches peptide RLEDLSESIVNDFAYMK but is not found in fasta database
+protein P51881 matches peptide YFPTQALNFAFK but is not found in fasta database
+protein A5A6K4 matches peptide FHVEEEGKGK but is not found in fasta database
+protein Q8VDD5 matches peptide FDQLLAEEK but is not found in fasta database
+protein P30427 matches peptide LAAEQELIR but is not found in fasta database
+protein P30427 matches peptide RQELEAELAK but is not found in fasta database
+protein A2T6Y4 matches peptide GAVAEDGDELRTEPEAK but is not found in fasta database
+protein P30427 matches peptide LSVAAQEAAR but is not found in fasta database
+protein P08775 matches peptide YSPTSPTYSPTSPK but is not found in fasta database
+protein Q61191 matches peptide ENQWFDVGVIK but is not found in fasta database
+protein Q7YR37 matches peptide FTFPDPPPLSPPVLGLHGVTFGYEGQKPLFK but is not found in fasta database
+protein O55222 matches peptide SAVVEMLIMR but is not found in fasta database
+protein P30427 matches peptide HPQGEQMYR but is not found in fasta database
+protein P43277 matches peptide KATGAATPK but is not found in fasta database
+protein Q7YR37 matches peptide AVSEEQQPALK but is not found in fasta database
+protein P08775 matches peptide YSPTSPTYSPTTPK but is not found in fasta database
+protein Q8VDD5 matches peptide ASREEILAQAK but is not found in fasta database
+protein Q8VDD5 matches peptide AGVLAHLEEERDLK but is not found in fasta database
+protein P52480 matches peptide NTGIICTIGPASR but is not found in fasta database
+protein P30427 matches peptide QRELEQLGR but is not found in fasta database
+protein A5A6J1 matches peptide EDAANNYAR but is not found in fasta database
+protein P61256 matches peptide KDDEVQVVR but is not found in fasta database
+protein P52480 matches peptide LNFSHGTHEYHAETIK but is not found in fasta database
+protein Q8VDD5 matches peptide TEMEDLMSSK but is not found in fasta database
+protein P30427 matches peptide LQAEEVAQQK but is not found in fasta database
+protein A5A6J1 matches peptide NLDIERPTYTNLNR but is not found in fasta database
+protein P04104 matches peptide FLEQQNQVLQTK but is not found in fasta database
+protein P62631 matches peptide SGDAAIVEMVPGKPMCVESFSQYPPLGR but is not found in fasta database
+protein P30427 matches peptide QLEMSAEAER but is not found in fasta database
+protein Q9JHJ0 matches peptide FGYQFTQQGPR but is not found in fasta database
+protein P63001 matches peptide LDLRDDKDTIEK but is not found in fasta database
+protein Q9QX47 matches peptide SMMSSYSAADR but is not found in fasta database
+protein P52480 matches peptide KGDVVIVLTGWRPGSGFTNTMR but is not found in fasta database
+protein P62704 matches peptide LRECLPLIIFLR but is not found in fasta database
+protein P02769 matches peptide KVPQVSTPTLVEVSR but is not found in fasta database
+protein P52480 matches peptide GSGTAEVELKK but is not found in fasta database
+protein Q9GLM4 matches peptide QGSPTPALPEKR but is not found in fasta database
+protein A5A6M3 matches peptide DYGHSSSRDDYPSR but is not found in fasta database
+protein P30427 matches peptide QRELAEQELEKQR but is not found in fasta database
+protein Q8VDD5 matches peptide VSHLLGINVTDFTR but is not found in fasta database
+protein P62825 matches peptide FNVWDTAGQEK but is not found in fasta database
+protein P30427 matches peptide SLAAEEEAAR but is not found in fasta database
+protein P30427 matches peptide VLADPSDDTKGFFDPNTHENLTYLQLLER but is not found in fasta database
+protein Q5SQX6 matches peptide EANHNVSAPYGR but is not found in fasta database
+protein P30427 matches peptide LEDLLQDAQDEK but is not found in fasta database
+protein P30427 matches peptide ELAEQELEK but is not found in fasta database
+protein A5A6M3 matches peptide VEQATKPSFESGRR but is not found in fasta database
+protein P62704 matches peptide VNDTIQIDLETGK but is not found in fasta database
+protein P61251 matches peptide FRPAGAAPRPPPKPM but is not found in fasta database
+protein Q8VDD5 matches peptide KAGKLDPHLVLDQLR but is not found in fasta database
+protein P63001 matches peptide YLECSALTQR but is not found in fasta database
+protein P30427 matches peptide QVAEEAAR but is not found in fasta database
+protein P30427 matches peptide LLFNDVQTLK but is not found in fasta database
+protein P43277 matches peptide AASGEAKPK but is not found in fasta database
+protein Q8VDD5 matches peptide CNGVLEGIR but is not found in fasta database
+protein P48149 matches peptide MNVLADALK but is not found in fasta database
+protein A5A6M3 matches peptide SAPPTRGPPPSYGGSSR but is not found in fasta database
+protein P30427 matches peptide MGIVGPEFKDK but is not found in fasta database
+protein P70288 matches peptide SIRPDNMSEYSK but is not found in fasta database
+protein P43277 matches peptide SGVSLAALKK but is not found in fasta database
+protein Q5SQX6 matches peptide TVEVLEPEVTK but is not found in fasta database
+protein Q9WV25 matches peptide VVAEVYDQER but is not found in fasta database
+protein Q8VDD5 matches peptide DLGEELEALK but is not found in fasta database
+protein P63001 matches peptide HHCPNTPIILVGTK but is not found in fasta database
+protein Q8VDD5 matches peptide RQAQQERDELADEIANSSGK but is not found in fasta database
+protein P11499 matches peptide SIYYITGESK but is not found in fasta database
+protein P61979 matches peptide GGDLMAYDRR but is not found in fasta database
+protein P11499 matches peptide YESLTDPSKLDSGKELK but is not found in fasta database
+protein Q8CJG0 matches peptide SASFNTDPYVR but is not found in fasta database
+protein P30427 matches peptide CITDPQTGLCLLPLKEK but is not found in fasta database
+protein Q03555 matches peptide LSTASCPTPK but is not found in fasta database
+protein P30427 matches peptide ATVSAPFGK but is not found in fasta database
+protein Q4R6F6 matches peptide AISEAQESVTK but is not found in fasta database
+protein Q61609 matches peptide LGDLEEAPERER but is not found in fasta database
+protein P30427 matches peptide AQLEPVASPAK but is not found in fasta database
+protein A5A6M3 matches peptide DYSDHPSGGSYR but is not found in fasta database
+protein P30427 matches peptide LKTEAEIALK but is not found in fasta database
+protein Q4R6F6 matches peptide TTNYSTVPQK but is not found in fasta database
+protein Q8VDD5 matches peptide EDQSILCTGESGAGKTENTKK but is not found in fasta database
+protein P30427 matches peptide EEAAVDAQQQK but is not found in fasta database
+protein P30427 matches peptide VPVDVAYQR but is not found in fasta database
+protein Q98TF6 matches peptide EELSNVLAAMR but is not found in fasta database
+protein P43277 matches peptide KPAAAAGAK but is not found in fasta database
+protein P11499 matches peptide ADLINNLGTIAK but is not found in fasta database
+protein P62631 matches peptide KEGNASGVSLLEALDTILPPTRPTDKPLR but is not found in fasta database
+protein P11499 matches peptide RAPFDLFENKK but is not found in fasta database
+protein Q7YR37 matches peptide GFNLPYQDAR but is not found in fasta database
+protein A5A6M3 matches peptide IVEVLLMK but is not found in fasta database
+protein A5A6M3 matches peptide GPPPSYGGSSR but is not found in fasta database
+protein A5A6K8 matches peptide IANDNSLNHEYLPILGLAEFR but is not found in fasta database
+protein P30427 matches peptide LLEAQIATGGIIDPEESHRLPVEVAYKR but is not found in fasta database
+protein Q28141 matches peptide MGGEEAEIR but is not found in fasta database
+protein Q7YR37 matches peptide FTFPDPPPLSPPVLGLHGVTFGYEGQKPLFK but is not found in fasta database
+protein P30427 matches peptide VSITEAMHR but is not found in fasta database
+protein P62806 matches peptide DAVTYTEHAK but is not found in fasta database
+protein P52480 matches peptide ITLDNAYMEK but is not found in fasta database
+protein Q4R6F6 matches peptide QTYDDGAATR but is not found in fasta database
+protein P61979 matches peptide NTDEMVELR but is not found in fasta database
+protein Q9Z0W3 matches peptide HHLDLGHNSQAYEALTQIPDSSR but is not found in fasta database
+protein Q98TF6 matches peptide YPMAVGLNK but is not found in fasta database
+protein P60024 matches peptide LTLHGLQQYYVK but is not found in fasta database
+protein P52480 matches peptide GSGTAEVELK but is not found in fasta database
+protein P62704 matches peptide FDTGNLCMVTGGANLGR but is not found in fasta database
+protein A5A6P1 matches peptide QNLSKEELIAELQDCEGLIVR but is not found in fasta database
+protein P62704 matches peptide GNKPWISLPR but is not found in fasta database
+protein Q8CJG0 matches peptide SFFTASEGCSNPLGGGR but is not found in fasta database
+protein Q9JKP5 matches peptide VIACFDSLK but is not found in fasta database
+protein P11499 matches peptide GFEVVYMTEPIDEYCVQQLK but is not found in fasta database
+protein Q61191 matches peptide YSNDLYELQASR but is not found in fasta database
+protein Q4R6F6 matches peptide SSDTNIFDSNVPSNK but is not found in fasta database
+protein Q9Z0W3 matches peptide ALECFCQAASEVGKEEFLDR but is not found in fasta database
+protein P08775 matches peptide NSINQVVQLR but is not found in fasta database
+protein Q28141 matches peptide DVVQAYPEVR but is not found in fasta database
+protein P15246 matches peptide ELVDDSINNVR but is not found in fasta database
+protein Q8VDD5 matches peptide YAEERDRAEAEAR but is not found in fasta database
+protein P61223 matches peptide VVGKEQGQNLAR but is not found in fasta database
+protein Q9Z0W3 matches peptide SFVELSGAER but is not found in fasta database
+protein Q8VDD5 matches peptide CNGVLEGIR but is not found in fasta database
+protein Q61584 matches peptide IEGDNENKLPR but is not found in fasta database
+protein P02453 matches peptide SLSQQIENIR but is not found in fasta database
+protein P11499 matches peptide HNDDEQYAWESSAGGSFTVR but is not found in fasta database
+protein Q28141 matches peptide LAQFEPSQR but is not found in fasta database
+protein P30427 matches peptide LEAQHQALVTLWHQLHVDMK but is not found in fasta database
+protein P30427 matches peptide MVEGYQGLR but is not found in fasta database
+protein P30427 matches peptide MVEGYQGLR but is not found in fasta database
+protein P15246 matches peptide VQLVVGDGR but is not found in fasta database
+protein P10279 matches peptide VVEQMCITQYQR but is not found in fasta database
+protein P52480 matches peptide APIIAVTR but is not found in fasta database
+protein Q8VDD5 matches peptide FVSELWKDVDR but is not found in fasta database
+protein P30427 matches peptide LAEDEAFQR but is not found in fasta database
+protein P30427 matches peptide AKLEQLFQDEVAK but is not found in fasta database
+protein Q28141 matches peptide ISAVSVAER but is not found in fasta database
+protein P30427 matches peptide QELEAELAK but is not found in fasta database
+protein P30427 matches peptide LVNIRNDDIADGNPK but is not found in fasta database
+protein Q8VDD5 matches peptide LEVNLQAMK but is not found in fasta database
+protein Q8VDD5 matches peptide LEVNLQAMK but is not found in fasta database
+protein P61223 matches peptide INVNEIFYDLVR but is not found in fasta database
+protein Q03555 matches peptide VLAQDVYAK but is not found in fasta database
+protein P30427 matches peptide KGWLYYEAGQR but is not found in fasta database
+protein P30427 matches peptide LKTEAEIALKEK but is not found in fasta database
+protein P43277 matches peptide SGVSLAALK but is not found in fasta database
+protein Q61584 matches peptide ANDQEPCGWWLAK but is not found in fasta database
+protein P02769 matches peptide LVNELTEFAK but is not found in fasta database
+protein A5A6J1 matches peptide DYEEVGVDSVEGEGEEEGEEY but is not found in fasta database
+protein P30427 matches peptide LQNVQIALDYLR but is not found in fasta database
+protein Q7KQL5 matches peptide AGPFGQLFRPDNFVFGQTGAGNNWAK but is not found in fasta database
+protein A5A6J1 matches peptide QLFHPEQLITGKEDAANNYAR but is not found in fasta database
+protein F1PT61 matches peptide GQGSLEDQIIQANPVLEAFGNAK but is not found in fasta database
+protein A5A6P1 matches peptide GGIVDEGALLR but is not found in fasta database
+protein P86700 matches peptide GYSFTTTAER but is not found in fasta database
+protein P62631 matches peptide QLIVGVNK but is not found in fasta database
+protein P11499 matches peptide HLEINPDHPIVETLR but is not found in fasta database
+protein P02769 matches peptide KVPQVSTPTLVEVSR but is not found in fasta database
+protein P30427 matches peptide AFCGFEDPR but is not found in fasta database
+protein P11499 matches peptide ELISNASDALDK but is not found in fasta database
+protein Q8VDD5 matches peptide ALEQQVEEMK but is not found in fasta database
+protein P30427 matches peptide AGTLSITEFADMLSGNAGGFR but is not found in fasta database
+protein P30427 matches peptide LQLEACETR but is not found in fasta database
+protein P30427 matches peptide QRLEAEAGR but is not found in fasta database
+protein P30427 matches peptide RAQQQAEAER but is not found in fasta database
+protein P04104 matches peptide TNAENEFVTIK but is not found in fasta database
+protein A5A6J1 matches peptide NLDIERPTYTNLNR but is not found in fasta database
+protein Q5SQX6 matches peptide NAFVTGIAR but is not found in fasta database
+protein P62631 matches peptide EGNASGVSLLEALDTILPPTRPTDKPLRLPLQDVYK but is not found in fasta database
+protein P04104 matches peptide TNAENEFVTIKK but is not found in fasta database
+protein P11499 matches peptide YIDQEELNK but is not found in fasta database
+protein P30427 matches peptide SYVDPSTDER but is not found in fasta database
+protein P30427 matches peptide MKQVAEEAAR but is not found in fasta database
+protein P02994 matches peptide STTTGHIIYK but is not found in fasta database
+protein P0CN30 matches peptide STTTGHIIYK but is not found in fasta database
+protein P62631 matches peptide STTTGHIIYK but is not found in fasta database
+protein P02453 matches peptide EGAPGAEGSPGR but is not found in fasta database
+protein P30427 matches peptide SKGIYQSLEGAVQAGQLK but is not found in fasta database
+protein A5A6J1 matches peptide DVNAAIATIK but is not found in fasta database
+protein A5A6J1 matches peptide DVNAAIATIK but is not found in fasta database
+protein P30427 matches peptide AELELELGR but is not found in fasta database
+protein A5A6J1 matches peptide YMACCLLYR but is not found in fasta database
+protein A5A6H5 matches peptide AVDSLVPIGR but is not found in fasta database
+protein Q8VDD5 matches peptide VDYKADEWLMK but is not found in fasta database
+protein P30427 matches peptide RAAEEAEEAR but is not found in fasta database
+protein A5A6J1 matches peptide EIIDLVLDR but is not found in fasta database
+protein P30427 matches peptide MQAVQEATR but is not found in fasta database
+protein Q8BR07 matches peptide AVVTNVQAENER but is not found in fasta database
+protein Q8VDD5 matches peptide VEEEAAQKNMALKK but is not found in fasta database
+protein Q28141 matches peptide YPSPFFVFGEK but is not found in fasta database
+protein P30427 matches peptide GLVGPELHDR but is not found in fasta database
+protein P09180 matches peptide SGQGAFGNMCR but is not found in fasta database
+protein P30427 matches peptide RLTVNEAVK but is not found in fasta database
+protein A5A6H5 matches peptide GMSLNLEPDNVGVVVFGNDK but is not found in fasta database
+protein Q8K0D5 matches peptide AIYFDGDFGQIVR but is not found in fasta database
+protein P30427 matches peptide KESYSALMR but is not found in fasta database
+protein P30427 matches peptide CITDPQTGLCLLPLK but is not found in fasta database
+protein Q8VDD5 matches peptide EMEAELEDER but is not found in fasta database
+protein P51881 matches peptide TAVAPIER but is not found in fasta database
+protein P30427 matches peptide TELATQEK but is not found in fasta database
+protein Q8K0D5 matches peptide GIIDLIEER but is not found in fasta database
+protein P61256 matches peptide FNPFVTSDR but is not found in fasta database
+protein P30427 matches peptide NDDIADGNPK but is not found in fasta database
+protein P02994 matches peptide LPLQDVYK but is not found in fasta database
+protein P0CN30 matches peptide LPLQDVYK but is not found in fasta database
+protein P62631 matches peptide LPLQDVYK but is not found in fasta database
+protein A5A6M3 matches peptide DSYESYGNSR but is not found in fasta database
+protein P30427 matches peptide SELELTLGK but is not found in fasta database
+protein P11499 matches peptide RAPFDLFENK but is not found in fasta database
+protein Q8C5L3 matches peptide GMSNNTPQLNR but is not found in fasta database
+protein P30427 matches peptide LFNAIIHR but is not found in fasta database
+protein P11499 matches peptide YESLTDPSK but is not found in fasta database
+protein Q8CJG0 matches peptide VLQPPSILYGGR but is not found in fasta database
+protein P19139 matches peptide LIDWGLAEFYHPGQEYNVR but is not found in fasta database
+protein Q6DHE8 matches peptide HFCPNVPIILVGNKK but is not found in fasta database
+protein Q2KJ93 matches peptide TPFLLVGTQIDLRDDPSTIEK but is not found in fasta database
+protein Q8VDD5 matches peptide ALELDSNLYR but is not found in fasta database
+protein P83882 matches peptide LECVEPNCR but is not found in fasta database
+protein Q8VDD5 matches peptide KANLQIDQINTDLNLER but is not found in fasta database
+protein P30427 matches peptide SMVEEGTGLR but is not found in fasta database
+protein P62825 matches peptide NLQYYDISAK but is not found in fasta database
+protein P30427 matches peptide TEAEIALK but is not found in fasta database
+protein A5A6J1 matches peptide YMACCLLYR but is not found in fasta database
+protein P52480 matches peptide CDENILWLDYK but is not found in fasta database
+protein P61979 matches peptide RPAEDMEEEQAFKR but is not found in fasta database
+protein Q8VDD5 matches peptide CIIPNHEKK but is not found in fasta database
+protein P04104 matches peptide RTNAENEFVTIKK but is not found in fasta database
+protein P70288 matches peptide YGEYFPGTGDLR but is not found in fasta database
+protein P61979 matches peptide GSDFDCELR but is not found in fasta database
+protein P11499 matches peptide APFDLFENK but is not found in fasta database
+protein A5A6J1 matches peptide EDAANNYAR but is not found in fasta database
+protein Q8VDD5 matches peptide DLQGRDEQSEEK but is not found in fasta database
+protein P30427 matches peptide LISLFQAMK but is not found in fasta database
+protein P02453 matches peptide GPPGPPGKNGDDGEAGKPGRPGER but is not found in fasta database
+protein P08775 matches peptide QTFENQVNR but is not found in fasta database
+protein P02994 matches peptide QTVAVGVIK but is not found in fasta database
+protein P0CN30 matches peptide QTVAVGVIK but is not found in fasta database
+protein P62631 matches peptide QTVAVGVIK but is not found in fasta database
+protein P30427 matches peptide AQAEVEGLGK but is not found in fasta database
+protein P30427 matches peptide GFFDPNTEENLTYLQLMER but is not found in fasta database
+protein Q9GLM4 matches peptide IVPIGQPSQR but is not found in fasta database
+protein Q9R1N3 matches peptide GPDEEAVVDLGK but is not found in fasta database
+protein C0HKA0 matches peptide IGRIEDVTPIPSDSTR but is not found in fasta database
+protein P30427 matches peptide AEMEVLLASK but is not found in fasta database
+protein A5A6K8 matches peptide IANDNSLNHEYLPILGLAEFR but is not found in fasta database
+protein Q6R0H7 matches peptide ILLLGAGESGK but is not found in fasta database
+protein P30427 matches peptide SQVEEELFSVR but is not found in fasta database
+protein P30427 matches peptide SMVEEGTGLR but is not found in fasta database
+protein A5A6P1 matches peptide DLPLLLFR but is not found in fasta database
+protein Q8CJG0 matches peptide SIEEQQKPLTDSQR but is not found in fasta database
+protein P52480 matches peptide MPKPHSEAGTAFIQTQQLHAAMADTFLEHMCR but is not found in fasta database
+protein P30427 matches peptide EAIAELER but is not found in fasta database
+protein A5A6K4 matches peptide VDFNVPMK but is not found in fasta database
+protein P30427 matches peptide AAEEAEEAR but is not found in fasta database
+protein Q8VDD5 matches peptide VAAYDKLEK but is not found in fasta database
+protein Q8VDD5 matches peptide ALEEAMEQK but is not found in fasta database
+protein Q9QX47 matches peptide EIQQELSSGR but is not found in fasta database
+protein P30427 matches peptide GLLSAEVAR but is not found in fasta database
+protein P30427 matches peptide LFNAIIHR but is not found in fasta database
+protein A5A6K4 matches peptide YSLEPVAVELK but is not found in fasta database
+protein Q9Z0W3 matches peptide ILDKLEDYQQK but is not found in fasta database
+protein Q28141 matches peptide EGETVEPYK but is not found in fasta database
+protein P61979 matches peptide GGDLMAYDR but is not found in fasta database
+protein P30427 matches peptide SLSAIYLEK but is not found in fasta database
+protein Q61584 matches peptide EDGMVPFVFVGTK but is not found in fasta database
+protein P62704 matches peptide ECLPLIIFLR but is not found in fasta database
+protein P30427 matches peptide LHVAILER but is not found in fasta database
+protein P30427 matches peptide QLQLAQEAAQK but is not found in fasta database
+protein Q7YR37 matches peptide EVLEALGEVMVSRPR but is not found in fasta database
+protein P13749 matches peptide WAAVVVPSGEEQR but is not found in fasta database
+protein P30376 matches peptide WAAVVVPSGQEQR but is not found in fasta database
+protein P61251 matches peptide NIVEAAAVR but is not found in fasta database
+protein B7ZC77 matches peptide IVAECNAVR but is not found in fasta database
+protein A5A6M3 matches peptide DSYESYGNSR but is not found in fasta database
+protein P83882 matches peptide HFELGGDK but is not found in fasta database
+protein P63001 matches peptide LTPITYPQGLAMAK but is not found in fasta database
+protein P30427 matches peptide LTVDEAVR but is not found in fasta database
+protein P30427 matches peptide ISYKDALDR but is not found in fasta database
+protein A5A6M3 matches peptide ALEAVFGK but is not found in fasta database
+protein P11499 matches peptide ADHGEPIGR but is not found in fasta database
+protein P30427 matches peptide YSELTTLTSQYIK but is not found in fasta database
+protein P12269 matches peptide LVGIISSR but is not found in fasta database
+protein Q7YR37 matches peptide TFFEELAVEDK but is not found in fasta database
+protein A5A6P1 matches peptide QADVNLVNAK but is not found in fasta database
+protein P62806 matches peptide VFLENVIR but is not found in fasta database
+protein P61979 matches peptide DLAGSIIGK but is not found in fasta database
+protein P30427 matches peptide QAADAEMEK but is not found in fasta database
+protein Q03555 matches peptide IPDSIISR but is not found in fasta database
+protein A5A6J1 matches peptide EDMAALEK but is not found in fasta database
+protein A5A6H5 matches peptide LKEIVTNFLAGFEA but is not found in fasta database
+protein A5A6P1 matches peptide QIPQATASMK but is not found in fasta database
+protein Q8VDD5 matches peptide VNKDDIQK but is not found in fasta database
+protein P30427 matches peptide AQQQAEAER but is not found in fasta database
+protein P30427 matches peptide GHLSGLAK but is not found in fasta database
+protein P11499 matches peptide IDIIPNPQER but is not found in fasta database
+protein A5A6H5 matches peptide QMSLLLR but is not found in fasta database
+protein Q9QX47 matches peptide SLPNEEIVQK but is not found in fasta database
+protein Q8VDD5 matches peptide QTLENERGELANEVK but is not found in fasta database
+protein Q61609 matches peptide LGDLEEAPER but is not found in fasta database
+protein P60024 matches peptide DFLLKPELLR but is not found in fasta database
+protein P48149 matches peptide IVVNLTGR but is not found in fasta database
+protein A2T6Y4 matches peptide NAGFTPQER but is not found in fasta database
+protein P30427 matches peptide LRLQAEEVAQQK but is not found in fasta database
+protein Q6DHE8 matches peptide MKQEPVKPEEGR but is not found in fasta database
+protein P30427 matches peptide LYVHEAVK but is not found in fasta database
+protein P12234 matches peptide GVAPLWMR but is not found in fasta database
+protein Q7KQL5 matches peptide AGPFGQLFRPDNFVFGQTGAGNNWAK but is not found in fasta database
+protein Q9Z0W3 matches peptide LLSTYLER but is not found in fasta database
+protein P61979 matches peptide HESGASIK but is not found in fasta database
+protein P30427 matches peptide MKQVAEEAAR but is not found in fasta database
+protein P09180 matches peptide LAPGGHVGR but is not found in fasta database
+protein P24717 matches peptide HIIVACEGNPFVPVHFDATV but is not found in fasta database
+protein A5A6H5 matches peptide ISVREPMQTGIK but is not found in fasta database
+protein Q28141 matches peptide RISAVSVAER but is not found in fasta database
+protein P30427 matches peptide LTVNEAVK but is not found in fasta database
+protein Q9W5R8 matches peptide EGKTDYYAR but is not found in fasta database
+protein Q28141 matches peptide NFLYAWCGK but is not found in fasta database
+protein P08775 matches peptide ISPWLLR but is not found in fasta database
+protein P30427 matches peptide ERLAEVEAALEK but is not found in fasta database
+protein P62704 matches peptide DANGNSFATR but is not found in fasta database
+protein P30427 matches peptide ESYSALMR but is not found in fasta database
+protein P08775 matches peptide SIAANMTFAEIVTPFNIDR but is not found in fasta database
+protein Q5SQX6 matches peptide NAFVTGIAR but is not found in fasta database
+protein A5A6K8 matches peptide LALGDDSPALK but is not found in fasta database
+protein Q61191 matches peptide GAPGQPGTILR but is not found in fasta database
+protein O55222 matches peptide FSFQCPGR but is not found in fasta database
+protein A2T6Y4 matches peptide KNDKEAAGEGPALYEDPPDQK but is not found in fasta database
+protein P61256 matches peptide IMSSPLSK but is not found in fasta database
+protein Q2KJ93 matches peptide QKPITPETAEK but is not found in fasta database
+protein A2T6Y4 matches peptide ICSWNVDGLR but is not found in fasta database
+protein P30427 matches peptide LAEDEAFQRR but is not found in fasta database
+protein P30427 matches peptide LSVYQAMK but is not found in fasta database
+protein P61979 matches peptide NTDEMVELR but is not found in fasta database
+protein Q7YR39 matches peptide FSTFFDDAPVFR but is not found in fasta database
+protein Q8CJG0 matches peptide AVQVHQDTLR but is not found in fasta database
+protein P62825 matches peptide FNVWDTAGQEK but is not found in fasta database
+protein P08775 matches peptide TAETGYIQR but is not found in fasta database
+protein P30427 matches peptide LTVEEAVR but is not found in fasta database
+protein P61256 matches peptide ANGTTVHVGIHPSK but is not found in fasta database
+protein P52480 matches peptide ITLDNAYMEK but is not found in fasta database
+protein A2T6Y4 matches peptide KGAVAEDGDELRTEPEAK but is not found in fasta database
+protein P30427 matches peptide ARNDESQLSPATR but is not found in fasta database
+protein Q8CJG0 matches peptide SGNIPAGTTVDTK but is not found in fasta database
+protein Q28141 matches peptide GANLKDYYSR but is not found in fasta database
+protein P30427 matches peptide LDLQYAK but is not found in fasta database
+protein Q8VDD5 matches peptide EEILAQAKENEK but is not found in fasta database
+protein P51881 matches peptide EQGVLSFWR but is not found in fasta database
+protein P61979 matches peptide RDYDDMSPR but is not found in fasta database
+protein Q9JKP5 matches peptide WLTLEVCR but is not found in fasta database
+protein P12269 matches peptide EANEILQR but is not found in fasta database
+protein P61979 matches peptide SRNTDEMVELR but is not found in fasta database
+protein P30427 matches peptide QVQDESQR but is not found in fasta database
+protein P30427 matches peptide EEAAVDAQQQKR but is not found in fasta database
+protein Q61584 matches peptide LQIDEQLR but is not found in fasta database
+protein A5A6M3 matches peptide YDDYSSSR but is not found in fasta database
+protein Q28141 matches peptide MGGEEAEIR but is not found in fasta database
+protein A5A6P1 matches peptide KILQDGGLQVVEK but is not found in fasta database
+protein Q28141 matches peptide DFVNYLVR but is not found in fasta database
+protein P62704 matches peptide LTGVFAPRPSTGPHK but is not found in fasta database
+protein P30427 matches peptide AIYEVLFR but is not found in fasta database
+protein A5A6M3 matches peptide RGPPPPPR but is not found in fasta database
+protein P30427 matches peptide RQVQDESQR but is not found in fasta database
+protein P62825 matches peptide GPIKFNVWDTAGQEK but is not found in fasta database
+protein P86700 matches peptide IKIIAPPERK but is not found in fasta database
+protein A5A6K4 matches peptide NNQITNNQR but is not found in fasta database
+protein P52480 matches peptide GDYPLEAVR but is not found in fasta database
+protein P43277 matches peptide GTGASGSFK but is not found in fasta database
+protein Q8VDD5 matches peptide RALEQQVEEMK but is not found in fasta database
+protein P30376 matches peptide FDSDAASQR but is not found in fasta database
+protein P13749 matches peptide FDSDAASQR but is not found in fasta database
+protein P63001 matches peptide TVFDEAIR but is not found in fasta database
+protein Q8VDD5 matches peptide NFINNPLAQADWAAK but is not found in fasta database
+protein P30427 matches peptide GYFDEEMNR but is not found in fasta database
+protein P30427 matches peptide AVTGYKDPYTGEQISLFQAMKK but is not found in fasta database
+protein Q7YR37 matches peptide YGLVGPNGK but is not found in fasta database
+protein P30427 matches peptide AREEAERELER but is not found in fasta database
+protein A5A6K8 matches peptide IVASTLSNPELFEEWTGNVK but is not found in fasta database
+protein Q28141 matches peptide AAMEALVVEVTKQPGIISQLDPVNER but is not found in fasta database
+protein P61979 matches peptide VVLIGGKPDR but is not found in fasta database
+protein P11499 matches peptide ALLFIPR but is not found in fasta database
+protein P04104 matches peptide YEDEINKR but is not found in fasta database
+protein P30427 matches peptide TVTIWEIINSEYFTAEQRR but is not found in fasta database
+protein P30427 matches peptide GLVEDTLR but is not found in fasta database
+protein P30427 matches peptide LQAEEAER but is not found in fasta database
+protein A5A6H5 matches peptide VLSIGDGIAR but is not found in fasta database
+protein P04104 matches peptide FASFIDK but is not found in fasta database
+protein Q6R0H7 matches peptide YTTPEDATPEPGEDPR but is not found in fasta database
+protein Q9WV25 matches peptide QAFAPFGPIK but is not found in fasta database
+protein P60024 matches peptide ILNDVQDRFEVNISELPDEIDISSYIEQTR but is not found in fasta database
+protein Q61584 matches peptide LPPPPDIK but is not found in fasta database
+protein P12234 matches peptide TVEALYK but is not found in fasta database
+protein A5A6K4 matches peptide ALMDEVVK but is not found in fasta database
+protein P61256 matches peptide DDEVQVVR but is not found in fasta database
+protein Q9W5R8 matches peptide DITVQIAYAR but is not found in fasta database
+protein P04104 matches peptide TNAENEFVTIK but is not found in fasta database
+protein A5A6J1 matches peptide LSVDYGKK but is not found in fasta database
+protein P30427 matches peptide QKGLVEDTLR but is not found in fasta database
+protein P61979 matches peptide GGDLMAYDRR but is not found in fasta database
+protein A5A6P1 matches peptide NAGNCLSPAVIVGLLK but is not found in fasta database
+protein Q8R180 matches peptide QEIVSLFNAFGR but is not found in fasta database
+protein P19139 matches peptide FNDILGR but is not found in fasta database
+protein P86700 matches peptide GYSFTTTAEREIVR but is not found in fasta database
+protein P30427 matches peptide QAQEEAER but is not found in fasta database
+protein P11499 matches peptide HFSVEGQLEFR but is not found in fasta database
+protein P30427 matches peptide ELAEEAAR but is not found in fasta database
+protein Q8VDD5 matches peptide NTNPNFVR but is not found in fasta database
+protein P61223 matches peptide LVVLGSGGVGK but is not found in fasta database
+protein Q8VDD5 matches peptide CIIPNHEK but is not found in fasta database
+protein P30427 matches peptide LLFNDVQTLKDGRHPQGEQMYR but is not found in fasta database
+protein O55222 matches peptide FDMIVPILEK but is not found in fasta database
+protein A5A6L0 matches peptide EILAELTGR but is not found in fasta database
+protein P30427 matches peptide ESYSALMR but is not found in fasta database
+protein P08775 matches peptide VVLPCNLLR but is not found in fasta database
+protein A5A6J1 matches peptide FDLMYAK but is not found in fasta database
+protein P30427 matches peptide TISLVIR but is not found in fasta database
+protein Q6DHE8 matches peptide EVFEMATR but is not found in fasta database
+protein P9WMJ9 matches peptide NTTIPTK but is not found in fasta database
+protein Q05825 matches peptide IMDPNIIGQEHYNVAR but is not found in fasta database
+protein Q61187 matches peptide LDQEVAEVDKNIELLK but is not found in fasta database
+protein Q8VDD5 matches peptide VEEEAAQK but is not found in fasta database
+protein P51881 matches peptide GAWSNVLR but is not found in fasta database
+protein P61028 matches peptide IQLWDTAGQER but is not found in fasta database
+protein P12269 matches peptide YFSEADKIK but is not found in fasta database
+protein Q4R6F6 matches peptide QTLPVAPR but is not found in fasta database
+protein P0CN30 matches peptide VETGVIKAGMVVKFAPTNVTTEVK but is not found in fasta database
+protein Q9WV25 matches peptide SVFEAFGK but is not found in fasta database
+protein P30427 matches peptide EAEQEAAR but is not found in fasta database
+protein P61028 matches peptide LQIWDTAGQER but is not found in fasta database
+protein Q8VDD5 matches peptide EEILAQAK but is not found in fasta database
+protein Q8VDD5 matches peptide SKKDQGELER but is not found in fasta database
+protein P30427 matches peptide SEEMQTVQQEQILQETQALQKSFLSEK but is not found in fasta database
+protein Q8VDD5 matches peptide VVFQEFR but is not found in fasta database
+protein P30427 matches peptide SALDQYR but is not found in fasta database
+protein Q5SQX6 matches peptide HVQLLGR but is not found in fasta database
+protein A5A6M3 matches peptide SDLYSSGR but is not found in fasta database
+protein Q8VDD5 matches peptide LQEMESAVK but is not found in fasta database
+protein P61256 matches peptide YKEETIEK but is not found in fasta database
+protein Q8BR07 matches peptide QELEQLR but is not found in fasta database
+protein Q8VDD5 matches peptide QACVLMIK but is not found in fasta database
+protein Q28141 matches peptide LNMATLR but is not found in fasta database
+protein A5A6K4 matches peptide FCLDNGAK but is not found in fasta database
+protein Q8VDD5 matches peptide KLQAQMK but is not found in fasta database
+protein A2APB8 matches peptide STEEQEIEK but is not found in fasta database
+protein P62704 matches peptide TIRYPDPLIK but is not found in fasta database
+protein P30427 matches peptide TLKPEEQR but is not found in fasta database
+protein Q8VDD5 matches peptide GALALEEKR but is not found in fasta database
+protein P62704 matches peptide IGVITNR but is not found in fasta database
+protein O35129 matches peptide IGGVQQDTILAEGLHFR but is not found in fasta database
+protein Q28141 matches peptide MTPSYEIR but is not found in fasta database
+protein P86700 matches peptide DLFANNVLSGGTTMYPGIADR but is not found in fasta database
+protein P62825 matches peptide HLTGEFEK but is not found in fasta database
+protein P24717 matches peptide QHMDSTVATSSSPTYCNQMMK but is not found in fasta database
+protein Q8VDD5 matches peptide DLEGLSQR but is not found in fasta database
+protein Q8VDD5 matches peptide TQLEELEDELQATEDAKLR but is not found in fasta database
+protein Q8VDD5 matches peptide TQLEELEDELQATEDAK but is not found in fasta database
+protein A5A6K4 matches peptide VDFNVPMKNNQITNNQR but is not found in fasta database
+protein P30427 matches peptide LLLWSQR but is not found in fasta database
+protein P04104 matches peptide SLNDKFASFIDK but is not found in fasta database
+protein Q8VDD5 matches peptide GALALEEK but is not found in fasta database
+protein Q5SQX6 matches peptide FISELAR but is not found in fasta database
+protein P30427 matches peptide VKAEAEAAR but is not found in fasta database
+protein P30427 matches peptide MGIVGPEFK but is not found in fasta database
+protein A5A6M3 matches peptide DSYGGPPR but is not found in fasta database
+protein P02453 matches peptide GFPGADGVAGPK but is not found in fasta database
+protein P30427 matches peptide QAEEIGEK but is not found in fasta database
+protein Q9QX47 matches peptide KGLVAVGER but is not found in fasta database
+protein P11499 matches peptide IEDVGSDEEDDSGKDKK but is not found in fasta database
+protein Q8VDD5 matches peptide THEAQIQEMR but is not found in fasta database
+protein Q8VDD5 matches peptide IAQLEEELEEEQGNTELINDRLK but is not found in fasta database
+protein P30427 matches peptide FAEQTLR but is not found in fasta database
+protein P02453 matches peptide DGIPGQPGLPGPPGPPGPPGPPGLGGNFAPQLSYGYDEK but is not found in fasta database
+protein P30427 matches peptide ELAQEQAR but is not found in fasta database
+protein P30427 matches peptide TVTIWEIINSEYFTAEQRR but is not found in fasta database
+protein A5A6H5 matches peptide LELAQYR but is not found in fasta database
+protein Q61584 matches peptide CTVDVPEDLR but is not found in fasta database
+protein A5A6K4 matches peptide YAEAVTR but is not found in fasta database
+protein P30427 matches peptide MSAAQALK but is not found in fasta database
+protein P62825 matches peptide SNYNFEKPFLWLAR but is not found in fasta database
+protein P02769 matches peptide DAFLGSFLYEYSR but is not found in fasta database
+protein P61979 matches peptide DYDDMSPR but is not found in fasta database
+protein P60024 matches peptide ILNDVQDR but is not found in fasta database
+protein B7ZC77 matches peptide EYAQVFR but is not found in fasta database
+protein P61256 matches peptide YVIYIER but is not found in fasta database
+protein P30427 matches peptide NDESQLSPATR but is not found in fasta database
+protein P30427 matches peptide RAQQQAEAER but is not found in fasta database
+protein A5A6J1 matches peptide LSVDYGK but is not found in fasta database
+protein P30427 matches peptide ANELQLR but is not found in fasta database
+protein P02994 matches peptide SGDAALVKFVPSKPMCVEAFSEYPPLGR but is not found in fasta database
+protein Q9JKP5 matches peptide TQLEINGR but is not found in fasta database
+protein Q03555 matches peptide LDPRPEYHR but is not found in fasta database
+protein P30427 matches peptide SEFERLECLQR but is not found in fasta database
+protein P52480 matches peptide MQHLIAR but is not found in fasta database
+protein P30427 matches peptide LSFSGLR but is not found in fasta database
+protein P08775 matches peptide VLSEKDVDPVR but is not found in fasta database
+protein Q9GLM4 matches peptide LLSGFGLER but is not found in fasta database
+protein A5A6K8 matches peptide IGADFLAR but is not found in fasta database
+protein P11499 matches peptide FYEAFSK but is not found in fasta database
+protein Q61191 matches peptide TVAVTPGTTTLPATVKVASSPVMVSNPATR but is not found in fasta database
+protein A5A6H5 matches peptide ELIIGDR but is not found in fasta database
+protein P62704 matches peptide LTIAEER but is not found in fasta database
+protein P02453 matches peptide DLEVDTTLK but is not found in fasta database
+protein P61028 matches peptide TIELDGK but is not found in fasta database
+protein Q8VDD5 matches peptide NKHEAMITDLEER but is not found in fasta database
+protein P86700 matches peptide IIAPPER but is not found in fasta database
+protein P30427 matches peptide LEEQAAQHK but is not found in fasta database
+protein Q9QX47 matches peptide LAQDPYR but is not found in fasta database
+protein P30427 matches peptide FISETLR but is not found in fasta database
+protein Q7KQL5 matches peptide IREEYPDR but is not found in fasta database
+protein P11499 matches peptide LGIHEDSTNRR but is not found in fasta database
+protein P08775 matches peptide EGLIDTAVK but is not found in fasta database
+protein P51881 matches peptide GNLANVIR but is not found in fasta database
+protein P02994 matches peptide TIEKFEK but is not found in fasta database
+protein P0CN30 matches peptide TIEKFEK but is not found in fasta database
+protein P62631 matches peptide TIEKFEK but is not found in fasta database
+protein P62631 matches peptide ADPPQEAAQFTSQVIILNHPGQISAGYSPVIDCHTAHIACK but is not found in fasta database
+protein P02453 matches peptide ADDANVVR but is not found in fasta database
+protein P30427 matches peptide AEEDAQR but is not found in fasta database
+protein P30427 matches peptide AEEAEAQKR but is not found in fasta database
+protein P13749 matches peptide VDLGTLR but is not found in fasta database
+protein P30376 matches peptide VNLGTLR but is not found in fasta database
+protein P30427 matches peptide LPVEVAYK but is not found in fasta database
+protein P61256 matches peptide KIMSSPLSK but is not found in fasta database
+protein P62704 matches peptide YPDPLIK but is not found in fasta database
+protein A5A6H5 matches peptide ISEQSDAK but is not found in fasta database
+protein Q9QX47 matches peptide AQLLEIAK but is not found in fasta database
+protein Q8R180 matches peptide AVLQWTK but is not found in fasta database
+protein Q5SQX6 matches peptide TAIPFTQEPQR but is not found in fasta database
+protein P9WMJ9 matches peptide NTTIPTKRSETFTTADDNQPSVQIQVYQGER but is not found in fasta database
+protein A2T806 matches peptide SSNADAEEKLDR but is not found in fasta database
+protein Q05825 matches peptide ILQDYK but is not found in fasta database
+protein Q9QX47 matches peptide LGQDPYR but is not found in fasta database
+protein P30427 matches peptide MGIVGPEFK but is not found in fasta database
+protein Q9GLM4 matches peptide HFLIETGPR but is not found in fasta database
+protein Q8CJG0 matches peptide NLYTAMPLPIGR but is not found in fasta database
+protein P30427 matches peptide ELEQLGR but is not found in fasta database
+protein Q61584 matches peptide VIQEIVDK but is not found in fasta database
+protein P30427 matches peptide EKMQAVQEATR but is not found in fasta database
+protein A5A6K8 matches peptide ITWSNPPAQGAR but is not found in fasta database
+protein Q8VDD5 matches peptide ADEWLMK but is not found in fasta database
+protein P12763 matches peptide ALGGEDVR but is not found in fasta database
+protein Q2KJ93 matches peptide TPFLLVGTQIDLR but is not found in fasta database
+protein P11499 matches peptide EGLELPEDEEEKK but is not found in fasta database
+protein P11499 matches peptide EDQTEYLEER but is not found in fasta database
+protein Q7YR39 matches peptide YMTDGMLLR but is not found in fasta database
+protein P02453 matches peptide GFPGLPGPSGEPGK but is not found in fasta database
+protein P62704 matches peptide ERHPGSFDVVHVK but is not found in fasta database
+protein Q28141 matches peptide LNQYFQK but is not found in fasta database
+protein P30427 matches peptide GWLYYEAGQR but is not found in fasta database
+protein P08775 matches peptide ILPWSTFR but is not found in fasta database
+protein P09180 matches peptide RNNRQAYAVSELAGHQTSAESWGTGR but is not found in fasta database
+protein P30427 matches peptide GKAEEQAVR but is not found in fasta database
+protein P70288 matches peptide IFENIR but is not found in fasta database
+protein Q9QX47 matches peptide SMMSAYER but is not found in fasta database
+protein P30427 matches peptide QAQEEAERLR but is not found in fasta database
+protein Q8VDD5 matches peptide QRYEILTPNSIPK but is not found in fasta database
+protein A5A6P1 matches peptide KVLISDSLDPCCR but is not found in fasta database
+protein Q9Z0W3 matches peptide LGDAVILGAGQLFQAQQDLLHR but is not found in fasta database
+protein P70288 matches peptide DGIDDESYGQIFKPIISK but is not found in fasta database
+protein P61979 matches peptide ILLQSKNAGAVIGK but is not found in fasta database
+protein Q61191 matches peptide YSNDLYELQASR but is not found in fasta database
+protein Q9QX47 matches peptide LTPDPYR but is not found in fasta database
+protein Q9QX47 matches peptide SQVTLTK but is not found in fasta database
+protein Q8VDD5 matches peptide SVHELEK but is not found in fasta database
+protein F1PT61 matches peptide SVHELQK but is not found in fasta database
+protein P30427 matches peptide LREAIAELEREK but is not found in fasta database
+protein Q8VDD5 matches peptide DRAEAEAR but is not found in fasta database
+protein Q61187 matches peptide KKDEELSSALEK but is not found in fasta database
+protein P61979 matches peptide DYDDMSPR but is not found in fasta database
+protein P11499 matches peptide LGLGIDEDEVTAEEPSAAVPDEIPPLEGDEDASR but is not found in fasta database
+protein P52480 matches peptide IENHEGVR but is not found in fasta database
+protein Q9QX47 matches peptide WQPPEFLLVHDSGPDHR but is not found in fasta database
+protein P30427 matches peptide RMEEEER but is not found in fasta database
+protein B7ZC77 matches peptide QDLLAYLQR but is not found in fasta database
+protein Q9W5R8 matches peptide TDYYAR but is not found in fasta database
+protein P11499 matches peptide CLELFSELAEDKENYKK but is not found in fasta database
+protein O35129 matches peptide VLPSIVNEVLK but is not found in fasta database
+protein P62631 matches peptide SGDAAIVEMVPGKPMCVESFSQYPPLGR but is not found in fasta database
+protein P02769 matches peptide RPCFSALTPDETYVPK but is not found in fasta database
+protein A2APB8 matches peptide SLAENPSGSLVQEPFQLATER but is not found in fasta database
+protein Q28141 matches peptide SSVNCPFSSQDMK but is not found in fasta database
+protein P30427 matches peptide LPVEVAYKR but is not found in fasta database
+protein P30427 matches peptide QVEEAER but is not found in fasta database
+protein P10279 matches peptide YPGQGSPGGNR but is not found in fasta database
+protein B7ZC77 matches peptide FAEQVEVAIEALSTSPPQPFEENEFIDASR but is not found in fasta database
+protein P24717 matches peptide QHMDSTVATSSSPTYCNQMMK but is not found in fasta database
+protein Q8VDD5 matches peptide EEELQAALAR but is not found in fasta database
+
+==============================================================================
+Initial file(s) stats
+--------------------------------------------------------------------------------
+# initial peptides: 22775
+# initial proteins: 2351
+# initial SwissProt proteins: 2351
+# initial TrEMBL proteins: 0
+==============================================================================
+
+
+==============================================================================
+Deciding which TrEMBL proteins to retain:
+--------------------------------------------------------------------------------
+# peptides with only TrEMBL matches: 0
+# TrEMBL proteins retained as no SwissProt matches for peptide: 0
+==============================================================================
+
+
+==============================================================================
+Parsimonious method to identify minimal set of proteins to account for all peptides 2019-05-29 10:47:56
+--------------------------------------------------------------------------------
+1 protein(s) with 414 peptides
+1 protein(s) with 337 peptides
+1 protein(s) with 197 peptides
+1 protein(s) with 175 peptides
+1 protein(s) with 171 peptides
+1 protein(s) with 167 peptides
+1 protein(s) with 151 peptides
+2 protein(s) with 139 peptides
+1 protein(s) with 126 peptides
+1 protein(s) with 123 peptides
+1 protein(s) with 121 peptides
+1 protein(s) with 112 peptides
+1 protein(s) with 105 peptides
+1 protein(s) with 96 peptides
+1 protein(s) with 90 peptides
+3 protein(s) with 84 peptides
+1 protein(s) with 77 peptides
+2 protein(s) with 76 peptides
+1 protein(s) with 75 peptides
+2 protein(s) with 72 peptides
+1 protein(s) with 69 peptides
+2 protein(s) with 66 peptides
+1 protein(s) with 63 peptides
+2 protein(s) with 61 peptides
+1 protein(s) with 58 peptides
+1 protein(s) with 57 peptides
+1 protein(s) with 56 peptides
+1 protein(s) with 54 peptides
+2 protein(s) with 53 peptides
+3 protein(s) with 52 peptides
+1 protein(s) with 51 peptides
+3 protein(s) with 50 peptides
+2 protein(s) with 49 peptides
+2 protein(s) with 47 peptides
+2 protein(s) with 46 peptides
+2 protein(s) with 45 peptides
+4 protein(s) with 44 peptides
+2 protein(s) with 43 peptides
+2 protein(s) with 42 peptides
+2 protein(s) with 41 peptides
+3 protein(s) with 40 peptides
+3 protein(s) with 39 peptides
+3 protein(s) with 38 peptides
+4 protein(s) with 37 peptides
+3 protein(s) with 36 peptides
+7 protein(s) with 35 peptides
+7 protein(s) with 34 peptides
+7 protein(s) with 33 peptides
+8 protein(s) with 32 peptides
+9 protein(s) with 31 peptides
+13 protein(s) with 30 peptides
+4 protein(s) with 29 peptides
+14 protein(s) with 28 peptides
+21 protein(s) with 27 peptides
+14 protein(s) with 26 peptides
+14 protein(s) with 25 peptides
+12 protein(s) with 24 peptides
+6 protein(s) with 23 peptides
+16 protein(s) with 22 peptides
+21 protein(s) with 21 peptides
+15 protein(s) with 20 peptides
+31 protein(s) with 19 peptides
+24 protein(s) with 18 peptides
+34 protein(s) with 17 peptides
+18 protein(s) with 16 peptides
+31 protein(s) with 15 peptides
+26 protein(s) with 14 peptides
+50 protein(s) with 13 peptides
+44 protein(s) with 12 peptides
+66 protein(s) with 11 peptides
+70 protein(s) with 10 peptides
+72 protein(s) with 9 peptides
+89 protein(s) with 8 peptides
+128 protein(s) with 7 peptides
+147 protein(s) with 6 peptides
+198 protein(s) with 5 peptides
+213 protein(s) with 4 peptides
+302 protein(s) with 3 peptides
+475 protein(s) with 2 peptides
+50 protein(s) with 1 peptides
+All peptides are now accounted for 2019-05-29 10:47:56
+
+2334 proteins retained
+2334 SwissProt proteins retained
+0 TrEMBL proteins retained
+
+Note: If not all SwissProt proteins were retained, this means
+these proteins only included peptides which were observed
+in other proteins which had a greater number of peptides
+==============================================================================
+
+
+==============================================================================
+proteins per peptide:
+--------------------------------------------------------------------------------
+21940 peptide(s) (96.33 %) have 1 master protein(s)
+633 peptide(s) (2.78 %) have 2 master protein(s)
+132 peptide(s) (0.58 %) have 3 master protein(s)
+37 peptide(s) (0.16 %) have 4 master protein(s)
+13 peptide(s) (0.06 %) have 7 master protein(s)
+13 peptide(s) (0.06 %) have 5 master protein(s)
+7 peptide(s) (0.03 %) have 6 master protein(s)
+==============================================================================
+
+peptide: GFFDPNTHENLTYLQLLER is observed more than once in protein: P58107
+peptide: GFFDPNTHENLTYLQLLER is observed more than once in protein: P58107
+peptide: GFFDPNTHENLTYLQLLER is observed more than once in protein: P58107
+peptide: SFSSTLLSLFQSSPER is observed more than once in protein: O60732
+peptide: VDLDVPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: VDVEVPDVSLEGPEGK is observed more than once in protein: Q09666
+peptide: VDVDVPDVNLEGPDAK is observed more than once in protein: Q09666
+peptide: VEADVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: VEADVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: LSMPDVDLHLKGPK is observed more than once in protein: Q09666
+peptide: FSMPGFKGEGPDVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKGEGPDVDVNLPK is observed more than once in protein: Q09666
+peptide: LSMPDFDLHLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDVDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDVDLNLKGPK is observed more than once in protein: Q09666
+peptide: TPKEEAQSLEDLAGFK is observed more than once in protein: P46013
+peptide: QNQTTSAVSTPASSETSK is observed more than once in protein: P49792
+peptide: QNQTTSAVSTPASSETSK is observed more than once in protein: P49792
+peptide: FSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKAEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: FSMPGFKAEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: MSLSSMEVDVQAPR is observed more than once in protein: Q8IVF2
+peptide: ADLDVSGPKVDVDVPDVNLEGPDAK is observed more than once in protein: Q09666
+peptide: ADLDVSGPKVDLDVPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: ADLDVSGPKVDLDVPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: VDLNAPDVDVQGPDWHLK is observed more than once in protein: Q09666
+peptide: VDLNAPDVDVQGPDWHLK is observed more than once in protein: Q09666
+peptide: VDLDVPDVDVQGPDWHLK is observed more than once in protein: Q09666
+peptide: VDLDVPDVDVQGPDWHLK is observed more than once in protein: Q09666
+peptide: VDLDAPDVDVHGPDWHLK is observed more than once in protein: Q09666
+peptide: LEGDLTGPSVGVEVPDVELECPDAK is observed more than once in protein: Q09666
+peptide: GPYESGSGHSSGLGHR is observed more than once in protein: Q86YZ3
+peptide: VGENVSDVAPTRPR is observed more than once in protein: Q96RT7
+peptide: LEGDLSLADKDVTAK is observed more than once in protein: Q8IVF2
+peptide: VEGDLKGPEVDLKGPK is observed more than once in protein: Q09666
+peptide: VEADVSLSSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: LPEGPVPEGAGLK is observed more than once in protein: Q8IVF2
+peptide: LPEGQVPEGAGLK is observed more than once in protein: Q8IVF2
+peptide: KADVEEEFLALR is observed more than once in protein: P46013
+peptide: VDLEGPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: VDLEGPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: LSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: LSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: LSMPGFKGEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: LSMPDLDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDLDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPEVDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPEVDLNLKGPK is observed more than once in protein: Q09666
+peptide: LLEAQLATGGVLDPVHSHR is observed more than once in protein: P58107
+peptide: VEGDLKGPEVDLK is observed more than once in protein: Q09666
+peptide: MPSFGVSAPGK is observed more than once in protein: Q8IVF2
+peptide: LDLLGNLPGSK is observed more than once in protein: P46013
+peptide: EGQWDCSVCLVR is observed more than once in protein: P49792
+peptide: VEAEVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: AQALEDLAGFK is observed more than once in protein: P46013
+peptide: QNQTTSAVSTPASSETSK is observed more than once in protein: P49792
+peptide: VEGEMKVPDVDLKGPK is observed more than once in protein: Q09666
+peptide: VEGEMKVPDVDLKGPK is observed more than once in protein: Q09666
+peptide: KVEGAQNQGK is observed more than once in protein: Q9P2E9
+peptide: KAEGTPNQGK is observed more than once in protein: Q9P2E9
+peptide: LSMPDVDLHLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDFDLHLK is observed more than once in protein: Q09666
+peptide: VKGDVDLSLPK is observed more than once in protein: Q09666
+peptide: SLEASVDVSAPK is observed more than once in protein: Q8IVF2
+peptide: VEGDLKGPEVDLR is observed more than once in protein: Q09666
+peptide: VADEGSFTCFVSLR is observed more than once in protein: Q5ZPR3
+peptide: VDVDVPDVNLEGPDAK is observed more than once in protein: Q09666
+peptide: LSMPDVDLHLK is observed more than once in protein: Q09666
+peptide: LSMPDVDLHLK is observed more than once in protein: Q09666
+peptide: VLADPSDDTK is observed more than once in protein: Q15149
+peptide: VLADPSDDTK is observed more than once in protein: P58107
+peptide: VKGDVDVSLPK is observed more than once in protein: Q09666
+peptide: VKGDVDVSVPK is observed more than once in protein: Q09666
+peptide: QSLGHGQHGSGSGQSPSPSR is observed more than once in protein: Q86YZ3
+peptide: SSSSGQHGSGLGESSGFGHHESSSGQSSSYSQHGSGSGHSSGYGQHGSR is observed more than once in protein: Q86YZ3
+peptide: GEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: AEGPEVDVNLPK is observed more than once in protein: Q09666
+peptide: KAEGAQNQGK is observed more than once in protein: Q9P2E9
+peptide: LSMPDLDLNLK is observed more than once in protein: Q09666
+peptide: LSMPDLDLNLK is observed more than once in protein: Q09666
+peptide: VKGDMDVSVPK is observed more than once in protein: Q09666
+peptide: FGQGAHHAAGQAGNEAGR is observed more than once in protein: Q6UWP8
+peptide: GEGPDVDVNLPK is observed more than once in protein: Q09666
+peptide: LPEGHVPEGAGLK is observed more than once in protein: Q8IVF2
+peptide: ADVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: FDVSGYPTLK is observed more than once in protein: P13667
+peptide: EGQWDCSVCLVR is observed more than once in protein: P49792
+peptide: LSMPDFDLHLK is observed more than once in protein: Q09666
+peptide: LSMPDVDLNLK is observed more than once in protein: Q09666
+peptide: ADVVVSGPK is observed more than once in protein: Q09666
+peptide: LEGDLSLADK is observed more than once in protein: Q8IVF2
+peptide: AQPLEDLAGLK is observed more than once in protein: P46013
+peptide: SMMSSYSAADR is observed more than once in protein: P18583
+peptide: LSMPEVDLNLK is observed more than once in protein: Q09666
+peptide: AQALEDLAGFK is observed more than once in protein: P46013
+peptide: SGFEGMFTK is observed more than once in protein: P49792
+peptide: VPDVDLKGPK is observed more than once in protein: Q09666
+peptide: VEGEMKVPDVDLK is observed more than once in protein: Q09666
+peptide: SAVGFEYQGK is observed more than once in protein: Q14247
+peptide: AEGTPNQGK is observed more than once in protein: Q9P2E9
+peptide: QKLDPAASVTGSK is observed more than once in protein: P46013
+peptide: VEADLSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: FSMPGFKGEGPDVDVNLPK is observed more than once in protein: Q09666
+peptide: TTDLSLQPPSADLK is observed more than once in protein: Q8IVF2
+peptide: ADVDVSGPK is observed more than once in protein: Q09666
+peptide: QSLGHGQHGSGSGQSPSPSR is observed more than once in protein: Q86YZ3
+peptide: ADVDLSGPK is observed more than once in protein: Q09666
+peptide: ADLDVSGPK is observed more than once in protein: Q09666
+peptide: FKMPSFGVSAPGK is observed more than once in protein: Q8IVF2
+peptide: MPSFGVSAPGR is observed more than once in protein: Q8IVF2
+peptide: TTDLSLQPPSADLK is observed more than once in protein: Q8IVF2
+peptide: ALEDLAGFK is observed more than once in protein: P46013
+peptide: SGGGYGGDR is observed more than once in protein: Q92804
+peptide: FKMPEMNLK is observed more than once in protein: Q09666
+peptide: VKGDMDVSVPKVEGEMK is observed more than once in protein: Q09666
+peptide: AEVTAPDVK is observed more than once in protein: Q8IVF2
+peptide: RGMDDDRGPR is observed more than once in protein: Q14152
+peptide: GDVDVSVPK is observed more than once in protein: Q09666
+peptide: EVDVNLPK is observed more than once in protein: Q09666
+peptide: LEGDLKGPK is observed more than once in protein: Q09666
+peptide: GDVDVSLPK is observed more than once in protein: Q09666
+peptide: KAEGAQNQGK is observed more than once in protein: Q9P2E9
+peptide: GDVDLSLPK is observed more than once in protein: Q09666
+peptide: LTVDEAVR is observed more than once in protein: Q15149
+peptide: VPVDVAYR is observed more than once in protein: P58107
+peptide: LSMPEVDLNLKGPK is observed more than once in protein: Q09666
+peptide: LSMPDVDLNLK is observed more than once in protein: Q09666
+peptide: VPDVDLR is observed more than once in protein: Q09666
+peptide: MGANSLER is observed more than once in protein: P52272
+peptide: AFMGTPVQK is observed more than once in protein: P46013
+peptide: MGANSLER is observed more than once in protein: P52272
+peptide: EKAQALEDLAGFK is observed more than once in protein: P46013
+peptide: VQMPSLK is observed more than once in protein: Q8IVF2
+peptide: VEMPSLK is observed more than once in protein: Q8IVF2
+peptide: GDMDVSLPK is observed more than once in protein: Q09666
+peptide: GYFDEEMNR is observed more than once in protein: P58107
+peptide: MPEMNLK is observed more than once in protein: Q09666
+peptide: MGANSLER is observed more than once in protein: P52272
+peptide: GDMDVSVPK is observed more than once in protein: Q09666
+peptide: VKGDMDVSLPK is observed more than once in protein: Q09666
+peptide: FGTSETSK is observed more than once in protein: P49792
+peptide: LQMPSFK is observed more than once in protein: Q8IVF2
+peptide: FSMPGFK is observed more than once in protein: Q09666
+peptide: MPEMHFK is observed more than once in protein: Q09666
+peptide: VQMPSFK is observed more than once in protein: Q8IVF2
+peptide: SFSSTLLSLFQSSPER is observed more than once in protein: O60732
+peptide: KAEGTPNQGKK is observed more than once in protein: Q9P2E9
+peptide: LDGARLEGDLSLADKDVTAK is observed more than once in protein: Q8IVF2
+peptide: LSMPEVDLNLK is observed more than once in protein: Q09666
+peptide: VDLKGPQLDVK is observed more than once in protein: Q8IVF2
+peptide: GFFDPNTHENLTYVQLLR is observed more than once in protein: P58107
+peptide: FSMPSLK is observed more than once in protein: Q09666
+peptide: VPDVDLK is observed more than once in protein: Q09666
+peptide: LDLTENLTGSK is observed more than once in protein: P46013
+peptide: VKGDMDVSLPK is observed more than once in protein: Q09666
+peptide: VKGDMDVSVPK is observed more than once in protein: Q09666
+peptide: FKMPEMNLK is observed more than once in protein: Q09666
+peptide: KAEGTPNQGK is observed more than once in protein: Q9P2E9
+peptide: VDLDVPDVNLEGPEGK is observed more than once in protein: Q09666
+peptide: LSMPGFK is observed more than once in protein: Q09666
+peptide: LAQDPYR is observed more than once in protein: P18583
+peptide: YLEVFK is observed more than once in protein: P52597
+peptide: FSMPGFK is observed more than once in protein: Q09666
+peptide: KVEGAQNQGK is observed more than once in protein: Q9P2E9
+peptide: SMMSAYER is observed more than once in protein: P18583
+peptide: VDLKGPELDLK is observed more than once in protein: Q8IVF2
+peptide: VEADVSLPSMQGDLK is observed more than once in protein: Q8IVF2
+peptide: AWEEYYK is observed more than once in protein: Q92945
+peptide: LDLKGPK is observed more than once in protein: Q8IVF2
