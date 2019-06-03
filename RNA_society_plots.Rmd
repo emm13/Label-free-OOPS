@@ -367,7 +367,8 @@ print(table(rbps_markers))
 
 new_markers <- c(#rep("PARASPECKLES", length(para)),
                  rep("mRNA splicing", length(mrna_splicing)),
-                 rep("Aminoacyl-tRNA ligase", length(tRNA_AA))#,
+                 rep("Aminoacyl-tRNA ligase", length(tRNA_AA)),
+                 "PARP1"#,
                  #rep("TRANSLATION INITITAION", length(translation_init)),
                  #rep("CELL-CELL ADHESION", length(cell_cell_adhesion)),
                  #rep("MOTOR", length(motor_activity))#,
@@ -376,7 +377,8 @@ new_markers <- c(#rep("PARASPECKLES", length(para)),
 
 names(new_markers) <- c(#para,
                         mrna_splicing,
-                        tRNA_AA#,
+                        tRNA_AA,
+                        "P09874"#,
                         #translation_init,
                         #cell_cell_adhesion,
                         #motor_activity#,
@@ -433,9 +435,9 @@ library(Hmisc)
 ```{r}
 proj_df <- proj$PCA_df
 marker_levels <- setdiff(new_markers_levels, "unknown")
-marker_levels <- marker_levels[c(2,3,4,6,7,1,5)]
+marker_levels <- marker_levels[c(2,3,4,6,8,1,5,7)]
 #m_colours <- getStockcol()[c(1,7,4,3,2,5)]
-m_colours <- cbPalette[c(6,3,2,4,8,7,5)]
+m_colours <- c(cbPalette[c(6,3,2,4,8,7,5)], "grey20")
 
 proj_df$markers <- factor(proj_df$new_markers, levels=marker_levels)
 print(table(is.na(proj_df$markers)))
@@ -517,8 +519,8 @@ plotCombinedProfiles <- function(foi){
     merge(protein_info, by.x="Var1", by.y="Entry") %>%
     ggplot(aes(Var2, value, colour=type, group=type)) +
     my_theme + geom_line() +
-    theme(aspect.ratio=1, axis.text.x=element_text(angle=90, vjust=0.5, hjust=1, size=10))  +
-    xlab("") + ylab("norm. abundance") + 
+    theme(aspect.ratio=1, axis.text.x=element_text(angle=90, vjust=0.5, hjust=1))  +
+    xlab("Fraction") + ylab("Sumn normalised\nabundance") + 
     scale_colour_discrete(name="", na.value="grey")
   
   if(length(foi_in_both)>1){
@@ -531,8 +533,8 @@ plotCombinedProfiles <- function(foi){
     merge(protein_info, by.x="Var1", by.y="Entry") %>%
     ggplot(aes(Var2, value, colour=type, group=interaction(type, gene_name))) +
     my_theme + geom_line() +
-    theme(aspect.ratio=1, axis.text.x=element_text(angle=90, vjust=0.5, hjust=1, size=10))  +
-    xlab("") + ylab("norm. abundance") + 
+    theme(aspect.ratio=1, axis.text.x=element_text(angle=90, vjust=0.5, hjust=1))  +
+    xlab("Fraction") + ylab("Sumn normalised\nabundance") + 
     scale_colour_discrete(name="", na.value="grey")
   
   print(p2)
@@ -563,5 +565,11 @@ plotCombinedProfiles(intersect(ribosome_proteins, well_quantified_rbps))
 ```
 ```{r}
 plotCombinedProfiles("Q15942")
+```
+```{r}
+p <- plotCombinedProfiles("P09874")
+
+ggsave("./Output/PARP1_profiles.png", p$p2)
+
 ```
 
