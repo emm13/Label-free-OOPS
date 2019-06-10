@@ -13,7 +13,8 @@ samples_inf <- "Input/samples.tsv"
 ```
 
 ```{r}
-peptides_df <- parse_features(infile, silac=FALSE, TMT=FALSE, level="peptide", filter_crap=TRUE)
+peptides_df <- parse_features(infile, silac=FALSE, TMT=FALSE, level="peptide",
+                              filter_crap=TRUE, protein_col='Master.Protein.Accessions')
 ```
 
 ```{r}
@@ -34,6 +35,7 @@ GO_RBPs <- human_go %>% filter(GO.ID=="GO:0003723") %>% pull(UNIPROTKB)
 
 ```{r}
 peptides_quant[fData(peptides_quant)$master_protein %in% GO_RBPs,] %>% plotMissing()
+
 ```
 Ok, so this doesn't make any difference, 99.9% have a missing value!
 
@@ -58,6 +60,11 @@ plot(colSums(is.na(exprs(peptides_no_mod_quant))))
 #peptides_no_mod_quant_no_lm <- peptides_no_mod_quant[,8:20]
 peptides_no_mod_quant_no_lm <- peptides_no_mod_quant[,6:20]
 plotMissing(peptides_no_mod_quant_no_lm)
+
+png("./Output/plots/missing_values_peptide.png")
+plotMissing(peptides_no_mod_quant_no_lm)
+dev.off()
+
 ```
 Ok, so now we're down to _just_ 99.1% missing :p but at least we have some more peptides now with relatively few (<=4 missing values)
 
@@ -354,6 +361,10 @@ print(length(all_markers)==length(unique(all_markers)))
 
 ```
 
+
+
+
+
 ```{r}
 
 rbps_markers <- markers_proteins
@@ -401,6 +412,11 @@ fData(protein_quant_am_no_glyco_yes_rbp)$new_markers <- recode(
 
 print(table(fData(protein_quant_am_no_glyco_yes_rbp)$new_markers))
 ```
+```{r}
+
+```
+
+
 After adding these new RBP markers, we only have 1 PM and 2 Mt proteins remaining. Let's remove the PM protein
 ```{r}
 fData(protein_quant_am_no_glyco_yes_rbp)$new_markers[fData(protein_quant_am_no_glyco_yes_rbp)$new_markers=="PM"] <- "unknown"
@@ -543,14 +559,21 @@ plotCombinedProfiles <- function(foi){
 }
 ```
 
+
+```{r}
+p <- plotCombinedProfiles(para)
+ggsave("Output/plots/paraspeckle.png", p$p2)
+```
+
 ```{r, fig.width=10, fig.height=10}
 plotCombinedProfiles(tRNA_AA)
-#plotCombinedProfiles(para[[2]])
+
 ```
 
 ```{r, fig.width=10, fig.height=10}
 plotCombinedProfiles(motor_activity)
 ```
+
 ```{r}
 fvarLabels(rbp.prot)
 well_quantified_rbps <- fData(rbp.prot) %>%
@@ -559,13 +582,16 @@ well_quantified_rbps <- fData(rbp.prot) %>%
 
 plotCombinedProfiles(intersect(mrna_splicing, well_quantified_rbps))
 ```
+
 ```{r}
 ribosome_proteins <- names(markers_proteins)[markers_proteins=="RIBOSOME"]
 plotCombinedProfiles(intersect(ribosome_proteins, well_quantified_rbps))
 ```
+
 ```{r}
 plotCombinedProfiles("Q15942")
 ```
+
 ```{r}
 p <- plotCombinedProfiles("P09874")
 
